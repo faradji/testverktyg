@@ -1,3 +1,11 @@
 .bordered{
 	border:2px solid black;
 }
+
+.DoneTestsList{
+    max-height: 95%;
+    overflow-y: scroll;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;
+    
+}   
