@@ -4,6 +4,19 @@
   margin: auto;
 }
 
+.DoneTestsList{
+    max-height: 80vh;
+    overflow: scroll;
+}
+
+.doneTestsList{
+    max-height: 95%;
+    overflow-y: scroll;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;
+    
+}   
+
 ul {
   background-color: #F7921E;
   border-bottom: solid black;
