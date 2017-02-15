@@ -3,6 +3,11 @@
 }
 
 .DoneTestsList{
+    max-height: 80vh;
+    overflow: scroll;
+}
+
+.doneTestsList{
     max-height: 95%;
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
