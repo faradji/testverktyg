@@ -44,6 +44,47 @@ a:hover {
   padding-top:20px;
 }
 
+
+ul {
+  background-color: #F7921E;
+  border-bottom: solid black;
+  border-width: 10px;
+  height: 100px;
+  word-spacing: 70px;
+  text-align: center;
+}
+
+a {
+  font-family: Oswald;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+  transition: ease-out 0.2s;
+}
+  
+
+li {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: ease-out 0.5s;
+}
+ 
+a:hover {
+  background-color: black;
+  color: white;
+  padding-top: 500px;
+  padding-bottom: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  transition: ease-out 0.5s;
+}
+.image{
+  display:inline-block;
+  padding-top:20px;
+}
+
 .questions {
 width: 500px;
 height: 180px;
