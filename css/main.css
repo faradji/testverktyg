@@ -1,3 +1,9 @@
 .bordered{
 	border:2px solid black;
 }
+
+.questions {
+width: 500px;
+height: 180px;
+border: solid black 2px;
+}
