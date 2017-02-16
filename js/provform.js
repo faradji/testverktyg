@@ -49,10 +49,11 @@ var correctAnswers = 0;
 var quizOver = false;
 var saveChoice = new Array();
 $(document).ready(function () {
-		//get user
+		//to do: get user
 		
 		//unique id for test
-		
+			var saveId = uniqueId();
+			console.log(saveId);
     // Display the first question
     displayCurrentQuestion();
 	
@@ -96,7 +97,7 @@ $(document).ready(function () {
 
 });
 
-// This displays the current question AND the choices
+
 function displayCurrentQuestion() {
 
     var question = questions[currentQuestion].questionText;
@@ -136,4 +137,11 @@ function displayCurrentQuestion() {
 function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + questions.length);
     $(document).find(".quizContainer > .result").show();
+}
+
+function uniqueId() {
+	var id = Math.round(new Date().getTime() + (Math.random() * 1000));
+	console.log(id);
+  return id;
+  
 }
