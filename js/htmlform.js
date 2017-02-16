@@ -12,7 +12,7 @@ $(document).ready(function(){
 $.ajax({
  
     // The URL for the request
-    url: "post.php",
+    url: "js/tempJSON.json",
  
     // The data to send (will be converted to a query string)
     data: {

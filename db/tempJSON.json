@@ -65,7 +65,7 @@
     {
       "idQuestions": "13",
       "questionText": "Kan du skriva på en whiteboard med blyertspenna?",
-      "correctAnswer": "0);"
+      "correctAnswer": "0";
     }
   ],
   "questions_has_Users": [],
