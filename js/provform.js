@@ -19,13 +19,40 @@ var questions = [{
     choices: ["Nej", "Ja"],
     correctAnswer: 1
 }];
+var users = [{
+      "idUsers": "1",
+      "firstName": "Ali",
+      "lastName": "Faradji",
+      "email": "ali@gmail.com",
+      "class": "Java",
+      "userType": "0"
+    },
+    {
+      "idUsers": "2",
+      "firstName": "Louise",
+      "lastName": "Ahokas",
+      "email": "louise@gmail.com",
+      "class": "Java",
+      "userType": "0"
+    },
+    {
+      "idUsers": "6",
+      "firstName": "Henrik",
+      "lastName": "Rosqvist",
+      "email": "henrik@gmail.com",
+      "class": "Java",
+      "userType": "0);"
+    }];
 
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
 var saveChoice = new Array();
 $(document).ready(function () {
-
+		//get user
+		
+		//unique id for test
+		
     // Display the first question
     displayCurrentQuestion();
 	
@@ -50,7 +77,7 @@ $(document).ready(function () {
                     correctAnswers++;
                 }
 
-                currentQuestion++; // Since we have already displayed the first question on DOM ready
+                currentQuestion++;
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
                 } else {
