@@ -42,7 +42,7 @@ a {
 }
   
 
-li {
+navbar li {
   display: inline-block;
   margin-top: 15px;
   text-decoration: none;
