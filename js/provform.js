@@ -1,21 +1,21 @@
 var questions = [{
-    question: "Är ödlor små?",
+    questionText: "Är ödlor små?",
     choices: ["Nej", "Ja"],
     correctAnswer: 1
 }, {
-    question: "Behöver du muskler för att kunna röra dig?",
+    questionText: "Behöver du muskler för att kunna röra dig?",
     choices: ["Nej", "Ja"],
     correctAnswer: 1
 }, {
-    question: "Kan du borsta tänderna med en sko?",
+    questionText: "Kan du borsta tänderna med en sko?",
     choices: ["Nej", "Ja"],
     correctAnswer: 0
 }, {
-    question: "Kan en ryggsäck bli förkyld?",
+    questionText: "Kan en ryggsäck bli förkyld?",
     choices: ["Nej", "Ja"],
     correctAnswer: 0
 }, {
-    question:  "Kan papegojor prata?",
+    questionText:  "Kan papegojor prata?",
     choices: ["Nej", "Ja"],
     correctAnswer: 1
 }];
@@ -72,7 +72,7 @@ $(document).ready(function () {
 // This displays the current question AND the choices
 function displayCurrentQuestion() {
 
-    var question = questions[currentQuestion].question;
+    var question = questions[currentQuestion].questionText;
     var questionClass = $(document).find(".quizContainer > .question");
     var choiceList = $(document).find(".quizContainer > .choiceList");
     var numChoices = questions[currentQuestion].choices.length;
