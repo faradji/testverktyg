@@ -23,7 +23,7 @@ border: solid black 2px;
 }
 
 
-ul {
+#navbar ul {
   background-color: #F7921E;
   border-bottom: solid black;
   border-width: 10px;
@@ -32,7 +32,7 @@ ul {
   text-align: center;
 }
 
-a {
+#navbar a {
   font-family: Oswald;
   font-size: 40px;
   text-align: center;
@@ -42,14 +42,14 @@ a {
 }
   
 
-navbar li {
+#navbar li {
   display: inline-block;
   margin-top: 15px;
   text-decoration: none;
   transition: ease-out 0.5s;
 }
  
-a:hover {
+#navbar a:hover {
   background-color: black;
   color: white;
   padding-top: 500px;
@@ -58,8 +58,9 @@ a:hover {
   padding-left: 20px;
   transition: ease-out 0.5s;
 }
-.image{
+#navbar .image{
   display:inline-block;
+  top: 10px;
 }
 
 
@@ -169,8 +170,7 @@ p {
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;
-	margin-right:25px;
-    
+	margin-right:25px;    
 }
 
 .teachReadtest{ 
