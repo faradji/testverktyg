@@ -48,12 +48,13 @@ var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
 var saveChoice = new Array();
+var saveId;
 $(document).ready(function () {
 		//to do: get user
-		
+		 
 		//unique id for test
-			var saveId = uniqueId();
-			console.log(saveId);
+			saveId = uniqueId();
+			
     // Display the first question
     displayCurrentQuestion();
 	
@@ -141,7 +142,7 @@ function displayScore() {
 
 function uniqueId() {
 	var id = Math.round(new Date().getTime() + (Math.random() * 1000));
-	console.log(id);
+	
   return id;
   
 }

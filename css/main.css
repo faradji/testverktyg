@@ -114,6 +114,7 @@ border: solid black 2px;
 .choiceList {
     font-family: Courier, serif;
     color: black;
+	text-align: center;
 }
 .result {
     width: 30%;
