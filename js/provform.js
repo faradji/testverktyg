@@ -19,13 +19,42 @@ var questions = [{
     choices: ["Nej", "Ja"],
     correctAnswer: 1
 }];
+var users = [{
+      "idUsers": "1",
+      "firstName": "Ali",
+      "lastName": "Faradji",
+      "email": "ali@gmail.com",
+      "class": "Java",
+      "userType": "0"
+    },
+    {
+      "idUsers": "2",
+      "firstName": "Louise",
+      "lastName": "Ahokas",
+      "email": "louise@gmail.com",
+      "class": "Java",
+      "userType": "0"
+    },
+    {
+      "idUsers": "6",
+      "firstName": "Henrik",
+      "lastName": "Rosqvist",
+      "email": "henrik@gmail.com",
+      "class": "Java",
+      "userType": "0);"
+    }];
 
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
 var saveChoice = new Array();
+var saveId;
 $(document).ready(function () {
-
+		//to do: get user
+		 
+		//unique id for test
+			saveId = uniqueId();
+			
     // Display the first question
     displayCurrentQuestion();
 	
@@ -50,7 +79,7 @@ $(document).ready(function () {
                     correctAnswers++;
                 }
 
-                currentQuestion++; // Since we have already displayed the first question on DOM ready
+                currentQuestion++;
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
                 } else {
@@ -69,7 +98,7 @@ $(document).ready(function () {
 
 });
 
-// This displays the current question AND the choices
+
 function displayCurrentQuestion() {
 
     var question = questions[currentQuestion].questionText;
@@ -109,4 +138,11 @@ function displayCurrentQuestion() {
 function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + questions.length);
     $(document).find(".quizContainer > .result").show();
+}
+
+function uniqueId() {
+	var id = Math.round(new Date().getTime() + (Math.random() * 1000));
+	
+  return id;
+  
 }
