@@ -19,8 +19,10 @@ class PetList extends List {
 
   readAllFromDb(callback){
     this.db.readAll((data)=>{
-      this.push.apply(this,data);
-      callback();
+		window.questionfromdb=data;
+		console.log('test',questions);
+        this.push.apply(this,data);
+        callback();
     });
   }
 
@@ -54,7 +56,7 @@ class PetList extends List {
         ON petowners.id = pets.owner_id
       `,
       readAll: `
-        SELECT * FROM pets
+        SELECT * FROM questions
       `
     }
 

@@ -30,7 +30,7 @@ $(document).ready(function () {
 		 
 		//unique id for test
 			saveId = uniqueId();
-		
+		console.log('test from provform',window.questionfromdb);
 			
     // Display the first question
     displayCurrentQuestion();
@@ -52,12 +52,12 @@ $(document).ready(function () {
                 // Remove any message
                 $(document).find(".message").hide();
 
-                if (value == questions[currentQuestion].correctAnswer) {
+                if (value == window.questionfromdb[currentQuestion].correctAnswer) {
                     correctAnswers++;
                 }
 
                 currentQuestion++;
-                if (currentQuestion < questions.length) {
+                if (currentQuestion < window.questionfromdb.length) {
                     displayCurrentQuestion();
                 } else {
                     displayScore();
@@ -77,11 +77,11 @@ $(document).ready(function () {
 
 
 function displayCurrentQuestion() {
-
-    var question = questions[currentQuestion].questionText;
+	console.log('from displayCurrentQuestion',window.questionfromdb)
+    var question = window.questionfromdb[currentQuestion].questionText;
     var questionClass = $(document).find(".quizContainer > .question");
     var choiceList = $(document).find(".quizContainer > .choiceList");
-    var numChoices = questions[currentQuestion].choices.length;
+   // var numChoices = window.questionfromdb[currentQuestion].choices.length;
 
     // Set the questionClass text to the current question
     $(questionClass).text(question);
@@ -90,19 +90,21 @@ function displayCurrentQuestion() {
     $(choiceList).find("li").remove();
 	//questionnumber
 	if(currentQuestion==0){
-		$(document).find(".quizContainer > .questionnr").text("Fråga 1 av " + questions.length);
+		$(document).find(".quizContainer > .questionnr").text("Fråga 1 av " + window.questionfromdb.length);
 		$(document).find(".quizContainer > .questionnr").show();
 	} else {
 		let temp = parseInt(currentQuestion,10);
 			temp = temp+1;
-	$(document).find(".quizContainer > .questionnr").text("Fråga " + temp + " av " + questions.length);
+	$(document).find(".quizContainer > .questionnr").text("Fråga " + temp + " av " + window.questionfromdb.length);
     $(document).find(".quizContainer > .questionnr").show();
 	}
     
-    for (i = 0; i < numChoices; i++) {
-        let choice = questions[currentQuestion].choices[i];
-        $('<li><input type="checkbox" value=' + i + ' class="example" />' + choice + '</li>').appendTo(choiceList);
-    }
+   // for (i = 0; i < numChoices; i++) {
+    //    let choice = window.questionfromdb[currentQuestion].choices[i];
+        $('<li><input type="checkbox" value=' + 0 + ' class="example" />' + window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
+		$('<li><input type="checkbox" value=' + 1 + ' class="example" />' + window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
+	
+  // }
 	
 	// only one checkbox checked
 			$(".example").on("change", function() {
@@ -113,7 +115,7 @@ function displayCurrentQuestion() {
 }
 
 function displayScore() {
-    $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + questions.length);
+    $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + window.questionfromdb.length);
     $(document).find(".quizContainer > .result").show();
 }
 
