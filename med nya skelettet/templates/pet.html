@@ -1,0 +1,10 @@
+Pet.addTemplate('default', function(){return `
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="well pet-box" data-click="talk">
+        ${this.name}
+        <div data-click="tellAge" class="pull-right">Age: ${this.age}</div>
+      </div>
+    </div>
+  </div>
+`});
