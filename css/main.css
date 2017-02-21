@@ -4,25 +4,6 @@
   margin: auto;
 }
 
-<<<<<<< Temporary merge branch 1
-
-
-  
-=======
-.questions {
-width: 500px;
-height: 180px;
-border: solid black 2px;
-}
->>>>>>> Temporary merge branch 2
-
-.questions {
-width: 500px;
-height: 180px;
-border: solid black 2px;
-}
-
-
 #navbar ul {
   background-color: #F7921E;
   border-bottom: solid black;
@@ -71,7 +52,7 @@ border: solid black 2px;
     border-radius: 6px;
     width: 75%;
     margin: auto;
-    padding-top: 5px;
+    padding: 15px 0;
     -moz-box-shadow: 10px 10px 5px #888;
     -webkit-box-shadow: 10px 10px 5px #888;
     box-shadow: 10px 10px 5px #888;
@@ -114,6 +95,7 @@ border: solid black 2px;
 .choiceList {
     font-family: Courier, serif;
     color: black;
+	text-align: center;
 }
 .result {
     width: 30%;
@@ -125,23 +107,24 @@ border: solid black 2px;
     font-family:'Rokkitt', serif;
 }
 .questionnr{
-	width: 30%;
+	width: 40%;
     height: auto;
     border-radius: 6px;
     background-color: linen;
     margin: auto;
     text-align: center;
     font-family:'Rokkitt', serif;
+	font-size:28px;
 }
 .message{
-		width: 30%;
+	width: 40%;
     height: auto;
     border-radius: 6px;
     background-color: linen;
     margin: auto;
     text-align: center;
     font-family:'Rokkitt', serif;
-	
+	font-size:28px;
 }
 
 @import url(http://fonts.googleapis.com/css?family=Rokkitt);
@@ -177,14 +160,82 @@ p {
 
 } 
 
-@media only screen and (max-width: 667px) and (min-width: 375px) {
-    .doneTestsList{
-		max-height: 50vh;
-		margin-right:0px;
+@media only screen and (min-width: 375px) and (orientation:portrait){
+.doneTestsList{
+	max-height: 80vh;
+	margin-right:0px;
     }
-	.image{
-		display: none;
+.image{
+	display: none;
 	}
+.questionnr{
+    width: 40%;
+	height: 45px;
+	font-size:38px;
+    background-color: lightgray;
+	padding:20px;
+	}
+.quizContainer{
+	margin-top: 50px;
+}
+.quizContainer h1{
+	font-size:58px;
+	padding-bottom:50px;
+	}
+.question{
+	font-size:52px;
+	padding-top:50px;
+	font-weight:bold;
+	}
+.choiceList{
+	font-size:26px;
+	padding:25px 0;
+	}
+	
+.choiceList li{
+	padding-left:25px;
+	}
+.example{
+	transform: scale(3.5);
+	margin:25px;
+	}
+.result{
+	width: 75%;
+    height: 5%;
+	font-size:52px;
+	}
+.message{
+	width:64%;
+	font-size:30px;
+	padding:0 35px;
+	color:red;
+}
+.nextButton{
+	font-size:38px;
+	width: 250px;
+    height: 70px;
+	margin-top:40px;
+	}
+#navbar ul{
+	height: 150px;
+}
+#navbar a{
+	font-size:72px;
+}
+#navbar a:hover{
+	padding-top: 500px;
+	padding-bottom:30px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+#navbar li{	
+	margin-right:250px;
+}
+#navbar img{
+	margin-right:70px;
+	width:150px;
+	height:80px;
+}
 		
 }
 
