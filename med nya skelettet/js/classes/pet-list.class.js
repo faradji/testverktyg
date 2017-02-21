@@ -20,7 +20,6 @@ class PetList extends List {
   readAllFromDb(callback){
     this.db.readAll((data)=>{
 		window.questionfromdb=data;
-		console.log('test',questions);
         this.push.apply(this,data);
         callback();
     });

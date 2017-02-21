@@ -1,25 +1,3 @@
-var questions = [{
-    questionText: "Är ödlor små?",
-    choices: ["Nej", "Ja"],
-    correctAnswer: 1
-}, {
-    questionText: "Behöver du muskler för att kunna röra dig?",
-    choices: ["Nej", "Ja"],
-    correctAnswer: 1
-}, {
-    questionText: "Kan du borsta tänderna med en sko?",
-    choices: ["Nej", "Ja"],
-    correctAnswer: 0
-}, {
-    questionText: "Kan en ryggsäck bli förkyld?",
-    choices: ["Nej", "Ja"],
-    correctAnswer: 0
-}, {
-    questionText:  "Kan papegojor prata?",
-    choices: ["Nej", "Ja"],
-    correctAnswer: 1
-}];
-
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
@@ -30,7 +8,6 @@ $(document).ready(function () {
 		 
 		//unique id for test
 			saveId = uniqueId();
-		console.log('test from provform',window.questionfromdb);
 			
     // Display the first question
     displayCurrentQuestion();
@@ -77,7 +54,6 @@ $(document).ready(function () {
 
 
 function displayCurrentQuestion() {
-	console.log('from displayCurrentQuestion',window.questionfromdb)
     var question = window.questionfromdb[currentQuestion].questionText;
     var questionClass = $(document).find(".quizContainer > .question");
     var choiceList = $(document).find(".quizContainer > .choiceList");
@@ -111,7 +87,7 @@ function displayCurrentQuestion() {
 
 		    $(".example").not(this).prop("checked", false);  
 
-			});
+			}); 
 }
 
 function displayScore() {
