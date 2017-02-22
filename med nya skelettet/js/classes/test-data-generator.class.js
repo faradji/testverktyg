@@ -51,11 +51,11 @@ class TestDataGenerator extends Base {
     // Write the list to DB
     list.writeToDb(()=>{
 
-      console.log("Written to DB!",list);
+      //console.log("Written to DB!",list);
       // Now read it back into a list to confirm
       var listFromDb = new PetOwnerList();
       listFromDb.readAllFromDb(()=>{
-        console.log("Read from DB",listFromDb);
+      //  console.log("Read from DB",listFromDb);
         this.generatePets();
       });
 
@@ -94,21 +94,21 @@ class TestDataGenerator extends Base {
     // Write the list to DB
     list.writeToDb(()=>{
 
-      console.log("Written to DB!",list);
+    //  console.log("Written to DB!",list);
       // Now read it back into a list to confirm
       var listFromDb = new PetList();
       listFromDb.readAllFromDb(()=>{
-        console.log("Read from DB",listFromDb);
+       // console.log("Read from DB",listFromDb);
         
         // Create a PetOwnerList with
         // the correct pets attached to each owner
         var listOwnersWithPets = new PetOwnerList();
         listOwnersWithPets.readAllFromDBWithPets(()=>{
           
-          console.log(
-            "Nice list of owners and pets from the DB",
-            listOwnersWithPets
-          );
+       //   console.log(
+         //   "Nice list of owners and pets from the DB",
+          //  listOwnersWithPets
+       //   );
 
           var thePetOwnerView = new PetOwnerView({
             petOwners: listOwnersWithPets
