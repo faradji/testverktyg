@@ -18,6 +18,7 @@ class App {
     this.petOwnerView = petOwnerView;
     this.aboutPage = new AboutUs();
 	this.teacherView = new teacherView();
+	this.mejlView = new mejlView();
 
     // Show the navbar and the bootstrapSizeTool
     this.navbar.display('body');
@@ -40,7 +41,7 @@ class App {
     // Some routes
     var router = new Router({
       '/': ()=>{ this.showPage(this.startPage); },
-      '/petowners': ()=> { this.showPage(this.petOwnerView); },
+      '/mejlView': ()=> { this.showPage(this.mejlView); },
       '/about-us': ()=> { this.showPage(this.aboutPage); },
 	  '/teacherView': ()=> { this.showPage(this.teacherView); }
     });
