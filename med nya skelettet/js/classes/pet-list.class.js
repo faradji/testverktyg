@@ -26,11 +26,11 @@ class PetList extends List {
   }
   
     savetTestToDb(callback){
-    this.db.saveTest((data)=>{
-		window.questionfromdb=data;
-        this.push.apply(this,data);
-        callback();
-    });
+        this.db.saveTest({
+      idAnswers: window.saveId,
+      studentAnswer: window.saveChoiceString,
+      studentEmail: 'ali@gmail.com'
+    },callback);
   }
 
   static get sqlQueries(){
@@ -66,7 +66,8 @@ class PetList extends List {
         SELECT * FROM questions
       `,
 	  saveTest:  `
-        INSERT answers SET ?
+        INSERT INTO answers (idAnswers,studentAnswer,studentEmail)
+VALUES (?,?,?)
       ` 
     }
     }
