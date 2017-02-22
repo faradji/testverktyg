@@ -33,7 +33,7 @@ class App {
 		displayCurrentQuestion();
 });
 
-	$.getScript('js/insertDoneTestLitInTeachView.js', function()
+	$.getScript('js/insertDoneTestsListInTeachView.js', function()
 {
 		
 });
