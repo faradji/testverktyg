@@ -18,7 +18,7 @@ class App {
     this.petOwnerView = petOwnerView;
     this.aboutPage = new AboutUs();
 	this.teacherView = new teacherView();
-	this.studentView = new studentView();
+	this.mailView = new mailView();
 
     // Show the navbar and the bootstrapSizeTool
     this.navbar.display('body');
@@ -50,7 +50,7 @@ class App {
       '/': ()=>{ this.showPage(this.startPage); },
       '/petowners': ()=> { this.showPage(this.petOwnerView); },
       '/about-us': ()=> { this.showPage(this.aboutPage); },
-	  '/studentView': ()=> { this.showPage(this.studentView); },
+	  '/mailView': ()=> { this.showPage(this.mailView); },
 	  '/teacherView': ()=> { this.showPage(this.teacherView); }
     });
 
