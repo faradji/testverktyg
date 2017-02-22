@@ -3,7 +3,13 @@ var correctAnswers = 0;
 var quizOver = false;
 var saveChoice = new Array();
 var saveId;
+var testTimeOver = false;
 $(document).ready(function () {
+    //timern startar
+    
+ 
+    setTimeout(isTimeOut, 10000);//360000
+
 		//to do: get user
 		 
 		//unique id for test
@@ -14,7 +20,7 @@ $(document).ready(function () {
 	
     // On clicking next, display the next question
     $(this).find(".nextButton").on("click", function () {
-        if (!quizOver) {
+        if (!quizOver || !testTimeOver) {
 
             value = $("input[type='checkbox']:checked").val();
 			
@@ -31,6 +37,7 @@ $(document).ready(function () {
 
                 if (value == window.questionfromdb[currentQuestion].correctAnswer) {
                     correctAnswers++;
+                    
                 }
 
                 currentQuestion++;
@@ -45,7 +52,17 @@ $(document).ready(function () {
                     quizOver = true;
                 }
             }
+            
+            
+
         } else { // to do: send data to db
+        if(testTimeOver){
+           console.log("slut på riktigt");
+           alert("Tiden för testet har gått ut. Skicka in svaret."); 
+           quizOver = true;
+           $(document).find(".quizContainer > .question").hide();
+           $(document).find(".nextButton").text("skicka in");
+        }
 		window.saveChoiceString = JSON.stringify(saveChoice);
 		console.log('spara som string efter test',saveChoiceString);
             
@@ -54,6 +71,11 @@ $(document).ready(function () {
 
 });
 
+   function isTimeOut(){
+       
+        testTimeOver = true;
+        console.log("slut");
+    }
 
 function displayCurrentQuestion() {
     var question = window.questionfromdb[currentQuestion].questionText;
