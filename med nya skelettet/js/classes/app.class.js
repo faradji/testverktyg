@@ -17,9 +17,11 @@ class App {
     this.startPage = new StartPage();
     this.petOwnerView = petOwnerView;
     this.aboutPage = new AboutUs();
+	this.teacherView = new teacherView();
 
     // Show the navbar and the bootstrapSizeTool
     this.navbar.display('body');
+	
    // this.bootstrapSizeTool.display('body');
 
     // Add a page-content area in the DOM
@@ -31,11 +33,16 @@ class App {
 		displayCurrentQuestion();
 });
 
+	$.getScript('js/insertDoneTestLitInTeachView.js', function()
+{
+		
+});
     // Some routes
     var router = new Router({
       '/': ()=>{ this.showPage(this.startPage); },
       '/petowners': ()=> { this.showPage(this.petOwnerView); },
-      '/about-us': ()=> { this.showPage(this.aboutPage); }
+      '/about-us': ()=> { this.showPage(this.aboutPage); },
+	  '/teacherView': ()=> { this.showPage(this.teacherView); }
     });
 
   }

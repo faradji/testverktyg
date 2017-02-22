@@ -1,5 +1,12 @@
 $(document).ready(function(){
 	
+	$('body').append(`
+	<div class="btn-group col-sm-12" role="group" aria-label="...">
+	  <button type="button" class="btn btn-default">Generera URL</button>
+	</div>
+	
+	`);	
+	
   $('body').append(`<div class="list-group studClassesMailChoice col-sm-3">
   <button type="button" class="list-group-item">Desktop</button>
   <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
@@ -19,8 +26,6 @@ $(document).ready(function(){
 </div>`);
 	
 		
-	
-
 	
 	
 	$('body').append(`<ul class="list-group tempMailAdressesList col-sm-8">
@@ -46,5 +51,5 @@ $(document).ready(function(){
   <li class="list-group-item">Vestibulum at eros</li>  
 </ul>
 	
-	`)
+	`);
 });
