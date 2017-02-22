@@ -46,6 +46,8 @@ $(document).ready(function () {
                 }
             }
         } else { // to do: send data to db
+		window.saveChoiceString = JSON.stringify(saveChoice);
+		console.log('spara som string efter test',saveChoiceString);
             
         }
     });

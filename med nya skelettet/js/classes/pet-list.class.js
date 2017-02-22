@@ -24,6 +24,14 @@ class PetList extends List {
         callback();
     });
   }
+  
+    savetTestToDb(callback){
+    this.db.saveTest((data)=>{
+		window.questionfromdb=data;
+        this.push.apply(this,data);
+        callback();
+    });
+  }
 
   static get sqlQueries(){
     
@@ -56,9 +64,13 @@ class PetList extends List {
       `,
       readAll: `
         SELECT * FROM questions
-      `
+      `,
+	  saveTest:  `
+        INSERT answers SET ?
+      ` 
+    }
     }
 
   }
 
-}
+
