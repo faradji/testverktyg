@@ -50,5 +50,5 @@ window.load = `
 
   js/
 	main.js
-	insertDoneTestsListInTeachView.js
+	//insertDoneTestsListInTeachView.js
 `;
