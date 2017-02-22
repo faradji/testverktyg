@@ -7,7 +7,14 @@ var testTimeOver = false;
 $(document).ready(function () {
     //timern startar
     
- 
+    function isTimeOut(){
+       
+        testTimeOver = true;
+        quizOver = true;
+        console.log(testTimeOver);
+        $(document).find(".nextButton").text("skicka in");
+        alert("Tiden har tagit slut! Skicka in provet.");
+    }
     setTimeout(isTimeOut, 10000);//360000
 
 		//to do: get user
@@ -50,19 +57,13 @@ $(document).ready(function () {
                     $(document).find(".nextButton").text("skicka in");
 					//to do: save test in db
                     quizOver = true;
+
                 }
             }
-            
-            
+                       
 
         } else { // to do: send data to db
-        if(testTimeOver){
-           console.log("slut på riktigt");
-           alert("Tiden för testet har gått ut. Skicka in svaret."); 
-           quizOver = true;
-           $(document).find(".quizContainer > .question").hide();
-           $(document).find(".nextButton").text("skicka in");
-        }
+
 		window.saveChoiceString = JSON.stringify(saveChoice);
 		console.log('spara som string efter test',saveChoiceString);
             
@@ -71,11 +72,6 @@ $(document).ready(function () {
 
 });
 
-   function isTimeOut(){
-       
-        testTimeOver = true;
-        console.log("slut");
-    }
 
 function displayCurrentQuestion() {
     var question = window.questionfromdb[currentQuestion].questionText;
