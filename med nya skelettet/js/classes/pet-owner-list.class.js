@@ -25,7 +25,7 @@ class PetOwnerList extends List {
 
   readAllFromDBWithPets(callback){
     this.db.readAllWithPets((data)=>{
-      console.log(data);
+      //console.log(data);
 
       // collect all pet owners in a new array
       var petownersById = {};
