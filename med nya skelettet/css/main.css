@@ -1,16 +1,53 @@
-/* Add your own css */
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 
-.pet-box, .pet-owner-name {
-  cursor:pointer;
+* {
+  margin: auto;
 }
 
-.big-border {
-  border: 20px solid #000;
+#navbar ul {
+  background-color: #F7921E;
+  border-bottom: solid black;
+  border-width: 10px;
+  height: auto;
+  word-spacing: 70px;
+  text-align: center;
 }
+
+#navbar a {
+  font-family: Oswald;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+  transition: ease-out 0.2s;
+}
+  
+
+#navbar li {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: ease-out 0.5s;
+}
+ 
+#navbar a:hover {
+  background-color: black;
+  color: white;
+  padding-top: 400px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  transition: ease-out 0.5s;
+}
+#navbar .image{
+  display:inline-block;
+}
+
+
 
 /* prov Classes */
  .quizContainer {
-    background-color:  	#F0F0F0;
+    background-color:#DCDCDC;
     border-radius: 6px;
     width: 75%;
     margin: auto;
@@ -19,30 +56,32 @@
     -webkit-box-shadow: 10px 10px 5px #888;
     box-shadow: 10px 10px 5px #888;
     position: relative;
-	text-align: center;
 }
 .nextButton {
     box-shadow: 3px 3px 5px #888;
     border-radius: 6px;
-    width: 75px;
-    height: 20px;
+    width: 170px;
+    height: 60px;
     text-align: center;
     background-color: white;
     /*clear: both;*/
     color: black;
     font-family:'Rokkitt', serif;
     position: relative;
-    margin: auto;
-   /* padding-top: 20px;*/
+    padding: 20px;
+	font-weight:bold;
+	font-size:23px;
+	margin-top:20px;
 }
 .question {
     font-family:'Rokkitt', serif;
     font-size: 2em;
     width: 90%;
     height: auto;
-    margin: auto;
+    margin-top:20px;
+	margin-bottom:20px;
     border-radius: 6px;
-    background-color: F0F0F0;
+    background-color: #F8F8FF;
     text-align: center;
 }
 .quizMessage {
@@ -59,20 +98,12 @@
     font-family: Courier, serif;
     color: black;
 	text-align: center;
-	list-style: none;
 }
-li{
-    display:inline-block;
-	font-size:28px;
-	margin: 10px;
-
-}
-
 .result {
     width: 30%;
     height: auto;
     border-radius: 6px;
-    background-color: F0F0F0;
+    background-color: linen;
     margin: auto;
     text-align: center;
     font-family:'Rokkitt', serif;
@@ -81,20 +112,142 @@ li{
 	width: 40%;
     height: auto;
     border-radius: 6px;
-    background-color: F0F0F0;
-    margin: auto;
-    text-align: center;
-    font-family:'Rokkitt', serif;
-	font-size:20px;
-}
-.message{
-	width: 40%;
-    height: auto;
-    border-radius: 6px;
-    background-color: F0F0F0;
+    background-color: linen;
     margin: auto;
     text-align: center;
     font-family:'Rokkitt', serif;
 	font-size:28px;
 }
-/* prov Classes end*/ 
+.message{
+	width: 40%;
+    height: auto;
+    border-radius: 6px;
+    background-color: linen;
+    margin: auto;
+    text-align: center;
+    font-family:'Rokkitt', serif;
+	font-size:28px;
+}
+.example{
+	transform: scale(1.5);
+	margin-right:25px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Rokkitt);
+.quizContainer h1 {
+    font-family:'Rokkitt', serif;
+    text-align: center;
+	color:black;
+}
+ul {
+    list-style: none;
+}
+li {
+    font-family:'Rokkitt', serif;
+    font-size: 2em;
+}
+input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 2em;
+}
+p {
+    font-family:'Rokkitt', serif;
+}
+
+.doneTestsList{
+    max-height: 80vh;
+    overflow-y: scroll;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;
+	margin-right:25px;    
+}
+
+.teachReadtest{ 
+
+} 
+
+@media only screen and (min-width: 375px) and (orientation:portrait){
+.doneTestsList{
+	max-height: 80vh;
+	margin-right:0px;
+    }
+.image, img{
+	display: none;
+	}
+.questionnr{
+    width: 60%;
+	height: auto;
+	font-size:38px;
+    background-color: lightgray;
+	padding:20px;
+	}
+.quizContainer{
+	margin-top: 50px;
+}
+.quizContainer h1{
+	font-size:58px;
+	padding-bottom:50px;
+	}
+.question{
+	font-size:52px;
+	margin-top:50px;
+	font-weight:bold;
+	}
+.choiceList{
+	font-size:26px;
+	padding:25px 0;
+	}
+	
+.choiceList li{
+	padding-left:25px;
+	}
+.example{
+	transform: scale(3.5);
+	margin:25px;
+}
+.result{
+	width: 75%;
+    height: 5%;
+	font-size:52px;
+}
+.message{
+	width:64%;
+	font-size:30px;
+	padding:0 35px;
+	color:red;
+}
+.nextButton{
+	font-size:38px;
+	width: 250px;
+    height: 90px;
+	margin-top:40px;
+}
+#navbar ul{
+	height: 120px;
+	word-spacing:0;
+}
+#navbar a{
+	font-size:48px;
+}
+#navbar a:hover{
+	padding-top: 400px;
+	padding-bottom:30px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+#navbar li{	
+	margin-right:45px;
+}
+.startPage h1{
+	text-align:center;
+	font-size:78px;
+	text-shadow: 2px 2px #ff0000;
+}
+.startPage p{
+	font-size:35px;
+	text-align:center;
+	font-weight:bold;
+}	
+}
+
