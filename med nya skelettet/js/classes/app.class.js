@@ -18,7 +18,7 @@ class App {
     this.petOwnerView = petOwnerView;
     this.aboutPage = new AboutUs();
 	this.teacherView = new teacherView();
-	this.mejlView = new mejlView();
+	this.studentView = new studentView();
 
     // Show the navbar and the bootstrapSizeTool
     this.navbar.display('body');
@@ -30,19 +30,27 @@ class App {
 	// load provform.js and make sure it's run
 	// after everything else is loaded
 	$.getScript('js/provform.js', function()
-{
-		displayCurrentQuestion();
-});
+		{
+				displayCurrentQuestion();
+		});
 
 	$.getScript('js/insertDoneTestsListInTeachView.js', function()
-{
+		{
+				
+		});
 		
-});
+	$.getScript('js/insertStudentAndMailList.js', function()
+		{
+				
+		});
+
+		
     // Some routes
     var router = new Router({
       '/': ()=>{ this.showPage(this.startPage); },
       '/mejlView': ()=> { this.showPage(this.mejlView); },
       '/about-us': ()=> { this.showPage(this.aboutPage); },
+	  '/studentView': ()=> { this.showPage(this.studentView); },
 	  '/teacherView': ()=> { this.showPage(this.teacherView); }
     });
 
