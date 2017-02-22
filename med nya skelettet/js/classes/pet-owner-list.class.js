@@ -48,7 +48,7 @@ class PetOwnerList extends List {
           });
         }
 
-      }
+		}
 
       // Loop through petownersById
       // and push the petowner to this list

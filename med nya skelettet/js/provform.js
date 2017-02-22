@@ -2,25 +2,30 @@ var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
 var saveChoice = new Array();
-var saveId;
 var testTimeOver = false;
 $(document).ready(function () {
     //timern startar
-    
- 
-    setTimeout(isTimeOut, 10000);//360000
+
+ 		setTimeout(isTimeOut, 1000);//360000 
+
 
 		//to do: get user
 		 
 		//unique id for test
-			saveId = uniqueId();
+			window.saveId = uniqueId();
 			
     // Display the first question
     displayCurrentQuestion();
 	
     // On clicking next, display the next question
+
+
+		       
     $(this).find(".nextButton").on("click", function () {
-        if (!quizOver || !testTimeOver) {
+		
+	if(testTimeOver==false){
+
+        if (!quizOver) {
 
             value = $("input[type='checkbox']:checked").val();
 			
@@ -48,6 +53,10 @@ $(document).ready(function () {
                     
                     // Change the text in the next button to ask if user wants to send in the test
                     $(document).find(".nextButton").text("skicka in");
+					
+					$(this).find(".nextButton").on("click", function () {
+					$.getScript("/classes/pet-list.class.js");
+					}); 
 					//to do: save test in db
                     quizOver = true;
                 }
@@ -56,22 +65,33 @@ $(document).ready(function () {
             
 
         } else { // to do: send data to db
-        if(testTimeOver){
-           console.log("slut på riktigt");
-           alert("Tiden för testet har gått ut. Skicka in svaret."); 
+       // if(testTimeOver){
+		   //console.log("slut på riktigt");           
+           //alert("Tiden för testet har gått ut. Skicka in svaret."); 
            quizOver = true;
-           $(document).find(".quizContainer > .question").hide();
-           $(document).find(".nextButton").text("skicka in");
-        }
+          // $(document).find(".quizContainer > .question").hide();
+         //  $(document).find(".nextButton").text("skicka in");
+        //}
 		window.saveChoiceString = JSON.stringify(saveChoice);
 		console.log('spara som string efter test',saveChoiceString);
             
-        }
+	}}else{
+		//stoppa provet
+		     $(document).find(".nextButton").text("skicka in");
+			 $(document).find(".message").text("Tiden är slut!");
+             $(document).find(".message").show();
+			 //$.getScript("/classes/pet-list.class.js");
+			//$(".nextButton").click(function(){
+				
+			// }); 
+			
+	}
     });
+
 
 });
 
-   function isTimeOut(){
+function isTimeOut(){
        
         testTimeOver = true;
         console.log("slut");
@@ -101,8 +121,10 @@ function displayCurrentQuestion() {
     
    // for (i = 0; i < numChoices; i++) {
     //    let choice = window.questionfromdb[currentQuestion].choices[i];
-        $('<li><input type="checkbox" value=' + 0 + ' class="example" />' + window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
-		$('<li><input type="checkbox" value=' + 1 + ' class="example" />' + window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
+        $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
+		window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
+		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
+		window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
 	
   // }
 	

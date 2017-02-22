@@ -99,6 +99,13 @@
     color: black;
 	text-align: center;
 }
+.myItem{
+    display:inline-block;
+	font-size:28px;
+	margin: 10px;
+
+}
+
 .result {
     width: 30%;
     height: auto;
