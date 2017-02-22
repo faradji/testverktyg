@@ -98,3 +98,21 @@ li{
 	font-size:28px;
 }
 /* prov Classes end*/ 
+
+/* teacherView */
+.doneTestsList{
+	max-height: 80vh;
+    overflow-y: scroll;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;
+	margin-right:25px;
+}	
+
+.teachReadtest{
+	max-height: 85vh;
+}	
+	
+	
+
+
+/* teacherView end*/
