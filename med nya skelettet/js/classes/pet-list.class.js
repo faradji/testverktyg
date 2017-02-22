@@ -24,6 +24,14 @@ class PetList extends List {
         callback();
     });
   }
+  
+    savetTestToDb(callback){
+        this.db.saveTest({
+      idAnswers: window.saveId,
+      studentAnswer: window.saveChoiceString,
+      studentEmail: 'ali@gmail.com'
+    },callback);
+  }
 
   static get sqlQueries(){
     
@@ -56,9 +64,14 @@ class PetList extends List {
       `,
       readAll: `
         SELECT * FROM questions
-      `
+      `,
+	  saveTest:  `
+        INSERT INTO answers (idAnswers,studentAnswer,studentEmail)
+VALUES (?,?,?)
+      ` 
+    }
     }
 
   }
 
-}
+
