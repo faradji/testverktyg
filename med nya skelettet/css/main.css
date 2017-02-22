@@ -61,7 +61,7 @@
 	text-align: center;
 	list-style: none;
 }
-li{
+.myItem{
     display:inline-block;
 	font-size:28px;
 	margin: 10px;

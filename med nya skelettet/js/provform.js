@@ -53,6 +53,10 @@ $(document).ready(function () {
                     
                     // Change the text in the next button to ask if user wants to send in the test
                     $(document).find(".nextButton").text("skicka in");
+					
+					$(this).find(".nextButton").on("click", function () {
+					$.getScript("/classes/pet-list.class.js");
+					}); 
 					//to do: save test in db
                     quizOver = true;
                 }
@@ -76,6 +80,11 @@ $(document).ready(function () {
 		     $(document).find(".nextButton").text("skicka in");
 			 $(document).find(".message").text("Tiden är slut!");
              $(document).find(".message").show();
+			 //$.getScript("/classes/pet-list.class.js");
+			//$(".nextButton").click(function(){
+				
+			// }); 
+			
 	}
     });
 
@@ -112,8 +121,10 @@ function displayCurrentQuestion() {
     
    // for (i = 0; i < numChoices; i++) {
     //    let choice = window.questionfromdb[currentQuestion].choices[i];
-        $('<li><input type="checkbox" value=' + 0 + ' class="example" />' + window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
-		$('<li><input type="checkbox" value=' + 1 + ' class="example" />' + window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
+        $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
+		window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
+		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
+		window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
 	
   // }
 	
