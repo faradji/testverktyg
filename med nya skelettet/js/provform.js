@@ -1,7 +1,7 @@
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
-var saveChoice = new Array();
+var value;
 var testTimeOver = false;
 $(document).ready(function () {
     //timern startar
@@ -15,33 +15,48 @@ $(document).ready(function () {
         alert("Tiden har tagit slut! Skicka in provet.");
     }
     setTimeout(isTimeOut, 10000);//360000
-
- 		setTimeout(isTimeOut, 1000);//360000 
-
+>>>>>>> Temporary merge branch 2
 
 		//to do: get user
 		 
 		//unique id for test
-			window.saveId = uniqueId();
+		saveId = uniqueId();
 			
     // Display the first question
-    displayCurrentQuestion();
+		displayCurrentQuestion();
 	
     // On clicking next, display the next question
 
-
+$(document).load('js/dbcon.php');
 		       
     $(this).find(".nextButton").on("click", function () {
+		//send data to db everytime you press next
+		
+			value = $("input[type='checkbox']:checked").val();
+			var temp = parseInt(currentQuestion,10);
+			temp = temp+1;
+			   var studentEmail = "ali@gmail.com";
+			//var dataString = '&questionNumber='+ temp + '&answer='+ value + '&email='+ studentEmail;
+			var dataString ={questionNumber:temp ,answer: value ,email:studentEmail};
+				
+				$.ajax({
+				type: "POST",
+				dataType:'json',
+				url: "js/dbcon.php",
+				data: JSON.stringify(dataString),
+				processData: false,
+				contentType: "application/json; charset=utf-8"
+				});
+				
+           
 		
 	if(testTimeOver==false){
 
         if (!quizOver) {
 
-            value = $("input[type='checkbox']:checked").val();
+            
 			
 			//save the choice to send it to db
-			saveChoice.push(value);
-			console.log(saveChoice);
 			
             if (value == undefined) {
                 $(document).find(".message").text("Du måste göra ett val");
@@ -65,36 +80,54 @@ $(document).ready(function () {
                     $(document).find(".nextButton").text("skicka in");
 					
 					$(this).find(".nextButton").on("click", function () {
-					$.getScript("/classes/pet-list.class.js");
-					}); 
+					//$.getScript("/classes/pet-list.class.js");
+					//}); 
 					//to do: save test in db
                     quizOver = true;
 
-                }
+                });
             }
                        
 
         } else { // to do: send data to db
+<<<<<<< Temporary merge branch 1
+       // if(testTimeOver){
+		   //console.log("slut på riktigt");           
+           //alert("Tiden för testet har gått ut. Skicka in svaret."); 
+           quizOver = true;
+          // $(document).find(".quizContainer > .question").hide();
+         //  $(document).find(".nextButton").text("skicka in");
+        //}
+=======
 
+>>>>>>> Temporary merge branch 2
 		window.saveChoiceString = JSON.stringify(saveChoice);
 		console.log('spara som string efter test',saveChoiceString);
             
-	}}else{
+				}
+	
+	}else{
 		//stoppa provet
-		     $(document).find(".nextButton").text("skicka in");
-			 $(document).find(".message").text("Tiden är slut!");
-             $(document).find(".message").show();
-			 //$.getScript("/classes/pet-list.class.js");
-			//$(".nextButton").click(function(){
-				
-			// }); 
-			
+
 	}
+	
+	
+        });
+			 
+	
     });
 
 
 });
 
+<<<<<<< Temporary merge branch 1
+function isTimeOut(){
+       
+        testTimeOver = true;
+        console.log("slut");
+    }
+=======
+>>>>>>> Temporary merge branch 2
 
 function displayCurrentQuestion() {
     var question = window.questionfromdb[currentQuestion].questionText;
@@ -146,3 +179,9 @@ function uniqueId() {
   return id;
   
 }
+    setTimeout(isTimeOut, 360000);//360000
+
+
+
+        }
+	} else { // to do: send data to db
