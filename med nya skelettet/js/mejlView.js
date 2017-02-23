@@ -2,7 +2,8 @@ $(document).ready(function(){
 	
 	$('.page-content').append(`
 	<div class="btn-group col-sm-12" role="group" aria-label="...">
-	  <button type="button" class="btn btn-default">Generera URL</button>
+	  <button type="button" class="btn btn-default" onclick="myFunction()">Generera URL</button>
+	<p id=errorMessage></p>
 	</div>
 	
 	`);	
@@ -52,4 +53,6 @@ $(document).ready(function(){
 </ul>
 	
 	`);
+	
+
 });
