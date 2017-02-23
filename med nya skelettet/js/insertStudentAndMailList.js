@@ -1,13 +1,13 @@
-$(document).ready(function(){
-	
-	$('body').append(`
-	<div class="btn-group col-sm-12" role="group" aria-label="...">
-	  <button type="button" class="btn btn-default">Generera URL</button>
-	</div>
-	
-	`);	
-	
-  $('body').append(`<div class="list-group studClassesMailChoice col-sm-3">
+$(document).ready(function () {
+  $('.generateMailButton').append(`
+  <button type="button" class="generateURL btn btn-default">Generera URL</button>
+`);
+
+  $('.copyMailListButton').append(`
+  <button type="button" class="generateURL btn btn-default">Kopiera alla</button>
+`);
+
+$('.studClassesMailChoice').append(`
   <button type="button" class="list-group-item">Desktop</button>
   <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
   <button type="button" class="list-group-item">Morbi leo risus</button>
@@ -23,12 +23,25 @@ $(document).ready(function(){
   <button type="button" class="list-group-item">Morbi leo risus</button>
   <button type="button" class="list-group-item">Porta ac consectetur ac</button>
   <button type="button" class="list-group-item">Vestibulum at eros</button>
-</div>`);
-	
-		
-	
-	
-	$('body').append(`<ul class="list-group tempMailAdressesList col-sm-8">
+  <button type="button" class="list-group-item">Desktop</button>
+  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+  <button type="button" class="list-group-item">Morbi leo risus</button>
+  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+  <button type="button" class="list-group-item">Vestibulum at eros</button>
+  <button type="button" class="list-group-item">Cras justo odio</button>
+  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+  <button type="button" class="list-group-item">Morbi leo risus</button>
+  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+  <button type="button" class="list-group-item">Vestibulum at eros</button>
+  <button type="button" class="list-group-item">Cras justo odio</button>
+  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+  <button type="button" class="list-group-item">Morbi leo risus</button>
+  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+  <button type="button" class="list-group-item">Vestibulum at eros</button>  
+`);
+
+
+$('.tempMailAdressesList').append(`
   <li class="list-group-item">Cras justo odio</li>
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item">Morbi leo risus</li>
@@ -48,8 +61,9 @@ $(document).ready(function(){
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item">Morbi leo risus</li>
   <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>  
-</ul>
-	
-	`);
+  <li class="list-group-item">Vestibulum at eros</li>
+`);
+
 });
+
+                 

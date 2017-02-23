@@ -35,6 +35,8 @@ window.load = `
     navbar.class.js
     startpage.class.js
     about-us.class.js
+	teacherView.class.js
+	mailView.class.js
 
   templates/
     bootstrap-size.html
@@ -45,7 +47,11 @@ window.load = `
     navbar.html
     startpage.html
     about-us.html
+	teacher-view.html
+	mail-view.html
 
-  js/main.js
-
+  js/
+	main.js
+	insertDoneTestsListInTeachView.js
+	insertStudentAndMailList.js
 `;
