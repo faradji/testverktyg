@@ -1,4 +1,4 @@
-class studentView extends Base {
+class mailView extends Base {
 
   constructor(propertyValues){
     super(propertyValues);

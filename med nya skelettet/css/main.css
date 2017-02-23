@@ -263,20 +263,44 @@ p {
 /* prov Classes end*/ 
 
 /* teacherView */
-.doneTestsList{
+
+.container-classes-genButton{
 	max-height: 80vh;
+}
+
+.generateMailButton{
+	padding-left: 0px;
+}
+.generateURL{
+	margin-bottom:20px;
+	box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;
+}
+	
+.studClassesMailChoice{
+	max-height: 60vh;
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;
 	margin-right:25px;
 }	
 
-.teachReadtest{
-	max-height: 85vh;
-}	
+.tempMailAdressesList{
+	max-height: 80vh;
+    overflow-y: scroll;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;	
+}		
 	
-	
-
-
 /* teacherView end*/
->>>>>>> Magnus
+
+@media only screen and (min-width: 375px) and (orientation:portrait){
+.list-group-item{
+	font-size: 28px;
+}
+
+.generateURL{
+	font-size: 28px;
+}
+
+
