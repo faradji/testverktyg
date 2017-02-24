@@ -173,5 +173,78 @@ function uniqueId() {
 
 
 
+
+		//to do: get user
+		 
+		//unique id for test
+		saveId = uniqueId();
+			
+    // Display the first question
+		displayCurrentQuestion();
+	
+    // On clicking next, display the next question
+
+$(document).load('js/dbcon.php');
+		       
+    $(this).find(".nextButton").on("click", function () {
+		//send data to db everytime you press next
+		
+			value = $("input[type='checkbox']:checked").val();
+			var temp = parseInt(currentQuestion,10);
+			temp = temp+1;
+			   var studentEmail = "ali@gmail.com";
+			//var dataString = '&questionNumber='+ temp + '&answer='+ value + '&email='+ studentEmail;
+			var dataString ={questionNumber:temp ,answer: value ,email:studentEmail};
+				
+				$.ajax({
+				url: "js/dbcon.php",
+				type: "POST",
+				dataType:'json',
+				data: JSON.stringify(dataString),
+				//processData: false,
+				contentType: "application/json; charset=utf-8"
+				});
+				
+           
+		
+	if(testTimeOver==false){
+
+        if (!quizOver) {
+
+            
+			
+			//save the choice to send it to db
+			
+            if (value == undefined) {
+                $(document).find(".message").text("Du måste göra ett val");
+                $(document).find(".message").show();
+            } else {
+                // Remove any message
+                $(document).find(".message").hide();
+
+                if (value == window.questionfromdb[currentQuestion].correctAnswer) {
+                    correctAnswers++;
+                    
+                }
+
+                currentQuestion++;
+                if (currentQuestion < window.questionfromdb.length) {
+                    displayCurrentQuestion();
+                } else {
+                    displayScore();
+                    
+                    // Change the text in the next button to ask if user wants to send in the test
+                    $(document).find(".nextButton").text("skicka in");
+					
+					$(this).find(".nextButton").on("click", function () {
+					//$.getScript("/classes/pet-list.class.js");
+					//}); 
+					//to do: save test in db
+                    quizOver = true;
+
+                });
+            }
+                       
+
         }
 	} else { // to do: send data to db
