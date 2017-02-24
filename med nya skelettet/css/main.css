@@ -3,7 +3,17 @@
 * {
   margin: auto;
 }
-
+.startPage h1{
+	text-align:center;
+	font-size:78px;
+	color:Gold;
+	text-shadow: 5px 5px black;
+}
+.startPage p{
+	text-align:center;
+	font-size:16px;
+	color:gray;
+}
 #navbar ul {
   background-color: #F7921E;
   border-bottom: solid black;
@@ -247,11 +257,6 @@ p {
 #navbar li{	
 	margin-right:45px;
 }
-.startPage h1{
-	text-align:center;
-	font-size:78px;
-	text-shadow: 2px 2px #ff0000;
-}
 .startPage p{
 	font-size:35px;
 	text-align:center;
@@ -290,7 +295,34 @@ p {
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;	
-}		
+}	
+.alternativ{
+	display:block;
+	padding:15px;
+	border:1px solid lightgray; 
+}
+#email, #checkAll{
+	transform: scale(1.5);
+	margin:15px 10px 15px 15px;
+}
+#email-font{
+	font-size:18px;
+	font-weight:normal;
+}
+.MarkAllButton{
+	margin-bottom:20px;
+	box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;
+	padding-right:10px;
+}
+.errorMessage{
+	font-size:16px;
+}	
+.displayDoneTest{
+	border:3px solid lightgray;
+	height:50vh;
+	overflow-y: scroll;
+}
 	
 /* teacherView end*/
 

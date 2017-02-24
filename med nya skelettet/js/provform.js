@@ -15,7 +15,6 @@ $(document).ready(function () {
         alert("Tiden har tagit slut! Skicka in provet.");
     }
     setTimeout(isTimeOut, 10000);//360000
->>>>>>> Temporary merge branch 2
 
 		//to do: get user
 		 
@@ -90,7 +89,6 @@ $(document).load('js/dbcon.php');
                        
 
         } else { // to do: send data to db
-<<<<<<< Temporary merge branch 1
        // if(testTimeOver){
 		   //console.log("slut på riktigt");           
            //alert("Tiden för testet har gått ut. Skicka in svaret."); 
@@ -98,9 +96,7 @@ $(document).load('js/dbcon.php');
           // $(document).find(".quizContainer > .question").hide();
          //  $(document).find(".nextButton").text("skicka in");
         //}
-=======
 
->>>>>>> Temporary merge branch 2
 		window.saveChoiceString = JSON.stringify(saveChoice);
 		console.log('spara som string efter test',saveChoiceString);
             
@@ -117,17 +113,11 @@ $(document).load('js/dbcon.php');
 	
     });
 
-
-});
-
-<<<<<<< Temporary merge branch 1
 function isTimeOut(){
        
         testTimeOver = true;
         console.log("slut");
     }
-=======
->>>>>>> Temporary merge branch 2
 
 function displayCurrentQuestion() {
     var question = window.questionfromdb[currentQuestion].questionText;

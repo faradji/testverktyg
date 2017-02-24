@@ -4,4 +4,4 @@ class StartPage extends Base {
     super(propertyValues);
   }
 
-}
+};
