@@ -55,5 +55,5 @@ window.load = `
 	insertDoneTestsListInTeachView.js
 	insertStudentAndMailList.js
 	provform.js
-	db_con.php
+	dbcon.php
 `;

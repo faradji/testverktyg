@@ -42,11 +42,11 @@ $(document).load('js/dbcon.php');
 			var dataString ={questionNumber:temp ,answer: value ,email:studentEmail};
 				
 				$.ajax({
+				url: "js/dbcon.php",
 				type: "POST",
 				dataType:'json',
-				url: "js/dbcon.php",
 				data: JSON.stringify(dataString),
-				processData: false,
+				//processData: false,
 				contentType: "application/json; charset=utf-8"
 				});
 				
