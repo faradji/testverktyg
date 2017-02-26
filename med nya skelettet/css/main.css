@@ -178,11 +178,12 @@ p {
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;
-	margin-right:25px;    
+	margin-right:25px; 
+	flex-direction:column;
 }
-
+.displayDoneTest{
+}
 .teachReadtest{ 
-
 } 
 
 @media only screen and (min-width: 375px) and (orientation:portrait){
@@ -288,25 +289,23 @@ p {
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;
 	margin-right:25px;
+	display:block;
 }	
 
 .tempMailAdressesList{
 	max-height: 80vh;
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
-    border-radius: 10px;	
-}	
-.alternativ{
+    border-radius: 10px;
 	display:block;
-	padding:15px;
-	border:1px solid lightgray; 
-}
-#email, #checkAll{
+	padding:15px;	
+}	
+.alternativ, #checkAll{
 	transform: scale(1.5);
 	margin:15px 10px 15px 15px;
 }
 #email-font{
-	font-size:18px;
+	font-size:16px;
 	font-weight:normal;
 }
 .MarkAllButton{
