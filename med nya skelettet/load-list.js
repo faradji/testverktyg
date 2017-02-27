@@ -56,5 +56,4 @@ window.load = `
 	insertDoneTestsListInTeachView.js
 	insertStudentAndMailList.js
 	provform.js
-	
 `;
