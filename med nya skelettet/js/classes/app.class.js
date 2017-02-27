@@ -21,6 +21,7 @@ class App {
 	this.mailView = new mailView();
 
     // Show the navbar and the bootstrapSizeTool
+	$('body').empty();
     this.navbar.display('body');
 	
    // this.bootstrapSizeTool.display('body');
