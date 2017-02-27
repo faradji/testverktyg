@@ -29,7 +29,7 @@ class App {
     $('body').append('<div class="page-content"/>');
 	// load provform.js and make sure it's run
 	// after everything else is loaded
-	$.getScript('js/provform.js', function()
+$.getScript('js/provform.js', function()
 		{
 				displayCurrentQuestion();
 		});

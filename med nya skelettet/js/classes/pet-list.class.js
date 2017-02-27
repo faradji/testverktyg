@@ -23,7 +23,13 @@ class PetList extends List {
         this.push.apply(this,data);
         callback();
     });
+	this.db.readIdAnswers((data)=>{
+		window.highestId=data;
+        this.push.apply(this,data);
+        callback();
+    });
   }
+  
 
   static get sqlQueries(){
     
@@ -57,6 +63,9 @@ class PetList extends List {
       readAll: `
         SELECT * FROM questions
       `,
+	  readIdAnswers: `
+        SELECT MAX(id) AS id FROM answers
+      `
 
     }
     }

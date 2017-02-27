@@ -29,24 +29,31 @@ $(document).ready(function () {
 	
     // On clicking next, display the next question
 
-$(document).load('js/dbcon.php');
+//$(document).load('js/dbcon.php');
 		       
     $(this).find(".nextButton").on("click", function () {
 		//send data to db everytime you press next
 		
 			value = $("input[type='checkbox']:checked").val();
-			var temp = parseInt(currentQuestion,10);
-			temp = temp+1;
-			   var studentEmail = "ali@gmail.com";
-			//var dataString = '&questionNumber='+ temp + '&answer='+ value + '&email='+ studentEmail;
-			var dataString ={questionNumber:temp ,answer: value ,email:studentEmail};
+			
+			var studentEmail = "ali@gmail.com";
+			var tempAnswer=parseInt(value,10);
+			var tempCurrentQuestion = parseInt(currentQuestion,10);
+			var tempEmail = String(studentEmail);
+			var tempId = window.highestId[0].id;
+			
+			tempId = parseInt(tempId,10)+ 1;
+			console.log(tempId);
+			tempCurrentQuestion = tempCurrentQuestion+1;
+			var dataString ={Id: tempId,answer: tempAnswer ,email:tempEmail
+			,questionNumber:tempCurrentQuestion};
 				
 				$.ajax({
-				url: "js/dbcon.php",
+				url: "api/elev/write",
 				type: "POST",
 				dataType:'json',
 				data: JSON.stringify(dataString),
-				//processData: false,
+				processData: false,
 				contentType: "application/json; charset=utf-8"
 				});
 				
