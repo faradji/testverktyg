@@ -20,16 +20,10 @@ $(document).ready(function () {
 
 
 		//to do: get user
-		 
-		//unique id for test
-		saveId = uniqueId();
-			
     // Display the first question
 		displayCurrentQuestion();
 	
     // On clicking next, display the next question
-
-//$(document).load('js/dbcon.php');
 		       
     $(this).find(".nextButton").on("click", function () {
 		//send data to db everytime you press next
@@ -88,8 +82,7 @@ $(document).ready(function () {
                     $(document).find(".nextButton").text("skicka in");
 					
 					$(this).find(".nextButton").on("click", function () {
-					//$.getScript("/classes/pet-list.class.js");
-					//}); 
+					
 					//to do: save test in db
                     quizOver = true;
 
@@ -156,11 +149,4 @@ function displayCurrentQuestion() {
 function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + window.questionfromdb.length);
     $(document).find(".quizContainer > .result").show();
-}
-
-function uniqueId() {
-	var id = Math.round(new Date().getTime() + (Math.random() * 1000));
-	
-  return id;
-  
 }

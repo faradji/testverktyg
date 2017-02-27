@@ -21,6 +21,7 @@ class App {
 	this.mailView = new mailView();
 
     // Show the navbar and the bootstrapSizeTool
+	$('body').empty();
     this.navbar.display('body');
 	
    // this.bootstrapSizeTool.display('body');
@@ -29,7 +30,7 @@ class App {
     $('body').append('<div class="page-content"/>');
 	// load provform.js and make sure it's run
 	// after everything else is loaded
-$.getScript('js/provform.js', function()
+	$.getScript('js/provform.js', function()
 		{
 				displayCurrentQuestion();
 		});
