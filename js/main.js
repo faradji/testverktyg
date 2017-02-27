@@ -1,2 +1,2 @@
-var welcome = "Välkommen!";
-var news = "Nyheter!";
+// Create the app on DOM ready
+$(()=>{new App()});
