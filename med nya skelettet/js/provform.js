@@ -1,37 +1,64 @@
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
-var saveChoice = new Array();
+var value;
 var testTimeOver = false;
 $(document).ready(function () {
     //timern startar
+    
+    function isTimeOut(){
+       
+        testTimeOver = true;
+        quizOver = true;
+        console.log(testTimeOver);
+        $(document).find(".nextButton").text("skicka in");
+        alert("Tiden har tagit slut! Skicka in provet.");
+    }
+    setTimeout(isTimeOut, 360000);//360000
 
- 		setTimeout(isTimeOut, 1000);//360000 
+
 
 
 		//to do: get user
-		 
-		//unique id for test
-			window.saveId = uniqueId();
-			
     // Display the first question
-    displayCurrentQuestion();
+		displayCurrentQuestion();
 	
     // On clicking next, display the next question
-
-
 		       
     $(this).find(".nextButton").on("click", function () {
+		//send data to db everytime you press next
+		
+			value = $("input[type='checkbox']:checked").val();
+			
+			var studentEmail = "ali@gmail.com";
+			var tempAnswer=parseInt(value,10);
+			var tempCurrentQuestion = parseInt(currentQuestion,10);
+			var tempEmail = String(studentEmail);
+			var tempId = window.highestId[0].id;
+			tempId = parseInt(tempId,10)+ 1;
+			tempCurrentQuestion = tempCurrentQuestion+1;
+			
+			var dataString ={Id: tempId,answer: tempAnswer ,email:tempEmail
+			,questionNumber:tempCurrentQuestion};
+				
+				$.ajax({
+				url: "api/elev/write",
+				type: "POST",
+				dataType:'json',
+				data: JSON.stringify(dataString),
+				processData: false,
+				contentType: "application/json; charset=utf-8"
+				});
+				
+           
 		
 	if(testTimeOver==false){
 
         if (!quizOver) {
 
-            value = $("input[type='checkbox']:checked").val();
+            
 			
 			//save the choice to send it to db
-			saveChoice.push(value);
-			console.log(saveChoice);
 			
             if (value == undefined) {
                 $(document).find(".message").text("Du måste göra ett val");
@@ -55,47 +82,30 @@ $(document).ready(function () {
                     $(document).find(".nextButton").text("skicka in");
 					
 					$(this).find(".nextButton").on("click", function () {
-					$.getScript("/classes/pet-list.class.js");
-					}); 
+					
 					//to do: save test in db
                     quizOver = true;
-                }
-            }
-            
-            
 
-        } else { // to do: send data to db
-       // if(testTimeOver){
-		   //console.log("slut på riktigt");           
-           //alert("Tiden för testet har gått ut. Skicka in svaret."); 
-           quizOver = true;
-          // $(document).find(".quizContainer > .question").hide();
-         //  $(document).find(".nextButton").text("skicka in");
-        //}
-		window.saveChoiceString = JSON.stringify(saveChoice);
-		console.log('spara som string efter test',saveChoiceString);
+                });
+            }
+                       
+
+        }
+	} else { // to do: send data to db
             
-	}}else{
+				}
+	
+	}else{
 		//stoppa provet
-		     $(document).find(".nextButton").text("skicka in");
-			 $(document).find(".message").text("Tiden är slut!");
-             $(document).find(".message").show();
-			 //$.getScript("/classes/pet-list.class.js");
-			//$(".nextButton").click(function(){
-				
-			// }); 
-			
+
 	}
+	
+	
+        });
+			 
+	
     });
 
-
-});
-
-function isTimeOut(){
-       
-        testTimeOver = true;
-        console.log("slut");
-    }
 
 function displayCurrentQuestion() {
     var question = window.questionfromdb[currentQuestion].questionText;
@@ -139,11 +149,4 @@ function displayCurrentQuestion() {
 function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + window.questionfromdb.length);
     $(document).find(".quizContainer > .result").show();
-}
-
-function uniqueId() {
-	var id = Math.round(new Date().getTime() + (Math.random() * 1000));
-	
-  return id;
-  
 }

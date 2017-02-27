@@ -23,15 +23,14 @@ class PetList extends List {
         this.push.apply(this,data);
         callback();
     });
+	this.db.readIdAnswers((data)=>{
+		window.highestId=data;
+        this.push.apply(this,data);
+        callback();
+    });
   }
+
   
-    savetTestToDb(callback){
-        this.db.saveTest({
-      idAnswers: window.saveId,
-      studentAnswer: window.saveChoiceString,
-      studentEmail: 'ali@gmail.com'
-    },callback);
-  }
 
   static get sqlQueries(){
     
@@ -65,10 +64,10 @@ class PetList extends List {
       readAll: `
         SELECT * FROM questions
       `,
-	  saveTest:  `
-        INSERT INTO answers (idAnswers,studentAnswer,studentEmail)
-VALUES (?,?,?)
-      ` 
+	  readIdAnswers: `
+        SELECT MAX(id) AS id FROM answers
+      `
+
     }
     }
 

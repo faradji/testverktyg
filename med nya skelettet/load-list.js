@@ -37,6 +37,7 @@ window.load = `
     about-us.class.js
 	teacherView.class.js
 	mailView.class.js
+	elev.class.js
 
   templates/
     bootstrap-size.html
@@ -54,4 +55,5 @@ window.load = `
 	main.js
 	insertDoneTestsListInTeachView.js
 	insertStudentAndMailList.js
+	provform.js
 `;
