@@ -41,10 +41,9 @@ $(document).ready(function () {
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
 			var tempEmail = String(studentEmail);
 			var tempId = window.highestId[0].id;
-			
 			tempId = parseInt(tempId,10)+ 1;
-			console.log(tempId);
 			tempCurrentQuestion = tempCurrentQuestion+1;
+			
 			var dataString ={Id: tempId,answer: tempAnswer ,email:tempEmail
 			,questionNumber:tempCurrentQuestion};
 				
