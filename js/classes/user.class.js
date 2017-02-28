@@ -9,15 +9,26 @@ class user extends Base {
 	getUser(){
 		var userFromDb = [];
     this.db.readAll((data)=>{
-		userFromDb = data;
+		window.userFromDb = data;
     });
 	}
+	
+//	getUserByEmail(){
+  //  this.db.getCurrentUser((data)=>{
+		//emailAddress:emailAddress
+//		console.log(data);
+  //  },);
+
+//	}
 
   static get sqlQueries(){
     
     return {
 		      readAll: `
         SELECT * FROM users
+      `,
+	  getCurrentUser: `
+        SELECT idUsers FROM users where emailAddress = ?
       `
     }
     }
