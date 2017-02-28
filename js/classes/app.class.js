@@ -17,7 +17,7 @@ class App {
 	// after everything else is loaded
 	$.getScript('js/provform.js', function()
 		{
-			//	displayCurrentQuestion();
+		
 		});
 	// Some routes
     var router = new Router({

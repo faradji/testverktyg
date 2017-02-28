@@ -34,7 +34,7 @@ insertInDb(callback){
         SELECT MAX(id) AS id FROM answers
       `,
 	  write: `INSERT answers SET ?`
-	  //INTO answers (Id, studentAnswer,studentEmail,questionNumber)VALUES
+	  //INSERT INTO answers (Id, studentAnswer,studentEmail,questionNumber)VALUES
 		//	(Id,answer,email,questionNumber)`
     }
     }

@@ -39,6 +39,5 @@ window.load = `
 
   js/
   main.js
-  provform.js
 
 `;
