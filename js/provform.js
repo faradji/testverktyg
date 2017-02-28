@@ -22,7 +22,7 @@ $(document).ready(function () {
 		//to do: get user
     // Display the first question
 		displayCurrentQuestion();
-	
+	var tempId = window.highestId[0].id;
     // On clicking next, display the next question
 		       
     $(this).find(".nextButton").on("click", function () {
@@ -30,25 +30,25 @@ $(document).ready(function () {
 		
 			value = $("input[type='checkbox']:checked").val();
 			
-			var studentEmail = "ali@gmail.com";
+			var studentsEmail = "ali@gmail.com";
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
-			var tempEmail = String(studentEmail);
-			var tempId = window.highestId[0].id;
+			var tempEmail = String(studentsEmail);
+			
 			tempId = parseInt(tempId,10)+ 1;
 			tempCurrentQuestion = tempCurrentQuestion+1;
 			
-			var dataString ={Id:tempId, answer:tempAnswer, email:tempEmail
-			, questionNumber:tempCurrentQuestion};
-				
-				$.ajax({
+			var dataString ={Id:tempId, studentAnswer:tempAnswer, studentEmail:tempEmail,
+			questionNumber:tempCurrentQuestion};
+			var tests=	$.ajax({
 				url: "api/elev/write",
 				type: "POST",
 				dataType:'json',
 				data: JSON.stringify(dataString),
 				processData: false,
-				contentType: "application/json; charset=utf-8"
+				contentType: "application/json"
 				});
+				console.log(tests);
 				
            
 		
