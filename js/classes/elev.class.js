@@ -16,10 +16,10 @@ readAllFromDb(callback){
 	
 insertInDb(callback){
     this.db.write({
-		Id: data.Id,
-        answer: data.answer,
-        email: data.email,
-		questionNumber: data.questionNumber
+		Id: Id,
+        answer: studentAnswer,
+        email: studentEmail,
+		questionNumber: questionNumber
     },callback);
   }
 
@@ -33,11 +33,10 @@ insertInDb(callback){
 	  readIdAnswers: `
         SELECT MAX(id) AS id FROM answers
       `,
-	  write: `INSERT INTO answers (Id,studentAnswer,studentEmail,questionNumber) VALUES 
-			(Id,answer,'+email+',questionNumber)`
+	  write: `INSERT answers SET ?`
+	  //INTO answers (Id, studentAnswer,studentEmail,questionNumber)VALUES
+		//	(Id,answer,email,questionNumber)`
     }
     }
 
   }
-
-
