@@ -1,17 +1,5 @@
 class Router {
 
-  /*
-    Input to constructor:
-
-    {
-      "/": function(){ ... this route should always exsist... }
-      "/a/.../route/": function(){
-        // my logic to change views etc
-      }
-      "/another/...route": function(){...}
-    }
-  */
-
   constructor(routes){
 
     var self = this;
@@ -36,23 +24,14 @@ class Router {
 
   clickHandler(aTag,eventObj){
 
-    var href = aTag.attr('href'), handleThisRoute = false;
+    var href = aTag.attr('href');
 
-    // check if the href is among
-    // the routes this router should handle
-    for(var route in this.routes){
-      if(route == href){
-        handleThisRoute = true;
-        break;
-      }
-    }
+    var handleThisRoute = this.actOnRoute(href);
 
     if(!handleThisRoute){
       // the router shouldn't handle this route
       return;
     }
-
-    // handle this route:
 
     // use pushState (change url + add to history)
     // (the two first arguments are meaningless but required)
@@ -62,21 +41,71 @@ class Router {
     // (the reload of the page)
     eventObj.preventDefault();
 
-    // run the function connected to the route
-    this.actOnRoute(href);
-
   }
 
-  actOnRoute(route){
-    // find the function corresponding to the route
-    var func = this.routes[route];
-    // if the route has no corresponding function
-    // then set an "empty route", just "/"
-    func = func || this.routes['/'];
-    // make sure the dom is ready then run
-    // the function corresponding to the route
-    $(func);
-  }
+  actOnRoute(href){
 
+    var func, params, routeWithParams;
+
+    // check if the href is among
+    // the routes this router should handle
+    for(var route in this.routes){
+      // complete match
+      if(route == href){
+        func = this.routes[route];
+        break;
+      }
+      // handle params
+      if(route.indexOf(':') >= 0){
+        // match up until first param
+        var routeWithoutParams =
+          route.substring(0,route.indexOf(':'));
+        var hrefWithoutParams =
+          href.substring(0,route.indexOf(':'));
+        if(routeWithoutParams == hrefWithoutParams){
+          params = {};
+          // calculate params and check that the route
+          // really matches
+          var hrefParts = href.split('/');
+          var routeParts = route.split('/');
+          var allNonParamsPartsMatch = true;
+          // check arrays against each other
+          for(var i = 0; i < routeParts.length; i++){
+            if(routeParts[i][0] == ':'){
+              // is a param
+              params[routeParts[i].substr(1)] = hrefParts[i];
+            }
+            else {
+              // is not a param
+              if(routeParts[i] != hrefParts[i]){
+                allNonParamsPartsMatch = false;
+              }
+            }
+          }
+          if(allNonParamsPartsMatch){
+            // it did match!!!
+            func = this.routes[route];
+            break;
+          }
+        }
+      }
+    }
+
+    // we should not handle this route
+    if(!func){ return false; }
+
+    // handle a route without params
+    if(!params){
+      // wait for DOM ready and call the func
+      $(func);
+    }
+    else {
+      // wait for DOM ready and call the func
+      // with the params object as argument
+      $(()=>{func(params);});
+    }
+
+    return true;
+  }
 
 }
