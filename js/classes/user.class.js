@@ -8,27 +8,17 @@ class user extends Base {
 	
 	getUser(){
 		var userFromDb = [];
-    this.db.readAll((data)=>{
+    this.db.readAllUsers((data)=>{
 		window.userFromDb = data;
     });
 	}
-	
-//	getUserByEmail(){
-  //  this.db.getCurrentUser((data)=>{
-		//emailAddress:emailAddress
-//		console.log(data);
-  //  },);
 
-//	}
 
   static get sqlQueries(){
     
     return {
-		      readAll: `
+		      readAllUsers: `
         SELECT * FROM users
-      `,
-	  getCurrentUser: `
-        SELECT idUsers FROM users where emailAddress = ?
       `
     }
     }

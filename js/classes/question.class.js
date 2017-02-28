@@ -7,7 +7,7 @@ class question extends Base {
 	}
 	
 readAllFromDb(callback){
-    this.db.readAll((data)=>{
+    this.db.readAllQuestions((data)=>{
 		window.questionfromdb=data;
     });
 	//this.db.readIdAnswers((data)=>{
@@ -26,7 +26,7 @@ insertInDb(callback){
   static get sqlQueries(){
     
     return {
-		      readAll: `
+		      readAllQuestions: `
         SELECT * FROM questions
       `,
 	  readIdAnswers: `
