@@ -26,6 +26,7 @@ window.load = `
 	navbar.class.js
 	elev.class.js
 	elevview.class.js
+  teacherview.class.js
 	startpage.class.js
    
     
@@ -34,6 +35,7 @@ window.load = `
   elevView.html
   navbar.html
   startpage.html
+  teacherview.html
     
     
 

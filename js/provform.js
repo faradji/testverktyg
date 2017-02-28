@@ -6,7 +6,7 @@ var testTimeOver = false;
 $(document).ready(function () {
     //timern startar
     
-    function isTimeOut(){
+    /*function isTimeOut(){
        
         testTimeOver = true;
         quizOver = true;
@@ -14,7 +14,7 @@ $(document).ready(function () {
         $(document).find(".nextButton").text("skicka in");
         alert("Tiden har tagit slut! Skicka in provet.");
     }
-    setTimeout(isTimeOut, 360000);//360000
+    setTimeout(isTimeOut, 360000);//360000*/
 
 
 
