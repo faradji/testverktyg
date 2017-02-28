@@ -3,7 +3,7 @@ class question extends Base {
   constructor(propertyValues){
 		super(propertyValues);
 		this.readAllFromDb();
-		$.getScript('js/provform.js');
+		$.getScript('js/test.js');
 	}
 	
 readAllFromDb(callback){

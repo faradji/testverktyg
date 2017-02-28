@@ -27,6 +27,8 @@ window.load = `
 	elev.class.js
 	elevview.class.js
 	startpage.class.js
+	question.class.js
+	user.class.js
    
     
 

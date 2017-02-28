@@ -4,7 +4,8 @@ class App {
 	this.startPage = new StartPage();
 	this.navbar = new Navbar();
     this.elevView = new elevView();
-	this.elev = new elev();
+	this.question = new question();
+	this.user = new user();
 
 
     // Show the navbar

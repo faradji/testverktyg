@@ -48,7 +48,6 @@ $(document).ready(function () {
 				processData: false,
 				contentType: "application/json"
 				});
-				console.log(tests);
 				
            
 		
