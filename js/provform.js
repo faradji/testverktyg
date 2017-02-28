@@ -41,7 +41,7 @@ $(document).ready(function () {
 			var dataString ={Id:tempId, studentAnswer:tempAnswer, studentEmail:tempEmail,
 			questionNumber:tempCurrentQuestion};
 			var tests=	$.ajax({
-				url: "api/elev/write",
+				url: "api/question/write",
 				type: "POST",
 				dataType:'json',
 				data: JSON.stringify(dataString),
@@ -129,14 +129,11 @@ function displayCurrentQuestion() {
     $(document).find(".quizContainer > .questionnr").show();
 	}
     
-   // for (i = 0; i < numChoices; i++) {
-    //    let choice = window.questionfromdb[currentQuestion].choices[i];
         $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
 		window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
 		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
 		window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
 	
-  // }
 	
 	// only one checkbox checked
 			$(".example").on("change", function() {

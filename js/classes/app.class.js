@@ -11,14 +11,7 @@ class App {
     this.navbar.display('body');
 	
     // Add a page-content area in the DOM
-    $('body').append('<div class="page-content"/>');	
-
-	// load provform.js and make sure it's run
-	// after everything else is loaded
-	$.getScript('js/provform.js', function()
-		{
-		
-		});
+    $('body').append('<div class="page-content"/>');
 	// Some routes
     var router = new Router({
 	// root/ startsida prop : proVal
@@ -28,11 +21,12 @@ class App {
     });
   }
 
- 
-  showPage(page){
+
+  showPage(page){	
     $('.page-content').empty();
     page.display('.page-content');  
-    this.navbar.setActiveLink();	
+    this.navbar.setActiveLink();
+	
   }
 
 }

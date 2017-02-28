@@ -1,8 +1,9 @@
-class elev extends Base {
+class question extends Base {
 
   constructor(propertyValues){
 		super(propertyValues);
 		this.readAllFromDb();
+		$.getScript('js/provform.js');
 	}
 	
 readAllFromDb(callback){
