@@ -7,34 +7,32 @@ class question extends Base {
 	}
 	
 readAllFromDb(callback){
-    this.db.readAll((data)=>{
+    this.db.readAllQuestions((data)=>{
 		window.questionfromdb=data;
     });
-	this.db.readIdAnswers((data)=>{
-		window.highestId=data;
-    });
+	//this.db.readIdAnswers((data)=>{
+	//	window.highestId=data;
+    //});
  }
 	
 insertInDb(callback){
     this.db.write({
-		Id: Id,
-        answer: studentAnswer,
-        email: studentEmail,
-		questionNumber: questionNumber
+		Users_idUsers: Id,
+        Questions_idQuestions: Questions_idQuestions ,
+        user_answer: studentAnswer
     },callback);
   }
-
 
   static get sqlQueries(){
     
     return {
-		      readAll: `
+		      readAllQuestions: `
         SELECT * FROM questions
       `,
 	  readIdAnswers: `
         SELECT MAX(id) AS id FROM answers
       `,
-	  write: `INSERT answers SET ?`
+	  write: `INSERT users_responses_to_questions SET ?`
 	  //INSERT INTO answers (Id, studentAnswer,studentEmail,questionNumber)VALUES
 		//	(Id,answer,email,questionNumber)`
     }

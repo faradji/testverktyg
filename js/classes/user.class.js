@@ -8,15 +8,16 @@ class user extends Base {
 	
 	getUser(){
 		var userFromDb = [];
-    this.db.readAll((data)=>{
-		userFromDb = data;
+    this.db.readAllUsers((data)=>{
+		window.userFromDb = data;
     });
 	}
+
 
   static get sqlQueries(){
     
     return {
-		      readAll: `
+		      readAllUsers: `
         SELECT * FROM users
       `
     }
