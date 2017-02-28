@@ -129,9 +129,9 @@ function displayCurrentQuestion() {
 	}
     
         $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
-		window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
+		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
 		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
-		window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
+		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
 	
 	
 	// only one checkbox checked
