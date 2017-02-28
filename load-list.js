@@ -23,13 +23,24 @@ window.load = `
   
   js/classes/
     app.class.js    
+	navbar.class.js
+	elev.class.js
+	elevview.class.js
+  teacherview.class.js
+	startpage.class.js
    
     
 
   templates/    
+  elevView.html
+  navbar.html
+  startpage.html
+  teacherview.html
     
     
 
-  js/main.js
+  js/
+  main.js
+  provform.js
 
 `;
