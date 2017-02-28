@@ -15,7 +15,7 @@ class MejlList extends List {
   static get sqlQueries(){
     return {
       readMejl: `
-        SELECT email FROM users WHERE userType=1
+        SELECT emailAddress FROM users
       `
     }
   }

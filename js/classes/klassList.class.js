@@ -15,7 +15,7 @@ class KlassList extends List {
   static get sqlQueries(){
     return {
 	  readKlass: `
-        SELECT klass FROM users WHERE userType=1
+        SELECT class FROM users
       `
     }
   }

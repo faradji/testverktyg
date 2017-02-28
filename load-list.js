@@ -26,19 +26,21 @@ window.load = `
 	navbar.class.js
 	elev.class.js
 	elevview.class.js
-  teacherview.class.js
+	teacherview.class.js
 	startpage.class.js
 	question.class.js
 	user.class.js
-   
+	mejlView.class.js
+	mejlList.class.js
+	klassList.class.js
     
 
   templates/    
-  elevView.html
-  navbar.html
-  startpage.html
-  teacherview.html
-    
+	elevView.html
+	navbar.html
+	startpage.html
+	teacherview.html
+    mejlView.html
     
 
   js/

@@ -7,11 +7,11 @@ class MejlView extends Base {
 		this.user=user;
 		new MejlList((Mejl)=>{
 			this.Mejl=Mejl;
-			callback(this);
-		})
-		new KlassList((klass)=>{
-			this.klass=klass;
-			callback(this);
+		
+			new KlassList((klass)=>{
+				this.klass=klass;
+				callback(this);
+			})
 		})
 		});
 	}

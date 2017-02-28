@@ -6,6 +6,7 @@ class App {
     this.elevView = new elevView();
 	this.question = new question();
 	this.user = new user();
+	this.mejlView=new MejlView();
 
 
     // Show the navbar
@@ -18,7 +19,8 @@ class App {
 	// root/ startsida prop : proVal
     '/': ()=>{ this.showPage(this.startPage); },
 	'/elev': ()=> { this.showPage(this.elev); },
-  '/teacherview': () => {this.showPage(this.teacherview)}
+  '/teacherview': () => {this.showPage(this.teacherview)},
+	'/mejlView':() => {this.showPage(this.mejlView)}
 	
     });
   }
