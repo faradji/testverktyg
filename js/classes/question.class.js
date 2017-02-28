@@ -1,8 +1,9 @@
-class elev extends Base {
+class question extends Base {
 
   constructor(propertyValues){
 		super(propertyValues);
 		this.readAllFromDb();
+		$.getScript('js/test.js');
 	}
 	
 readAllFromDb(callback){
@@ -34,7 +35,7 @@ insertInDb(callback){
         SELECT MAX(id) AS id FROM answers
       `,
 	  write: `INSERT answers SET ?`
-	  //INTO answers (Id, studentAnswer,studentEmail,questionNumber)VALUES
+	  //INSERT INTO answers (Id, studentAnswer,studentEmail,questionNumber)VALUES
 		//	(Id,answer,email,questionNumber)`
     }
     }

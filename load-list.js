@@ -28,6 +28,8 @@ window.load = `
 	elevview.class.js
   teacherview.class.js
 	startpage.class.js
+	question.class.js
+	user.class.js
    
     
 
@@ -41,6 +43,5 @@ window.load = `
 
   js/
   main.js
-  provform.js
 
 `;
