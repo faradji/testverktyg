@@ -1,9 +1,15 @@
 var currentQuestion = 0;
+ 
 var correctAnswers = 0;
+ 
+var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
+ 
 var quizOver = false;
+ 
 var value;
+ 
 var testTimeOver = false;
-var userIdFromDb;
+ 
 $(document).ready(function () {
 	//prevent default
 	$(".mail").submit(function(e){
@@ -29,9 +35,6 @@ $(document).ready(function () {
        
         testTimeOver = true;
         quizOver = true;
-        console.log(testTimeOver);
-        $(document).find(".nextButton").text("skicka in");
-        alert("Tiden har tagit slut! Skicka in provet.");
     }
     setTimeout(isTimeOut, 360000);//360000*/
 
@@ -49,20 +52,8 @@ $(document).ready(function () {
 		
 			value = $("input[type='checkbox']:checked").val();
 			
-				
-           
-		
-	if(testTimeOver==false){
-
-        if (!quizOver) {
-
-            
-			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
-                    correctAnswers++;
-                    
-                }
-			//save the choice to send it to db
-				var studentsEmail = "ali@gmail.com";
+				//save the choice to send it to db
+			var studentsEmail = "ali@gmail.com";
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
 			var tempEmail = String(studentsEmail);
@@ -86,47 +77,70 @@ $(document).ready(function () {
 				contentType: "application/json"
 				});
 			
+           
+		
+	if(testTimeOver==false){
+
+        if (!quizOver) {
+			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
+                    correctAnswers++;
+                }
+			
             if (value == undefined) {
                 $(document).find(".message").text("Du måste göra ett val");
                 $(document).find(".message").show();
             } else {
                 // Remove any message
                 $(document).find(".message").hide();
-
-                
-
-                currentQuestion++;
+				currentQuestion++;
+			}
                 if (currentQuestion < window.questionfromdb.length) {
                     displayCurrentQuestion();
                 } else {
                     displayScore();
-                    
-                    // Change the text in the next button to ask if user wants to send in the test
-                    $(document).find(".nextButton").text("skicka in");
-					
-					$(this).find(".nextButton").on("click", function () {
-					
-					//to do: save test in db
-                    quizOver = true;
-
-                });
-            }
-                       
-
-        }
-	} else { // to do: send data to db
-            
-				}
-	
+					quizOver = true;
+                    //  send in the test and display message
+			$(document).find(".nextButton").hide();
+				console.log("button har ändrats");
+			$(document).find(".message").text("Provet är slut och har skickats in!");
+			$(document).find(".message").show();
+			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
+			user_answer:null, score:tempScore};
+			$.ajax({
+				url: "api/question/write",
+				type: "POST",
+				dataType:'json',
+				data: JSON.stringify(dataString),
+				processData: false,
+				contentType: "application/json"
+ 
+              });
+			  }
+		}
 	}else{
-		//stoppa provet
-
-	}
-	
+ 
+    //test is over, you ran out of time
+ 
+			displayScore();
+			quizOver = true;
+         //  send in the test and display message
+          $(document).find(".nextButton").hide();
+          $(document).find(".message").text("Tiden är slut och provet har skickats in!");
+          $(document).find(".message").show();
+          var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
+          user_answer:null, score:tempScore};
+            $.ajax({
+              url: "api/question/write",
+              type: "POST",
+              dataType:'json',
+              data: JSON.stringify(dataString),
+              processData: false,
+              contentType: "application/json"
+              });
+              console.log("ajax har körts");
+ 	}
 	});
-			 
-	
-    });
+		});
 
 
 function displayCurrentQuestion() {
