@@ -4,15 +4,13 @@ class question extends Base {
 		super(propertyValues);
 		this.readAllFromDb();
 		$.getScript('js/test.js');
+		$.getScript('js/teacherViewElements.js');
 	}
 	
 readAllFromDb(callback){
     this.db.readAllQuestions((data)=>{
 		window.questionfromdb=data;
     });
-	//this.db.readIdAnswers((data)=>{
-	//	window.highestId=data;
-    //});
  }
 	
 insertInDb(callback){
