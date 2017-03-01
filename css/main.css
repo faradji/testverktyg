@@ -131,6 +131,25 @@
     border-radius: 10px;	
 }		
 	
+.teacherElements
+{
+	border:1px solid black;
+    width:50%;
+	height:100%;	
+	float:left;
+	
+}
+.doneTest
+{
+	border:1px solid black;
+    width:49%;
+	height:100%;
+	float:right;
+	display: inline-block;
+	top:0px;
+	
+	
+}
 /* teacherView end*/
 
 @media only screen and (min-width: 375px) and (orientation:portrait){

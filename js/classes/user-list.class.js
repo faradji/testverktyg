@@ -10,7 +10,6 @@ class UserList extends List {
 	  window.userFromDb = data;
       this.push.apply(this,data);
       callback && (typeof callback == 'function') && callback(this);
-	  console.log('hämtar MailList från db');
     });
   }
   

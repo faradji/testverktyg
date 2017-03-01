@@ -9,7 +9,6 @@ class MailView extends Base {
 			new UserList((userList)=>{
 				this.userList=userList;
 				callback && callback(this);
-				console.log('skapar mailList från db');
 			});
 		//});
 	}
