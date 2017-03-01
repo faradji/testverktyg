@@ -24,14 +24,15 @@ window.load = `
   js/classes/
     app.class.js    
 	navbar.class.js
-	elev.class.js
 	elevview.class.js
 	startpage.class.js
 	question.class.js
 	user.class.js
 	teacherview.class.js
 	questions-list.class.js
-   
+	mailView.class.js
+    user-list.class.js
+	klass-list.class.js
     
 
   templates/    
@@ -39,7 +40,8 @@ window.load = `
   navbar.html
   startpage.html
   teacherview.html
-    
+  mailView.html  
+  user.html
     
 
   js/

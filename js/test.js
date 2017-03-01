@@ -1,5 +1,6 @@
 var currentQuestion = 0;
 var correctAnswers = 0;
+window.questionfromdb=window.questionfromdb||[];
 var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 var quizOver = false;
 var value;
@@ -139,7 +140,13 @@ $(document).ready(function () {
 
 
 function displayCurrentQuestion() {
-    var question = window.questionfromdb[currentQuestion].QuestionText;
+    var question ="";
+	if((currentQuestion || currentQuestion==0)&& window.questionfromdb[currentQuestion] && window.questionfromdb[currentQuestion].QuestionText){
+		question=window.questionfromdb[currentQuestion].QuestionText;
+	}
+	else{
+		return;
+	}
     var questionClass = $(document).find(".quizContainer > .question");
     var choiceList = $(document).find(".quizContainer > .choiceList");
    // var numChoices = window.questionfromdb[currentQuestion].choices.length;
@@ -159,12 +166,12 @@ function displayCurrentQuestion() {
 	$(document).find(".quizContainer > .questionnr").text("Fråga " + temp + " av " + window.questionfromdb.length);
     $(document).find(".quizContainer > .questionnr").show();
 	}
-    
-        $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" /> ' + 
+    if(window.questionfromdb[currentQuestion].choice_no && window.questionfromdb[currentQuestion].choice_yes){
+    $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
 		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
-		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" /> ' + 
+	$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
 		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
-	
+	}
 	
 	// only one checkbox checked
 			$(".example").on("change", function() {
