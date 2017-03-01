@@ -19,7 +19,8 @@ insertInDb(callback){
     this.db.write({
 		Users_idUsers: Id,
         Questions_idQuestions: Questions_idQuestions ,
-        user_answer: studentAnswer
+        user_answer: studentAnswer,
+		score:score
     },callback);
   }
 

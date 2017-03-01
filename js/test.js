@@ -1,27 +1,32 @@
 var currentQuestion = 0;
+ 
 var correctAnswers = 0;
+ 
+var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
+ 
 var quizOver = false;
+ 
 var value;
+ 
 var testTimeOver = false;
-
+ 
 $(document).ready(function () {
 	//prevent default
 	$(".mail").submit(function(e){
     return false;
-});
-//hämta email adress
+	});
+//get typed in email and get userId
 	$(this).find(".email").on("change", function () {
-var currentUser = $(document).find(".quizContainer > .mail > .email").val();
-				
+		var currentUser = $(document).find(".quizContainer > .mail > .email").val();	
 
-for(var i = 0; i < window.userFromDb.length; i++)
-{
-  if(window.userFromDb[i].emailAddress == currentUser)
-  {
-    var userIdFromDb= window.userFromDb[i].idUsers;
-  }
-}
-
+		for(var i = 0; i < window.userFromDb.length; i++)
+		{
+		  if(window.userFromDb[i].emailAddress == currentUser)
+		  {
+			 userIdFromDb= window.userFromDb[i].idUsers;
+			 break;
+		  }
+		}
 				
 	});
     //timern startar
@@ -30,19 +35,16 @@ for(var i = 0; i < window.userFromDb.length; i++)
        
         testTimeOver = true;
         quizOver = true;
-        console.log(testTimeOver);
-        $(document).find(".nextButton").text("skicka in");
-        alert("Tiden har tagit slut! Skicka in provet.");
     }
     setTimeout(isTimeOut, 360000);//360000*/
 
 
 
 
-		//to do: get user
+		
     // Display the first question
 		displayCurrentQuestion();
-	//var tempId = window.highestId[0].id;
+
     // On clicking next, display the next question
 		       
     $(this).find(".nextButton").on("click", function () {
@@ -50,14 +52,21 @@ for(var i = 0; i < window.userFromDb.length; i++)
 		
 			value = $("input[type='checkbox']:checked").val();
 			
+				//save the choice to send it to db
 			var studentsEmail = "ali@gmail.com";
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
 			var tempEmail = String(studentsEmail);
 			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
 			tempCurrentQuestion = tempCurrentQuestion+1;
+			var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 			
-			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId, user_answer:tempAnswer};
+			console.log("correctAnswer from db",window.questionfromdb[currentQuestion].CorrectAnswer);
+			console.log("chosen value",value);
+			console.log("score",correctAnswers);
+			
+			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId,
+			user_answer:tempAnswer, score:tempScore};
 			
 			$.ajax({
 				url: "api/question/write",
@@ -67,16 +76,15 @@ for(var i = 0; i < window.userFromDb.length; i++)
 				processData: false,
 				contentType: "application/json"
 				});
-				
+			
            
 		
 	if(testTimeOver==false){
 
         if (!quizOver) {
-
-            
-			
-			//save the choice to send it to db
+			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
+                    correctAnswers++;
+                }
 			
             if (value == undefined) {
                 $(document).find(".message").text("Du måste göra ett val");
@@ -84,45 +92,55 @@ for(var i = 0; i < window.userFromDb.length; i++)
             } else {
                 // Remove any message
                 $(document).find(".message").hide();
-
-                if (value == window.questionfromdb[currentQuestion].correctAnswer) {
-                    correctAnswers++;
-                    
-                }
-
-                currentQuestion++;
+				currentQuestion++;
+			}
                 if (currentQuestion < window.questionfromdb.length) {
                     displayCurrentQuestion();
                 } else {
                     displayScore();
-                    
-                    // Change the text in the next button to ask if user wants to send in the test
-                    $(document).find(".nextButton").text("skicka in");
-					
-					$(this).find(".nextButton").on("click", function () {
-					
-					//to do: save test in db
-                    quizOver = true;
-
-                });
-            }
-                       
-
-        }
-	} else { // to do: send data to db
-            
-				}
-	
+					quizOver = true;
+                    //  send in the test and display message
+			$(document).find(".nextButton").hide();
+				console.log("button har ändrats");
+			$(document).find(".message").text("Provet är slut och har skickats in!");
+			$(document).find(".message").show();
+			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
+			user_answer:null, score:tempScore};
+			$.ajax({
+				url: "api/question/write",
+				type: "POST",
+				dataType:'json',
+				data: JSON.stringify(dataString),
+				processData: false,
+				contentType: "application/json"
+ 
+              });
+			  }
+		}
 	}else{
-		//stoppa provet
-
-	}
-	
-	
-        });
-			 
-	
-    });
+ 
+    //test is over, you ran out of time
+ 
+			displayScore();
+			quizOver = true;
+         //  send in the test and display message
+          $(document).find(".nextButton").hide();
+          $(document).find(".message").text("Tiden är slut och provet har skickats in!");
+          $(document).find(".message").show();
+          var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
+          user_answer:null, score:tempScore};
+            $.ajax({
+              url: "api/question/write",
+              type: "POST",
+              dataType:'json',
+              data: JSON.stringify(dataString),
+              processData: false,
+              contentType: "application/json"
+              });
+              console.log("ajax har körts");
+ 	}
+	});
+		});
 
 
 function displayCurrentQuestion() {

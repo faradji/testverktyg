@@ -30,17 +30,16 @@ window.load = `
 	startpage.class.js
 	question.class.js
 	user.class.js
-	mejlView.class.js
-	mejlList.class.js
-	klassList.class.js
+	teacherview.class.js
+	questions-list.class.js
+   
     
 
   templates/    
-	elevView.html
-	navbar.html
-	startpage.html
-	teacherview.html
-    mejlView.html
+  elevView.html
+  navbar.html
+  startpage.html
+  teacherview.html
     
 
   js/

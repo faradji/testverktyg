@@ -6,7 +6,7 @@ class App {
     this.elevView = new elevView();
 	this.question = new question();
 	this.user = new user();
-	this.mejlView=new MejlView();
+	this.teacherview = new teacherView();
 
 
     // Show the navbar
@@ -18,9 +18,8 @@ class App {
     var router = new Router({
 	// root/ startsida prop : proVal
     '/': ()=>{ this.showPage(this.startPage); },
-	'/elev': ()=> { this.showPage(this.elev); },
-  '/teacherview': () => {this.showPage(this.teacherview)},
-	'/mejlView':() => {this.showPage(this.mejlView)}
+	'/elev': ()=> { this.showPage(this.elevView);},
+	'/teacherView': () => {this.showPage(this.teacherview)}
 	
     });
   }
