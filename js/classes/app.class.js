@@ -21,7 +21,7 @@ class App {
     '/': ()=>{ this.showPage(this.startPage); },
 	'/elev': ()=> { this.showPage(this.elevView);$.getScript('js/test.js');},
 	'/teacherView': () => {this.showPage(this.teacherview);$.getScript('js/teacherViewElements.js');},
-	'/mailView': () => {console.log('Show MailView');this.showPage(this.MailView)}
+	'/mailView': () => {this.showPage(this.MailView)}
 	
     });
   }
