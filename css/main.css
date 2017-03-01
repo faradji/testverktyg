@@ -1,5 +1,7 @@
 /* Add your own css */
-
+.klassLista, .mailLista{
+	border:2px solid black;
+}
 .pet-box, .pet-owner-name {
   cursor:pointer;
 }

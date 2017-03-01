@@ -2,25 +2,25 @@ class user extends Base {
 
   constructor(propertyValues){
 		super(propertyValues);
-		this.getUser();
+	//	this.getUser();
 		
 	}
 	
-	getUser(){
+/* 	getUser(){
 		var userFromDb = [];
     this.db.readAllUsers((data)=>{
 		window.userFromDb = data;
     });
-	}
+	} */
 
 
-  static get sqlQueries(){
+/*   static get sqlQueries(){
     
     return {
 		      readAllUsers: `
         SELECT * FROM users
       `
     }
-    }
+    } */
 
   }

@@ -4,12 +4,10 @@ class teacherView extends Base {
     super(propertyValues);
 	this.readAllFromDb();
   }
-
+<<<<<<< Temporary merge branch 1
+=======
   
-readAllFromDb(callback){
-    this.db.readAllAnswers((data)=>{
-		window.answersFromDb=data;
-    });
+>>>>>>> Temporary merge branch 2
 
  }
   
