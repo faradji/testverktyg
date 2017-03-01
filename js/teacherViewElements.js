@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	var divElement = $(document).find(".teacherElements"); 
 var divElementDoneTest = $(document).find(".doneTest");
+var divElementScore = $(document).find(".score");
   //$(document).find(".teacherElements").show();
 	//finds done tests and displays them under the name
 	for(let i = 0; i < window.userFromDb.length; i++)
@@ -12,30 +13,30 @@ var divElementDoneTest = $(document).find(".doneTest");
 		  $('<li>' + window.userFromDb[i].firstName + ' ' +
 		  window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
 		  '</li></br>').appendTo(divElement);
-			$('<li class="linkToTest"><a href="">'+ 'prov: '+window.userFromDb[i].idUsers+
+			$('<li class="linkToTest"><a href="">'+ 'prov med id: '+window.userFromDb[i].idUsers+
 			'</a></li></br>').appendTo(divElement);
 			break;
 			}	
 		}
   }
-  
+  var lastElement = window.answersFromDb[window.answersFromDb.length - 1];
   	//display chosen test
+	console.log(lastElement);
    $(this).find(".linkToTest").on("click", function (event) {
 		event.preventDefault();
 	for(let i = 0; i < window.answersFromDb.length; i++)
 	{	
 		if(window.answersFromDb[i].user_answer==1){
-		$('<article>'+'question number: '+ window.answersFromDb[i].Questions_idQuestions+
-		' user answer: '+ ',Yes '+ ',total score was: '+window.answersFromDb[i].score +
-		'</article></br>').appendTo(divElementDoneTest);
+		$('<article>'+window.questionfromdb[i].QuestionText+
+		'</br> user answer: Yes </article></br>').appendTo(divElementDoneTest);
 		}else{
-			$('<article>'+'question number: '+ window.answersFromDb[i].Questions_idQuestions+
-		' user answer: '+ ',No '+ ',total score was: '+window.answersFromDb[i].score +
-		'</article></br>').appendTo(divElementDoneTest);
+			$('<article>'+window.questionfromdb[i].QuestionText+
+			'</br> user answer: No </article></br>').appendTo(divElementDoneTest);
 		}
 	}
-	
+	$('<article>'+'score: '+lastElement.score+'</article></br>').appendTo(divElementScore);
    });
 
+   	
 });
 
