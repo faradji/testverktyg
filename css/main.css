@@ -133,6 +133,20 @@ div{
 	
 }	
 	
+.teacherElements
+{
+	border:1px solid black;
+    width:50%;
+	height:100%;
+	
+}
+.doneTest
+{
+	border:1px solid black;
+    width:50%;
+	height:100%;
+	float:right;
+}
 /* teacherView end*/
 
 @media only screen and (min-width: 375px) and (orientation:portrait){
