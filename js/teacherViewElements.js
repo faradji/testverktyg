@@ -19,9 +19,10 @@ var divElementDoneTest = $(document).find(".doneTest");
 			}	
 		}
   }
+  
   var lastElement = window.answersFromDb[window.answersFromDb.length - 1];
   	//display chosen test
-	console.log(lastElement.score);
+
 	
    $(this).find(".linkToTest").on("click", function (event) {
 		event.preventDefault();

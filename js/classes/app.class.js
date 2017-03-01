@@ -8,7 +8,6 @@ class App {
 	this.question = new question();
 	this.teacherview = new teacherView();
 	this.MailView = new MailView();
-	console.log('new MailView');
 
 
     // Show the navbar
