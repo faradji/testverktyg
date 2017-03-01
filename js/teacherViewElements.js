@@ -1,7 +1,7 @@
-var divElement = $(document).find(".teacherElements"); 
-var divElementDoneTest = $(document).find(".doneTest");
 $(document).ready(function () {
-
+	var divElement = $(document).find(".teacherElements"); 
+var divElementDoneTest = $(document).find(".doneTest");
+  //$(document).find(".teacherElements").show();
 	//finds done tests and displays them under the name
 	for(let i = 0; i < window.userFromDb.length; i++)
 	{	
@@ -26,17 +26,16 @@ $(document).ready(function () {
 	{	
 		if(window.answersFromDb[i].user_answer==1){
 		$('<article>'+'question number: '+ window.answersFromDb[i].Questions_idQuestions+
-		' user answer: '+ 'Yes'+ 'total score was: '+window.answersFromDb[i].score +
+		' user answer: '+ ',Yes '+ ',total score was: '+window.answersFromDb[i].score +
 		'</article></br>').appendTo(divElementDoneTest);
 		}else{
 			$('<article>'+'question number: '+ window.answersFromDb[i].Questions_idQuestions+
-		' user answer: '+ 'No'+ 'total score was: '+window.answersFromDb[i].score +
+		' user answer: '+ ',No '+ ',total score was: '+window.answersFromDb[i].score +
 		'</article></br>').appendTo(divElementDoneTest);
 		}
 	}
 	
    });
-					
 
 });
 
