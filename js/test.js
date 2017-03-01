@@ -3,7 +3,7 @@ var correctAnswers = 0;
 var quizOver = false;
 var value;
 var testTimeOver = false;
-
+var userIdFromDb;
 $(document).ready(function () {
 	//prevent default
 	$(".mail").submit(function(e){
@@ -18,10 +18,10 @@ for(var i = 0; i < window.userFromDb.length; i++)
 {
   if(window.userFromDb[i].emailAddress == currentUser)
   {
-    var userIdFromDb= window.userFromDb[i].idUsers;
+     userIdFromDb= window.userFromDb[i].idUsers;
   }
 }
-
+console.log(userIdFromDb);
 				
 	});
     //timern startar
