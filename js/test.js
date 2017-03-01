@@ -3,7 +3,27 @@ var correctAnswers = 0;
 var quizOver = false;
 var value;
 var testTimeOver = false;
+var userIdFromDb;
 $(document).ready(function () {
+	//prevent default
+	$(".mail").submit(function(e){
+    return false;
+});
+//hämta email adress
+	$(this).find(".email").on("change", function () {
+var currentUser = $(document).find(".quizContainer > .mail > .email").val();
+				
+
+for(var i = 0; i < window.userFromDb.length; i++)
+{
+  if(window.userFromDb[i].emailAddress == currentUser)
+  {
+     userIdFromDb= window.userFromDb[i].idUsers;
+  }
+}
+console.log(userIdFromDb);
+				
+	});
     //timern startar
     
     /*function isTimeOut(){
@@ -22,7 +42,7 @@ $(document).ready(function () {
 		//to do: get user
     // Display the first question
 		displayCurrentQuestion();
-	var tempId = window.highestId[0].id;
+	//var tempId = window.highestId[0].id;
     // On clicking next, display the next question
 		       
     $(this).find(".nextButton").on("click", function () {
@@ -34,13 +54,12 @@ $(document).ready(function () {
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
 			var tempEmail = String(studentsEmail);
-			
-			tempId = parseInt(tempId,10)+ 1;
+			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
 			tempCurrentQuestion = tempCurrentQuestion+1;
 			
-			var dataString ={Id:tempId, studentAnswer:tempAnswer, studentEmail:tempEmail,
-			questionNumber:tempCurrentQuestion};
-			var tests=	$.ajax({
+			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId, user_answer:tempAnswer};
+			
+			$.ajax({
 				url: "api/question/write",
 				type: "POST",
 				dataType:'json',
@@ -107,7 +126,7 @@ $(document).ready(function () {
 
 
 function displayCurrentQuestion() {
-    var question = window.questionfromdb[currentQuestion].questionText;
+    var question = window.questionfromdb[currentQuestion].QuestionText;
     var questionClass = $(document).find(".quizContainer > .question");
     var choiceList = $(document).find(".quizContainer > .choiceList");
    // var numChoices = window.questionfromdb[currentQuestion].choices.length;
@@ -129,9 +148,9 @@ function displayCurrentQuestion() {
 	}
     
         $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
-		window.questionfromdb[currentQuestion].choice_one + '</li>').appendTo(choiceList);
+		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
 		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
-		window.questionfromdb[currentQuestion].choice_two + '</li>').appendTo(choiceList);
+		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
 	
 	
 	// only one checkbox checked
