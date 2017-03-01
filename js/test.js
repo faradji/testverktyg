@@ -160,9 +160,9 @@ function displayCurrentQuestion() {
     $(document).find(".quizContainer > .questionnr").show();
 	}
     
-        $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
+        $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" /> ' + 
 		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
-		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
+		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" /> ' + 
 		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
 	
 	

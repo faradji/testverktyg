@@ -1,8 +1,8 @@
 $(document).ready(function () {
 	var divElement = $(document).find(".teacherElements"); 
 var divElementDoneTest = $(document).find(".doneTest");
-var divElementScore = $(document).find(".score");
-  //$(document).find(".teacherElements").show();
+
+ 
 	//finds done tests and displays them under the name
 	for(let i = 0; i < window.userFromDb.length; i++)
 	{	
@@ -21,20 +21,29 @@ var divElementScore = $(document).find(".score");
   }
   var lastElement = window.answersFromDb[window.answersFromDb.length - 1];
   	//display chosen test
-	console.log(lastElement);
+	console.log(lastElement.score);
+	
    $(this).find(".linkToTest").on("click", function (event) {
 		event.preventDefault();
-	for(let i = 0; i < window.answersFromDb.length; i++)
+		
+		//$(document).find(".doneTest").empty();
+		 $(".doneTest").html("");
+
+	for(let i = 0; i < window.questionfromdb.length; i++)
 	{	
+		
 		if(window.answersFromDb[i].user_answer==1){
-		$('<article>'+window.questionfromdb[i].QuestionText+
+			
+			$('<article>'+window.questionfromdb[i].QuestionText+
 		'</br> user answer: Yes </article></br>').appendTo(divElementDoneTest);
 		}else{
+		
 			$('<article>'+window.questionfromdb[i].QuestionText+
 			'</br> user answer: No </article></br>').appendTo(divElementDoneTest);
 		}
 	}
-	$('<article>'+'score: '+lastElement.score+'</article></br>').appendTo(divElementScore);
+
+	$('<article> score: '+lastElement.score+'</article></br>').appendTo(divElementDoneTest);
    });
 
    	
