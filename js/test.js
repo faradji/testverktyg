@@ -8,20 +8,19 @@ $(document).ready(function () {
 	//prevent default
 	$(".mail").submit(function(e){
     return false;
-});
-//hämta email adress
+	});
+//get typed in email and get userId
 	$(this).find(".email").on("change", function () {
-var currentUser = $(document).find(".quizContainer > .mail > .email").val();
-				
+		var currentUser = $(document).find(".quizContainer > .mail > .email").val();	
 
-for(var i = 0; i < window.userFromDb.length; i++)
-{
-  if(window.userFromDb[i].emailAddress == currentUser)
-  {
-     userIdFromDb= window.userFromDb[i].idUsers;
-  }
-}
-console.log(userIdFromDb);
+		for(var i = 0; i < window.userFromDb.length; i++)
+		{
+		  if(window.userFromDb[i].emailAddress == currentUser)
+		  {
+			 userIdFromDb= window.userFromDb[i].idUsers;
+			 break;
+		  }
+		}
 				
 	});
     //timern startar
@@ -39,10 +38,10 @@ console.log(userIdFromDb);
 
 
 
-		//to do: get user
+		
     // Display the first question
 		displayCurrentQuestion();
-	//var tempId = window.highestId[0].id;
+
     // On clicking next, display the next question
 		       
     $(this).find(".nextButton").on("click", function () {
@@ -50,14 +49,33 @@ console.log(userIdFromDb);
 		
 			value = $("input[type='checkbox']:checked").val();
 			
-			var studentsEmail = "ali@gmail.com";
+				
+           
+		
+	if(testTimeOver==false){
+
+        if (!quizOver) {
+
+            
+			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
+                    correctAnswers++;
+                    
+                }
+			//save the choice to send it to db
+				var studentsEmail = "ali@gmail.com";
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
 			var tempEmail = String(studentsEmail);
 			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
 			tempCurrentQuestion = tempCurrentQuestion+1;
+			var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 			
-			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId, user_answer:tempAnswer};
+			console.log("correctAnswer from db",window.questionfromdb[currentQuestion].CorrectAnswer);
+			console.log("chosen value",value);
+			console.log("score",correctAnswers);
+			
+			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId,
+			user_answer:tempAnswer, score:tempScore};
 			
 			$.ajax({
 				url: "api/question/write",
@@ -67,16 +85,6 @@ console.log(userIdFromDb);
 				processData: false,
 				contentType: "application/json"
 				});
-				
-           
-		
-	if(testTimeOver==false){
-
-        if (!quizOver) {
-
-            
-			
-			//save the choice to send it to db
 			
             if (value == undefined) {
                 $(document).find(".message").text("Du måste göra ett val");
@@ -85,10 +93,7 @@ console.log(userIdFromDb);
                 // Remove any message
                 $(document).find(".message").hide();
 
-                if (value == window.questionfromdb[currentQuestion].correctAnswer) {
-                    correctAnswers++;
-                    
-                }
+                
 
                 currentQuestion++;
                 if (currentQuestion < window.questionfromdb.length) {
@@ -118,8 +123,7 @@ console.log(userIdFromDb);
 
 	}
 	
-	
-        });
+	});
 			 
 	
     });
