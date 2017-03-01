@@ -29,6 +29,8 @@ window.load = `
 	startpage.class.js
 	question.class.js
 	user.class.js
+	teacherview.class.js
+	questions-list.class.js
    
     
 
@@ -36,6 +38,7 @@ window.load = `
   elevView.html
   navbar.html
   startpage.html
+  teacherview.html
     
     
 
