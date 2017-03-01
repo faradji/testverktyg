@@ -1,13 +1,8 @@
 var currentQuestion = 0;
- 
 var correctAnswers = 0;
- 
 var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
- 
 var quizOver = false;
- 
 var value;
- 
 var testTimeOver = false;
  
 $(document).ready(function () {
