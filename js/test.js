@@ -90,7 +90,9 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		value = $("input[type='checkbox']:checked").val();
 		//send data to db everytime you press next
 		
-		//save the choice to send it to db
+			
+			console.log(value);
+				//save the choice to send it to db
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
 			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
@@ -109,7 +111,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 				contentType: "application/json"
 				});
 			
-           console.log(window.questionfromdb.length);
+           
 		
 	if(testTimeOver==false){
 
@@ -129,13 +131,14 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
                     correctAnswers++;
 					localStorage.setItem("correctAnswers",correctAnswers);
                 }
-                if (currentQuestion < window.questionfromdb.length-1) {
+                if (currentQuestion < window.questionfromdb.length) {
                     displayCurrentQuestion();
                 } else {
                     displayScore();
 					quizOver = true;
                     //  send in the test and display message
 			$(document).find(".nextButton").hide();
+				console.log("button har ändrats");
 			$(document).find(".message").text("Provet är slut och har skickats in!");
 			$(document).find(".message").show();
 			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
@@ -172,6 +175,14 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
  	}
 	});
 		});
+		
+		    //timern startar
+    
+    function isTimeOut(){
+       
+        testTimeOver = true;
+        quizOver = true;
+    }
 
 
 function displayCurrentQuestion() {
