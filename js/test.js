@@ -7,10 +7,17 @@ var value;
 var testTimeOver = false;
  
 $(document).ready(function () {
+	$(this).find(".quizContainer").hide();
+
 	//prevent default
 	$(".mail").submit(function(e){
-    return false;
+    	return false;
 	});
+
+	$(this).find(".mail>.emailButton").on("click",function(){
+		$(document).find(".quizContainer").show();
+	});
+
 //get typed in email and get userId
 	$(this).find(".email").on("change", function () {
 		var currentUser = $(document).find(".quizContainer > .mail > .email").val();	
@@ -25,19 +32,16 @@ $(document).ready(function () {
 		}
 				
 	});
-    //timern startar
     
+    //timern startar
     function isTimeOut(){
        
         testTimeOver = true;
         quizOver = true;
     }
-    setTimeout(isTimeOut, 360000);//360000
+    setTimeout(isTimeOut, 4000);//360000
 
-
-
-
-		
+	
     // Display the first question
 		displayCurrentQuestion();
 
@@ -121,7 +125,7 @@ $(document).ready(function () {
 			quizOver = true;
          //  send in the test and display message
           $(document).find(".nextButton").hide();
-          $(document).find(".message").text("Tiden är slut och provet har skickats in!");
+          $(document).find(".message").text("Tiden är slut och provet har skickats in.");
           $(document).find(".message").show();
           var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
           user_answer:null, score:tempScore};

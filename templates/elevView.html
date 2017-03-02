@@ -1,12 +1,15 @@
 elevView.addTemplate('default',function(){return `
+  
+  <div class="startaTest">
+    <h1>Välkommen till Newtons test!</h1>
+    <form class="mail">
+      Skriv i din epostadress innan du startar testet: <input type="text" class="email">
+      <input type="submit" value="Starta test" class="emailButton">
+    </form> 
+  </div>
+
   <div class="quizContainer">	
   
-		<form class="mail">
-		  email: <input type="text" class="email">
-		  <input type="submit" value="Submit">
-		</form> 
-
-         <h1>Välkommen till Newton!</h1>
 		<div class="questionnr"></div>
         <div class="question"></div>
         <ul class="choiceList"></ul>
@@ -14,5 +17,11 @@ elevView.addTemplate('default',function(){return `
         <div class="result"></div>
         <div class="nextButton">Nästa fråga</div>
         <br>
+  </div>
+  
+  <div class="timercontainer">  
+    <div class="alert alert-success" role="alert">
+      <strong>Testet är aktivt i 60 minuter.</strong> Dina svar skickas in automatiskt när tiden är ute eller när du är färdig och klickar på "Submit".
     </div>
+  </div>
 `});
