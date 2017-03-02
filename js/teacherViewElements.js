@@ -55,7 +55,6 @@ var divElementDoneTest = $(document).find(".doneTest");
 		}
 		}
 		
-		
 	}
 
 		if(contentPanelId==1){

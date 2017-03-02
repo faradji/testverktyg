@@ -1,5 +1,10 @@
-var currentQuestion = 0;
-var correctAnswers = 0;
+var currentQuestion;
+localStorage.setItem("currentQuestion",currentQuestion);
+var correctAnswers;
+if(correctAnswers == null){
+correctAnswers = 0;
+}
+localStorage.setItem("correctAnswers",correctAnswers);
 window.questionfromdb=window.questionfromdb||[];
 var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 var quizOver = false;
@@ -11,10 +16,12 @@ $(document).ready(function () {
 	$(".mail").submit(function(e){
     return false;
 	});
-//get typed in email and get userId
+//get typed in email and get userId and starts timer
 	$(this).find(".email").on("change", function () {
-		var currentUser = $(document).find(".quizContainer > .mail > .email").val();	
-
+		if(currentUser == null){
+		var currentUser = $(document).find(".quizContainer > .mail > .email").val();
+		}			
+		localStorage.setItem("currentUser",currentUser);
 		for(var i = 0; i < window.userFromDb.length; i++)
 		{
 		  if(window.userFromDb[i].emailAddress == currentUser)
@@ -23,20 +30,17 @@ $(document).ready(function () {
 			 break;
 		  }
 		}
+		 setTimeout(isTimeOut, 360000);//360000
 				
 	});
-    //timern startar
-    
-    function isTimeOut(){
-       
-        testTimeOver = true;
-        quizOver = true;
-    }
-    setTimeout(isTimeOut, 360000);//360000
+
+   
 
 
 
-
+			if(currentQuestion==null){
+				currentQuestion=0;
+			}
 		
     // Display the first question
 		displayCurrentQuestion();
@@ -57,10 +61,6 @@ $(document).ready(function () {
 			tempCurrentQuestion = tempCurrentQuestion+1;
 			var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 			
-			console.log("correctAnswer from db",window.questionfromdb[currentQuestion].CorrectAnswer);
-			console.log("chosen value",value);
-			console.log("score",correctAnswers);
-			
 			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId,
 			user_answer:tempAnswer, score:tempScore};
 			
@@ -80,6 +80,7 @@ $(document).ready(function () {
         if (!quizOver) {
 			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
                     correctAnswers++;
+					localStorage.setItem("correctAnswers",correctAnswers);
                 }
 			
             if (value == undefined) {
@@ -89,6 +90,7 @@ $(document).ready(function () {
                 // Remove any message
                 $(document).find(".message").hide();
 				currentQuestion++;
+				localStorage.setItem("currentQuestion",currentQuestion);
 			}
                 if (currentQuestion < window.questionfromdb.length) {
                     displayCurrentQuestion();
@@ -137,6 +139,14 @@ $(document).ready(function () {
  	}
 	});
 		});
+		
+		    //timern startar
+    
+    function isTimeOut(){
+       
+        testTimeOver = true;
+        quizOver = true;
+    }
 
 
 function displayCurrentQuestion() {
@@ -171,6 +181,7 @@ function displayCurrentQuestion() {
 		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
 	$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
 		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
+
 	}
 	
 	// only one checkbox checked
