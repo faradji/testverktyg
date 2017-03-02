@@ -5,17 +5,24 @@ var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 var quizOver = false;
 var value;
 var testTimeOver = false;
+var userIdFromDb;
  
 $(document).ready(function () {
 	$(this).find(".quizContainer").hide();
+	$(this).find(".alert-danger").hide();
+	$(this).find(".alert-warning").hide();
 
 	//prevent default
 	$(".mail").submit(function(e){
     	return false;
 	});
 
-	$(this).find(".mail>.emailButton").on("click",function(){
+	$(this).find(".mail > .emailButton").on("click",function(){
 		$(document).find(".quizContainer").show();
+		$(document).find(".mail").hide();
+		$(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").hide();
+		$(document).find(".alert-warning").show();
 	});
 
 //get typed in email and get userId
@@ -125,7 +132,9 @@ $(document).ready(function () {
 			quizOver = true;
          //  send in the test and display message
           $(document).find(".nextButton").hide();
-          $(document).find(".message").text("Tiden är slut och provet har skickats in.");
+          $(document).find(".alert-success").hide();
+		  $(document).find(".alert-danger").show();
+		  $(document).find(".alert-warning").hide();
           $(document).find(".message").show();
           var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
           user_answer:null, score:tempScore};
