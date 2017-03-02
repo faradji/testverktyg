@@ -90,7 +90,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		value = $("input[type='checkbox']:checked").val();
 		//send data to db everytime you press next
 				
-			if(currentQuestion == 9){
+			if(currentQuestion == (window.questionfromdb.length-1)){
 					displayScore();
 					quizOver = true;
 					//  send in the test and display message
