@@ -1,4 +1,7 @@
 var currentQuestion;
+if(currentQuestion==null){
+	currentQuestion=0;
+}
 localStorage.setItem("currentQuestion",currentQuestion);
 var correctAnswers;
 if(correctAnswers == null){
@@ -33,14 +36,6 @@ $(document).ready(function () {
 		 setTimeout(isTimeOut, 360000);//360000
 				
 	});
-
-   
-
-
-
-			if(currentQuestion==null){
-				currentQuestion=0;
-			}
 		
     // Display the first question
 		displayCurrentQuestion();
@@ -78,12 +73,9 @@ $(document).ready(function () {
 	if(testTimeOver==false){
 
         if (!quizOver) {
-			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
-                    correctAnswers++;
-					localStorage.setItem("correctAnswers",correctAnswers);
-                }
 			
-            if (value == undefined) {
+			
+            if (value == null) {
                 $(document).find(".message").text("Du måste göra ett val");
                 $(document).find(".message").show();
             } else {
@@ -92,6 +84,10 @@ $(document).ready(function () {
 				currentQuestion++;
 				localStorage.setItem("currentQuestion",currentQuestion);
 			}
+			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
+                    correctAnswers++;
+					localStorage.setItem("correctAnswers",correctAnswers);
+                }
                 if (currentQuestion < window.questionfromdb.length) {
                     displayCurrentQuestion();
                 } else {
