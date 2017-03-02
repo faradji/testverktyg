@@ -1,12 +1,13 @@
 class App {
 
   constructor(){
+	new UserList();
 	this.startPage = new StartPage();
 	this.navbar = new Navbar();
     this.elevView = new elevView();
 	this.question = new question();
-	this.user = new user();
 	this.teacherview = new teacherView();
+	this.MailView = new MailView();
 
 
     // Show the navbar
@@ -18,13 +19,14 @@ class App {
     var router = new Router({
 	// root/ startsida prop : proVal
     '/': ()=>{ this.showPage(this.startPage); },
-<<<<<<<
-	'/elev': ()=> { this.showPage(this.elev); },
-  '/teacherview': () => {this.showPage(this.teacherview)}
-=======
-	'/elev': ()=> { this.showPage(this.elevView);},
-	'/teacherView': () => {this.showPage(this.teacherview)}
->>>>>>>
+	'/elev': ()=> { this.showPage(this.elevView);
+					$.getScript('js/test.js', function() {
+						var currentQuestion = parseInt(localStorage.getItem("currentQuestion"));
+						var correctAnswers = parseInt(localStorage.getItem("correctAnswers"));
+						var currentUser = String(localStorage.getItem("currentUser"));
+					});},
+	'/teacherView': () => {this.showPage(this.teacherview);$.getScript('js/teacherViewElements.js');},
+	'/mailView': () => {this.showPage(this.MailView)}
 	
     });
   }
