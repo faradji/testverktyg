@@ -166,10 +166,17 @@ function displayCurrentQuestion() {
 	$(document).find(".quizContainer > .questionnr").text("Fråga " + temp + " av " + window.questionfromdb.length);
     $(document).find(".quizContainer > .questionnr").show();
 	}
+<<<<<<< Temporary merge branch 1
+    
+        $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" /> ' + 
+		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
+		$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" /> ' + 
+=======
     if(window.questionfromdb[currentQuestion].choice_no && window.questionfromdb[currentQuestion].choice_yes){
     $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
 		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
 	$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 
+>>>>>>> Temporary merge branch 2
 		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
 	}
 	
@@ -185,3 +192,7 @@ function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + window.questionfromdb.length);
     $(document).find(".quizContainer > .result").show();
 }
+    if(window.questionfromdb[currentQuestion].choice_no && window.questionfromdb[currentQuestion].choice_yes){
+    $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />' + 
+		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
+	$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />' + 

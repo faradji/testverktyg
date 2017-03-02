@@ -32,13 +32,13 @@
     background-color: white;
     /*clear: both;*/
     color: black;
-    font-family:'Rokkitt', serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     position: relative;
     margin: auto;
    /* padding-top: 20px;*/
 }
 .question {
-    font-family:'Rokkitt', serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 2em;
     width: 90%;
     height: auto;
@@ -54,12 +54,12 @@
     margin: auto;
     text-align: center;
     padding: 2px;
-    font-family:'Rokkitt', serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: red;
 }
 .choiceList {
-    font-family: Courier, serif;
-    color: black;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #555555;
 	text-align: center;
 	list-style: none;
 }
@@ -77,7 +77,7 @@
     background-color: F0F0F0;
     margin: auto;
     text-align: center;
-    font-family:'Rokkitt', serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .questionnr{
 	width: 40%;
@@ -86,7 +86,7 @@
     background-color: F0F0F0;
     margin: auto;
     text-align: center;
-    font-family:'Rokkitt', serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size:20px;
 }
 .message{
@@ -96,7 +96,7 @@
     background-color: F0F0F0;
     margin: auto;
     text-align: center;
-    font-family:'Rokkitt', serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size:28px;
 }
 /* prov Classes end*/ 
@@ -129,7 +129,11 @@
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;	
-}		
+}	
+
+div{
+	
+}	
 	
 .teacherElements
 {
@@ -153,12 +157,22 @@
 /* teacherView end*/
 
 @media only screen and (min-width: 375px) and (orientation:portrait){
-.list-group-item{
-	font-size: 28px;
+.navbar-nav li{
+	font-size: 36px;
 }
 
 .generateURL{
 	font-size: 28px;
+}
+
+.navbar-brand{
+	display: node;
+}
+.mail{
+	margin:5px;
+}
+.myItem{
+	margin-right:25px;
 }
 
 
