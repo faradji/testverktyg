@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var divElement = $(document).find(".teacherElements"); 
+var divElement = $(document).find(".teacherElements"); 
 var divElementDoneTest = $(document).find(".doneTest");
 
  $(document).find(divElementDoneTest).hide();
@@ -54,7 +54,6 @@ var divElementDoneTest = $(document).find(".doneTest");
 			j=0;
 		}
 		}
-		
 		
 	}
 

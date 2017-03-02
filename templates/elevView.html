@@ -10,12 +10,21 @@ elevView.addTemplate('default',function(){return `
 
   <div class="quizContainer">	
   
+  
+  <div class="input-group mail">
+	  <span class="input-group-addon" id="basic-addon1">@</span>
+	  <input type="text" class="form-control email" placeholder="Username" aria-describedby="basic-addon1">
+	</div>
+	
+	<button type="button submit" class="btn btn-default">Starta provet</button>
+
+         <h1>Välkommen till Newton!</h1>
 		<div class="questionnr"></div>
         <div class="question"></div>
         <ul class="choiceList"></ul>
         <div class="message"></div>
         <div class="result"></div>
-        <div class="nextButton">Nästa fråga</div>
+        <button type="button" class="btn btn-primary nextButton">Nästa fråga</button>
         <br>
   </div>
   
