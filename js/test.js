@@ -50,10 +50,8 @@ $(document).ready(function () {
 			
 			console.log(value);
 				//save the choice to send it to db
-			var studentsEmail = "ali@gmail.com";
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
-			var tempEmail = String(studentsEmail);
 			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
 			tempCurrentQuestion = tempCurrentQuestion+1;
 			var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
