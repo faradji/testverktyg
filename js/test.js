@@ -14,17 +14,33 @@ var quizOver = false;
 var value = null;
 var testTimeOver = false;
 var userIdFromDb;
- 
+
 $(document).ready(function () {
 	$(this).find(".quizContainer").hide();
 	$(this).find(".alert-danger").hide();
 	$(this).find(".alert-warning").hide();
     
-    var start = 60;
+    
 
-	setTimeout(isTimeOut, 3600000);
-	$(".timerMsg").text(start + " minuter kvar av testtiden.");
-	setInterval(function() {
+
+
+	//prevent default
+	$(".mail").submit(function(e){
+    	return false;
+	});
+
+	$(this).find(".mail > .emailButton").on("click",function(){
+		$(document).find(".quizContainer").show();
+		$(document).find(".mail").hide();
+		$(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").hide();
+		$(document).find(".alert-warning").show();
+
+		var start = 60;
+
+		setTimeout(isTimeOut, 3600000);
+		$(".timerMsg").text(start + " minuter kvar av testtiden.");
+		setInterval(function() {
 		$(".timerMsg").text(start + " minuter kvar av testtiden.");
     	start = start - 1;
 	}, 60000);
@@ -40,14 +56,7 @@ $(document).ready(function () {
 		$(document).find(".nextButton").hide();
         $(document).find(".message").show();
         $(document).find(".message").text("Provet är slut och har skickats in!");
-
-    }
-
-
-
-	//prevent default
-	$(".mail").submit(function(e){
-    	return false;
+	}
 	});
 //get typed in email and get userId and starts timer
 
@@ -58,7 +67,12 @@ $(document).ready(function () {
 		$(document).find(".alert-danger").hide();
 		$(document).find(".alert-warning").show();
 	});
+<<<<<<< Temporary merge branch 1
 
+//get typed in email and get userId
+=======
+//get typed in email and get userId and starts timer
+>>>>>>> Temporary merge branch 2
 	$(this).find(".email").on("change", function () {
 		if(currentUser == null){
 		var currentUser = $(document).find(".quizContainer > .mail > .email").val();
@@ -75,8 +89,10 @@ $(document).ready(function () {
 		 setTimeout(isTimeOut, 360000);//360000
 				
 	});
+<<<<<<< Temporary merge branch 1
     
 	
+=======
 		
     // Display the first question
 		displayCurrentQuestion();
@@ -230,3 +246,12 @@ function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + window.questionfromdb.length);
     $(document).find(".quizContainer > .result").show();
 }
+	$(this).find(".mail > .emailButton").on("click",function(){
+		$(document).find(".quizContainer").show();
+		$(document).find(".mail").hide();
+		$(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").hide();
+		$(document).find(".alert-warning").show();
+	});
+//get typed in email and get userId
+//get typed in email and get userId and starts timer
