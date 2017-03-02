@@ -11,6 +11,10 @@
 }
 
 /* prov Classes */
+
+.mail {
+	margin: 10px;
+}
  .quizContainer {
     background-color:  	#F0F0F0;
     border-radius: 6px;
@@ -24,18 +28,7 @@
 	text-align: center;
 }
 .nextButton {
-    box-shadow: 3px 3px 5px #888;
-    border-radius: 6px;
-    width: 75px;
-    height: 20px;
-    text-align: center;
-    background-color: white;
-    /*clear: both;*/
-    color: black;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    position: relative;
-    margin: auto;
-   /* padding-top: 20px;*/
+
 }
 .question {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -99,6 +92,11 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size:28px;
 }
+
+.example{
+	width:20px;
+	height:20px;
+}
 /* prov Classes end*/ 
 
 /* teacherView */
@@ -129,11 +127,7 @@
     overflow-y: scroll;
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;	
-}	
-
-div{
-	
-}	
+}		
 	
 .teacherElements
 {
@@ -157,22 +151,16 @@ div{
 /* teacherView end*/
 
 @media only screen and (min-width: 375px) and (orientation:portrait){
-.navbar-nav li{
-	font-size: 36px;
+.list-group-item{
+	font-size: 28px;
 }
 
 .generateURL{
 	font-size: 28px;
 }
 
-.navbar-brand{
-	display: node;
-}
-.mail{
-	margin:5px;
-}
-.myItem{
-	margin-right:25px;
+ .quizContainer {
+    width: 90%;
 }
 
 
