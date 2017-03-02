@@ -11,6 +11,31 @@ $(document).ready(function () {
 	$(this).find(".quizContainer").hide();
 	$(this).find(".alert-danger").hide();
 	$(this).find(".alert-warning").hide();
+    
+    var start = 60;
+
+	setTimeout(isTimeOut, 3600000);
+	$(".timerMsg").text(start + " minuter kvar av testtiden.");
+	setInterval(function() {
+		$(".timerMsg").text(start + " minuter kvar av testtiden.");
+    	start = start - 1;
+	}, 60000);
+
+    function isTimeOut(){
+       
+        testTimeOver = true;
+        quizOver = true;
+        $(".timerMsg").hide();
+        $(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").show();
+		$(document).find(".alert-warning").hide();
+		$(document).find(".nextButton").hide();
+        $(document).find(".message").show();
+        $(document).find(".message").text("Provet är slut och har skickats in!");
+
+    }
+
+
 
 	//prevent default
 	$(".mail").submit(function(e){
@@ -40,14 +65,6 @@ $(document).ready(function () {
 				
 	});
     
-    //timern startar
-    function isTimeOut(){
-       
-        testTimeOver = true;
-        quizOver = true;
-    }
-    setTimeout(isTimeOut, 4000);//360000
-
 	
     // Display the first question
 		displayCurrentQuestion();
@@ -131,11 +148,6 @@ $(document).ready(function () {
 			displayScore();
 			quizOver = true;
          //  send in the test and display message
-          $(document).find(".nextButton").hide();
-          $(document).find(".alert-success").hide();
-		  $(document).find(".alert-danger").show();
-		  $(document).find(".alert-warning").hide();
-          $(document).find(".message").show();
           var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
           user_answer:null, score:tempScore};
             $.ajax({
