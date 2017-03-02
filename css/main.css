@@ -20,12 +20,13 @@
     border-radius: 6px;
     width: 75%;
     margin: auto;
-    padding: 15px 0;
-    -moz-box-shadow: 10px 10px 5px #888;
-    -webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 10px 10px 5px #888;
+    padding: 15px 0;    
     position: relative;
     text-align: center;
+}
+
+.emailButton {
+	margin-top: 10px;
 }
 
 .quizContainer {
@@ -37,7 +38,7 @@
 	text-align: center;
 }
 .nextButton {
-
+	margin-bottom: 10px;
 }
 .question {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
