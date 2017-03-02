@@ -19,23 +19,39 @@ $(document).ready(function () {
 	$(this).find(".quizContainer").hide();
 	$(this).find(".alert-danger").hide();
 	$(this).find(".alert-warning").hide();
-    
-    
-
-
-
 	//prevent default
 	$(".mail").submit(function(e){
     	return false;
 	});
 
-	$(this).find(".mail > .emailButton").on("click",function(){
+//get typed in email and get userId and starts timer
+
+
+	$(document).find(".startaTest > .mail > .emailButton").on("click", function () {
+		if(currentUser == null){
+		var currentUser = $(document).find(".startaTest > .mail > .email").val();
+		}
+		localStorage.setItem("currentUser",currentUser);
+		for(var i = 0; i < window.userFromDb.length; i++)
+		{
+		  if(window.userFromDb[i].emailAddress == currentUser)
+		  {
+			 userIdFromDb= window.userFromDb[i].idUsers;
+			 break;
+		  }
+		}
+		
+		if(currentUser != ""){
+			
+
 		$(document).find(".quizContainer").show();
 		$(document).find(".mail").hide();
 		$(document).find(".alert-success").hide();
 		$(document).find(".alert-danger").hide();
 		$(document).find(".alert-warning").show();
-
+		 setTimeout(isTimeOut, 360000);//360000
+		 
+		 
 		var start = 60;
 
 		setTimeout(isTimeOut, 3600000);
@@ -57,42 +73,12 @@ $(document).ready(function () {
         $(document).find(".message").show();
         $(document).find(".message").text("Provet är slut och har skickats in!");
 	}
-	});
-//get typed in email and get userId and starts timer
 
-	$(this).find(".mail > .emailButton").on("click",function(){
-		$(document).find(".quizContainer").show();
-		$(document).find(".mail").hide();
-		$(document).find(".alert-success").hide();
-		$(document).find(".alert-danger").hide();
-		$(document).find(".alert-warning").show();
-	});
-<<<<<<< Temporary merge branch 1
-
-//get typed in email and get userId
-=======
-//get typed in email and get userId and starts timer
->>>>>>> Temporary merge branch 2
-	$(this).find(".email").on("change", function () {
-		if(currentUser == null){
-		var currentUser = $(document).find(".quizContainer > .mail > .email").val();
-		}			
-		localStorage.setItem("currentUser",currentUser);
-		for(var i = 0; i < window.userFromDb.length; i++)
-		{
-		  if(window.userFromDb[i].emailAddress == currentUser)
-		  {
-			 userIdFromDb= window.userFromDb[i].idUsers;
-			 break;
-		  }
+		}else{
+			$(document).find(".alert-danger").text("Du måste skriva in en email");
+		$(document).find(".alert-danger").show();
 		}
-		 setTimeout(isTimeOut, 360000);//360000
-				
 	});
-<<<<<<< Temporary merge branch 1
-    
-	
-=======
 		
     // Display the first question
 		displayCurrentQuestion();
@@ -246,12 +232,3 @@ function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + window.questionfromdb.length);
     $(document).find(".quizContainer > .result").show();
 }
-	$(this).find(".mail > .emailButton").on("click",function(){
-		$(document).find(".quizContainer").show();
-		$(document).find(".mail").hide();
-		$(document).find(".alert-success").hide();
-		$(document).find(".alert-danger").hide();
-		$(document).find(".alert-warning").show();
-	});
-//get typed in email and get userId
-//get typed in email and get userId and starts timer
