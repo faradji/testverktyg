@@ -33,6 +33,8 @@ var divElementDoneTest = $(document).find(".doneTest");
 	var j = 0;
 	for(let i = 0; i < window.answersFromDb.length; i++)
 	{
+		//todo förbättra denna condition.
+		
 		//only show answers from the chosen user
 		if(window.answersFromDb[i].Users_idUsers == contentPanelId){
 		// if we're not on the last post in array then
@@ -52,6 +54,7 @@ var divElementDoneTest = $(document).find(".doneTest");
 			j=0;
 		}
 		}
+		
 		
 	}
 
