@@ -15,6 +15,7 @@ var value = null;
 var testTimeOver = false;
 var userIdFromDb;
 
+
 $(document).ready(function () {
 	$(this).find(".quizContainer").hide();
 	$(this).find(".alert-danger").hide();
@@ -25,9 +26,8 @@ $(document).ready(function () {
 	});
 
 //get typed in email and get userId and starts timer
-
-
-	$(document).find(".startaTest > .mail > .emailButton").on("click", function () {
+$(document).find(".startaTest > .mail > .emailButton").on("click", function () {
+	
 		if(currentUser == null){
 		var currentUser = $(document).find(".startaTest > .mail > .email").val();
 		}
@@ -43,7 +43,6 @@ $(document).ready(function () {
 		
 		if(currentUser != ""){
 			
-
 		$(document).find(".quizContainer").show();
 		$(document).find(".mail").hide();
 		$(document).find(".alert-success").hide();
@@ -78,8 +77,9 @@ $(document).ready(function () {
 			$(document).find(".alert-danger").text("Du måste skriva in en email");
 		$(document).find(".alert-danger").show();
 		}
-	});
+
 		
+			});
     // Display the first question
 		displayCurrentQuestion();
 
