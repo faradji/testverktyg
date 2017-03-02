@@ -3,8 +3,6 @@ class question extends Base {
   constructor(propertyValues){
 		super(propertyValues);
 		this.readAllFromDb();
-		$.getScript('js/test.js');
-		$.getScript('js/teacherViewElements.js');
 	}
 	
 readAllFromDb(callback){

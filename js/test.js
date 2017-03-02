@@ -1,4 +1,7 @@
 var currentQuestion;
+if(currentQuestion==null){
+	currentQuestion=0;
+}
 localStorage.setItem("currentQuestion",currentQuestion);
 var correctAnswers;
 if(correctAnswers == null){
@@ -8,14 +11,54 @@ localStorage.setItem("correctAnswers",correctAnswers);
 window.questionfromdb=window.questionfromdb||[];
 var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 var quizOver = false;
-var value;
+var value = null;
 var testTimeOver = false;
+var userIdFromDb;
  
 $(document).ready(function () {
+	$(this).find(".quizContainer").hide();
+	$(this).find(".alert-danger").hide();
+	$(this).find(".alert-warning").hide();
+    
+    var start = 60;
+
+	setTimeout(isTimeOut, 3600000);
+	$(".timerMsg").text(start + " minuter kvar av testtiden.");
+	setInterval(function() {
+		$(".timerMsg").text(start + " minuter kvar av testtiden.");
+    	start = start - 1;
+	}, 60000);
+
+    function isTimeOut(){
+       
+        testTimeOver = true;
+        quizOver = true;
+        $(".timerMsg").hide();
+        $(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").show();
+		$(document).find(".alert-warning").hide();
+		$(document).find(".nextButton").hide();
+        $(document).find(".message").show();
+        $(document).find(".message").text("Provet är slut och har skickats in!");
+
+    }
+
+
+
 	//prevent default
 	$(".mail").submit(function(e){
-    return false;
+    	return false;
 	});
+
+	$(this).find(".mail > .emailButton").on("click",function(){
+		$(document).find(".quizContainer").show();
+		$(document).find(".mail").hide();
+		$(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").hide();
+		$(document).find(".alert-warning").show();
+	});
+
+//get typed in email and get userId
 //get typed in email and get userId and starts timer
 	$(this).find(".email").on("change", function () {
 		if(currentUser == null){
@@ -33,30 +76,22 @@ $(document).ready(function () {
 		 setTimeout(isTimeOut, 360000);//360000
 				
 	});
-
-   
-
-
-
-			if(currentQuestion==null){
-				currentQuestion=0;
-			}
 		
     // Display the first question
 		displayCurrentQuestion();
 
     // On clicking next, display the next question
+	
 		       
     $(this).find(".nextButton").on("click", function () {
+		value = $("input[type='checkbox']:checked").val();
 		//send data to db everytime you press next
 		
-			value = $("input[type='checkbox']:checked").val();
 			
+			console.log(value);
 				//save the choice to send it to db
-			var studentsEmail = "ali@gmail.com";
 			var tempAnswer=parseInt(value,10);
 			var tempCurrentQuestion = parseInt(currentQuestion,10);
-			var tempEmail = String(studentsEmail);
 			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
 			tempCurrentQuestion = tempCurrentQuestion+1;
 			var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
@@ -78,12 +113,9 @@ $(document).ready(function () {
 	if(testTimeOver==false){
 
         if (!quizOver) {
-			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
-                    correctAnswers++;
-					localStorage.setItem("correctAnswers",correctAnswers);
-                }
 			
-            if (value == undefined) {
+			
+            if (value == null) {
                 $(document).find(".message").text("Du måste göra ett val");
                 $(document).find(".message").show();
             } else {
@@ -92,6 +124,10 @@ $(document).ready(function () {
 				currentQuestion++;
 				localStorage.setItem("currentQuestion",currentQuestion);
 			}
+			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
+                    correctAnswers++;
+					localStorage.setItem("correctAnswers",correctAnswers);
+                }
                 if (currentQuestion < window.questionfromdb.length) {
                     displayCurrentQuestion();
                 } else {
@@ -122,9 +158,6 @@ $(document).ready(function () {
 			displayScore();
 			quizOver = true;
          //  send in the test and display message
-          $(document).find(".nextButton").hide();
-          $(document).find(".message").text("Tiden är slut och provet har skickats in!");
-          $(document).find(".message").show();
           var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
           user_answer:null, score:tempScore};
             $.ajax({

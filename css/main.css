@@ -15,7 +15,21 @@
 .mail {
 	margin: 10px;
 }
- .quizContainer {
+.startaTest{
+    background-color:   #F0F0F0;
+    border-radius: 6px;
+    width: 75%;
+    margin: auto;
+    padding: 15px 0;
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
+    position: relative;
+    text-align: center;
+}
+
+.quizContainer {
+    background-color:  	#F0F0F0;
     border-radius: 6px;
     width: 75%;
     margin: auto;    
@@ -92,6 +106,15 @@
 .example{
 	width:20px;
 	height:20px;
+}
+
+.timercontainer{
+    border-radius: 6px;
+    width: 75%;
+    margin: auto;
+    padding: 15px 0;
+    position: relative;
+    text-align: center;
 }
 
 
