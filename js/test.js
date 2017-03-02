@@ -14,17 +14,33 @@ var quizOver = false;
 var value = null;
 var testTimeOver = false;
 var userIdFromDb;
- 
+
 $(document).ready(function () {
 	$(this).find(".quizContainer").hide();
 	$(this).find(".alert-danger").hide();
 	$(this).find(".alert-warning").hide();
     
-    var start = 60;
+    
 
-	setTimeout(isTimeOut, 3600000);
-	$(".timerMsg").text(start + " minuter kvar av testtiden.");
-	setInterval(function() {
+
+
+	//prevent default
+	$(".mail").submit(function(e){
+    	return false;
+	});
+
+	$(this).find(".mail > .emailButton").on("click",function(){
+		$(document).find(".quizContainer").show();
+		$(document).find(".mail").hide();
+		$(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").hide();
+		$(document).find(".alert-warning").show();
+
+		var start = 60;
+
+		setTimeout(isTimeOut, 3600000);
+		$(".timerMsg").text(start + " minuter kvar av testtiden.");
+		setInterval(function() {
 		$(".timerMsg").text(start + " minuter kvar av testtiden.");
     	start = start - 1;
 	}, 60000);
@@ -40,23 +56,9 @@ $(document).ready(function () {
 		$(document).find(".nextButton").hide();
         $(document).find(".message").show();
         $(document).find(".message").text("Provet är slut och har skickats in!");
-
-    }
-
-
-
-	//prevent default
-	$(".mail").submit(function(e){
-    	return false;
+	}
 	});
 
-	$(this).find(".mail > .emailButton").on("click",function(){
-		$(document).find(".quizContainer").show();
-		$(document).find(".mail").hide();
-		$(document).find(".alert-success").hide();
-		$(document).find(".alert-danger").hide();
-		$(document).find(".alert-warning").show();
-	});
 
 //get typed in email and get userId
 //get typed in email and get userId and starts timer
