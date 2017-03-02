@@ -19,9 +19,9 @@ class App {
     var router = new Router({
 	// root/ startsida prop : proVal
     '/': ()=>{ this.showPage(this.startPage); },
-	'/elev': ()=> { this.showPage(this.elevView);},
-	'/teacherView': () => {this.showPage(this.teacherview)},
-	'/mailView': () => {console.log('Show MailView');this.showPage(this.MailView)}
+	'/elev': ()=> { this.showPage(this.elevView);$.getScript('js/test.js');},
+	'/teacherView': () => {this.showPage(this.teacherview);$.getScript('js/teacherViewElements.js');},
+	'/mailView': () => {this.showPage(this.MailView)}
 	
     });
   }
