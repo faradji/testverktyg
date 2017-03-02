@@ -28,7 +28,7 @@ $(document).ready(function () {
 //get typed in email and get userId and starts timer
 $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 	
-		if(currentUser == null){
+		if(!currentUser){
 		var currentUser = $(document).find(".startaTest > .mail > .email").val();
 		}
 		localStorage.setItem("currentUser",currentUser);
@@ -41,7 +41,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		  }
 		}
 		
-		if(currentUser != ""){
+		if(currentUser){
 			
 		$(document).find(".quizContainer").show();
 		$(document).find(".mail").hide();
