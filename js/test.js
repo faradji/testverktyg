@@ -11,7 +11,7 @@ localStorage.setItem("correctAnswers",correctAnswers);
 window.questionfromdb=window.questionfromdb||[];
 var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 var quizOver = false;
-var value;
+var value = null;
 var testTimeOver = false;
  
 $(document).ready(function () {
@@ -41,12 +41,14 @@ $(document).ready(function () {
 		displayCurrentQuestion();
 
     // On clicking next, display the next question
+	
 		       
     $(this).find(".nextButton").on("click", function () {
+		value = $("input[type='checkbox']:checked").val();
 		//send data to db everytime you press next
 		
-			value = $("input[type='checkbox']:checked").val();
 			
+			console.log(value);
 				//save the choice to send it to db
 			var studentsEmail = "ali@gmail.com";
 			var tempAnswer=parseInt(value,10);
