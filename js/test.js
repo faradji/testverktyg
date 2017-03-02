@@ -13,13 +13,52 @@ var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
 var quizOver = false;
 var value = null;
 var testTimeOver = false;
+var userIdFromDb;
  
 $(document).ready(function () {
+	$(this).find(".quizContainer").hide();
+	$(this).find(".alert-danger").hide();
+	$(this).find(".alert-warning").hide();
+    
+    var start = 60;
+
+	setTimeout(isTimeOut, 3600000);
+	$(".timerMsg").text(start + " minuter kvar av testtiden.");
+	setInterval(function() {
+		$(".timerMsg").text(start + " minuter kvar av testtiden.");
+    	start = start - 1;
+	}, 60000);
+
+    function isTimeOut(){
+       
+        testTimeOver = true;
+        quizOver = true;
+        $(".timerMsg").hide();
+        $(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").show();
+		$(document).find(".alert-warning").hide();
+		$(document).find(".nextButton").hide();
+        $(document).find(".message").show();
+        $(document).find(".message").text("Provet är slut och har skickats in!");
+
+    }
+
+
+
 	//prevent default
 	$(".mail").submit(function(e){
-    return false;
+    	return false;
 	});
 //get typed in email and get userId and starts timer
+
+	$(this).find(".mail > .emailButton").on("click",function(){
+		$(document).find(".quizContainer").show();
+		$(document).find(".mail").hide();
+		$(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").hide();
+		$(document).find(".alert-warning").show();
+	});
+
 	$(this).find(".email").on("change", function () {
 		if(currentUser == null){
 		var currentUser = $(document).find(".quizContainer > .mail > .email").val();
@@ -36,6 +75,8 @@ $(document).ready(function () {
 		 setTimeout(isTimeOut, 360000);//360000
 				
 	});
+    
+	
 		
     // Display the first question
 		displayCurrentQuestion();
@@ -118,9 +159,6 @@ $(document).ready(function () {
 			displayScore();
 			quizOver = true;
          //  send in the test and display message
-          $(document).find(".nextButton").hide();
-          $(document).find(".message").text("Tiden är slut och provet har skickats in!");
-          $(document).find(".message").show();
           var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
           user_answer:null, score:tempScore};
             $.ajax({
