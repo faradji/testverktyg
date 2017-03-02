@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	var divElement = $(document).find(".teacherElements"); 
-var divElementDoneTest = $(document).find(".doneTest");
+	var divElementDoneTest = $(document).find(".doneTest");
 
  $(document).find(divElementDoneTest).hide();
 	//finds done tests and displays them under the name

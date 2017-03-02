@@ -16,14 +16,9 @@
 	margin: 10px;
 }
  .quizContainer {
-    background-color:  	#F0F0F0;
     border-radius: 6px;
     width: 75%;
-    margin: auto;
-    padding: 15px 0;
-    -moz-box-shadow: 10px 10px 5px #888;
-    -webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 10px 10px 5px #888;
+    margin: auto;    
     position: relative;
 	text-align: center;
 }
@@ -97,6 +92,8 @@
 	width:20px;
 	height:20px;
 }
+
+
 /* prov Classes end*/ 
 
 /* teacherView */
@@ -128,25 +125,27 @@
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;	
 }		
+
+.teacher-container{
+	width:100vw;
+	max- height:50vw;
 	
+}
 .teacherElements
-{
-	border:1px solid black;
-    width:50%;
+{	
+	margin-left: 2%;
+	border-radius: 6px;
+    width:33%;
 	height:100%;	
-	float:left;
-	
 }
 .doneTest
 {
-	border:1px solid black;
-    width:49%;
-	height:100%;
-	float:right;
-	display: inline-block;
+	margin-left: 2%;
+	border-radius: 6px;
+    width:60%;
+	height:100%;	
 	top:0px;
-	
-	
+	overflow: scroll;	
 }
 /* teacherView end*/
 
@@ -161,6 +160,19 @@
 
  .quizContainer {
     width: 90%;
+}
+
+.teacherElements
+{	
+    width:90%;	
+	height:40vh;
+	overflow: scroll;
+}
+.doneTest
+{	
+    width:90%;	
+	height:85vh;
+	overflow: scroll;		
 }
 
 
