@@ -60,20 +60,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
     	start = start - 1;
 	}, 60000);
 
-    function isTimeOut(){
-       
-        testTimeOver = true;
-        quizOver = true;
-        $(".timerMsg").hide();
-        $(document).find(".alert-success").hide();
-		$(document).find(".alert-danger").show();
-		$(document).find(".alert-warning").hide();
-		$(document).find(".nextButton").hide();
-        $(document).find(".message").show();
-        $(document).find(".message").text("Provet är slut och har skickats in!");
-	}
-
-		}else{
+    }else{
 		$(document).find(".alert-danger").text("Du måste skriva in en email");
 		$(document).find(".alert-danger").show();
 		}
@@ -160,7 +147,19 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 				}
 	 });
 		});
-	
+
+	function isTimeOut(){
+   
+	testTimeOver = true;
+	quizOver = true;
+	$(".timerMsg").hide();
+	$(document).find(".alert-success").hide();
+	$(document).find(".alert-danger").show();
+	$(document).find(".alert-warning").hide();
+	$(document).find(".nextButton").hide();
+	$(document).find(".message").show();
+	$(document).find(".message").text("Provet är slut och har skickats in!");
+	}
 function sendToDb(){
 		
 		//save the choice to send it to db
