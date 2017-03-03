@@ -16,4 +16,6 @@ class MailView extends Base {
     this.descriptionVisible = this.descriptionVisible? false : true;
     this.toggleText = this.descriptionVisible? 'Visa' : 'Göm';
   }
+  
+
 }

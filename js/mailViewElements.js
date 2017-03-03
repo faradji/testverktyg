@@ -2,19 +2,48 @@
  	//gömmer email-listan i början
 	$('.mailLista').hide();
 	var listOfStudents = $(document).find(".mailLista");
-	
-	//vid click av klass dyker listan upp och vid click igen gömmer den sig
-		
-	$('.btn-klass').click(function(event){
-		$(document).find(".mailLista").empty();
+	// $(".dropDown").submit(function(e){
+    	// return false;
+	// });
+	for (let i = 0; i < window.klasser.length; i++) {
+      $('<option value="'+  window.klasser[i].class +'"class="listOfClasses">'+ window.klasser[i].class+
+	  '</option>').appendTo(".dropDown");
+    }
+	$(".dropDown option").click(function() {
 		var contentPanelId = $(this).text();
+		
+				$(document).find(".mailLista").empty();
+		
 		
 	for(let i = 0; i < window.userFromDb.length; i++)
 		{	
 			
 		if(window.userFromDb[i].class == contentPanelId ){
+		
+	  $('<a href="#" class="list-group-item">'+ window.userFromDb[i].emailAddress+
+	  '</a>').appendTo(listOfStudents);
+		
+		
+		
+		}
 			
-	  $('<a href="" class="list-group-item">'+ window.userFromDb[i].emailAddress+
+	  }
+		
+		$('.mailLista').show();
+	});
+
+	//vid click av klass dyker listan upp och vid click igen gömmer den sig
+		
+	$('.btn-klass').click(function(event){
+		$(document).find(".mailLista").empty();
+		
+		
+	for(let i = 0; i < window.userFromDb.length; i++)
+		{	
+			
+		if(window.userFromDb[i].class == contentPanelId ){
+		
+	  $('<a href="#" class="list-group-item">'+ window.userFromDb[i].emailAddress+
 	  '</a>').appendTo(listOfStudents);
 		
 		
@@ -29,7 +58,7 @@
 	// $("#checkAll").change(function () {
 		// $("input:checkbox").prop('checked', $(this).prop("checked"));
 	// }); 
-});
+
 
 function länkTillElevView() {
     var länk = prompt("Skriv in länk", "localhost:3000/elev");
@@ -42,3 +71,10 @@ function länkTillElevView() {
         // "Länk: Ej funnen!";
 	// }
 };
+
+
+// $('.dropbtn').click(function(event){
+ 
+	// });
+
+});

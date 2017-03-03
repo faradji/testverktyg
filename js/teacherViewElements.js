@@ -23,7 +23,7 @@ var divElementDoneTest = $(document).find(".doneTest");
 	
    $(this).find(".linkToTest").on("click", function (event) {
 		event.preventDefault();
-		 $(document).find(divElementDoneTest).empty();
+	    $(document).find(divElementDoneTest).empty();
 		$(document).find(divElementDoneTest).show();
 		var contentPanelId = $(this).attr("id");
 
@@ -46,12 +46,12 @@ var divElementDoneTest = $(document).find(".doneTest");
 				
 			if(window.answersFromDb[i].user_answer==1){
 				
-				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				$('<a href="#" class="list-group-item linkToTest disabled" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
 			'</br> user answer: Yes </a></br>').appendTo(divElementDoneTest);
 			}else{
 			
-				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				$('<a href="#" class="list-group-item linkToTest disabled" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
 			'</br> user answer: No </a></br>').appendTo(divElementDoneTest);
 			}
