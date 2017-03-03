@@ -1,10 +1,10 @@
 var currentQuestion;
-if(currentQuestion==null){
+if(!currentQuestion){
 	currentQuestion=0;
 }
 localStorage.setItem("currentQuestion",currentQuestion);
 var correctAnswers;
-if(correctAnswers == null){
+if(!correctAnswers){
 correctAnswers = 0;
 }
 localStorage.setItem("correctAnswers",correctAnswers);
@@ -14,17 +14,47 @@ var quizOver = false;
 var value = null;
 var testTimeOver = false;
 var userIdFromDb;
- 
+
+
 $(document).ready(function () {
 	$(this).find(".quizContainer").hide();
 	$(this).find(".alert-danger").hide();
 	$(this).find(".alert-warning").hide();
-    
-    var start = 60;
+	//prevent default
+	$(".mail").submit(function(e){
+    	return false;
+	});
 
-	setTimeout(isTimeOut, 3600000);
-	$(".timerMsg").text(start + " minuter kvar av testtiden.");
-	setInterval(function() {
+//get typed in email and get userId and starts timer
+$(document).find(".startaTest > .mail > .emailButton").on("click", function () {
+	
+		if(!currentUser){
+		var currentUser = $(document).find(".startaTest > .mail > .email").val();
+		}
+		localStorage.setItem("currentUser",currentUser);
+		for(var i = 0; i < window.userFromDb.length; i++)
+		{
+		  if(window.userFromDb[i].emailAddress == currentUser)
+		  {
+			 userIdFromDb= window.userFromDb[i].idUsers;
+			 break;
+		  }
+		}
+		
+		if(currentUser){
+			
+		$(document).find(".quizContainer").show();
+		$(document).find(".mail").hide();
+		$(document).find(".alert-success").hide();
+		$(document).find(".alert-danger").hide();
+		$(document).find(".alert-warning").show();
+		 
+		 
+		var start = 60;
+
+		setTimeout(isTimeOut, 3600000);
+		$(".timerMsg").text(start + " minuter kvar av testtiden.");
+		setInterval(function() {
 		$(".timerMsg").text(start + " minuter kvar av testtiden.");
     	start = start - 1;
 	}, 60000);
@@ -40,43 +70,15 @@ $(document).ready(function () {
 		$(document).find(".nextButton").hide();
         $(document).find(".message").show();
         $(document).find(".message").text("Provet är slut och har skickats in!");
+	}
 
-    }
-
-
-
-	//prevent default
-	$(".mail").submit(function(e){
-    	return false;
-	});
-
-	$(this).find(".mail > .emailButton").on("click",function(){
-		$(document).find(".quizContainer").show();
-		$(document).find(".mail").hide();
-		$(document).find(".alert-success").hide();
-		$(document).find(".alert-danger").hide();
-		$(document).find(".alert-warning").show();
-	});
-
-//get typed in email and get userId
-//get typed in email and get userId and starts timer
-	$(this).find(".email").on("change", function () {
-		if(currentUser == null){
-		var currentUser = $(document).find(".quizContainer > .mail > .email").val();
-		}			
-		localStorage.setItem("currentUser",currentUser);
-		for(var i = 0; i < window.userFromDb.length; i++)
-		{
-		  if(window.userFromDb[i].emailAddress == currentUser)
-		  {
-			 userIdFromDb= window.userFromDb[i].idUsers;
-			 break;
-		  }
+		}else{
+		$(document).find(".alert-danger").text("Du måste skriva in en email");
+		$(document).find(".alert-danger").show();
 		}
-		 setTimeout(isTimeOut, 360000);//360000
-				
-	});
+
 		
+			});
     // Display the first question
 		displayCurrentQuestion();
 
@@ -86,71 +88,35 @@ $(document).ready(function () {
     $(this).find(".nextButton").on("click", function () {
 		value = $("input[type='checkbox']:checked").val();
 		//send data to db everytime you press next
-		
 			
-			console.log(value);
-				//save the choice to send it to db
-			var tempAnswer=parseInt(value,10);
-			var tempCurrentQuestion = parseInt(currentQuestion,10);
-			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
-			tempCurrentQuestion = tempCurrentQuestion+1;
-			var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
-			
-			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId,
-			user_answer:tempAnswer, score:tempScore};
-			
-			$.ajax({
-				url: "api/question/write",
-				type: "POST",
-				dataType:'json',
-				data: JSON.stringify(dataString),
-				processData: false,
-				contentType: "application/json"
-				});
-			
-           
-		
-	if(testTimeOver==false){
+	if(!testTimeOver){
 
         if (!quizOver) {
 			
 			
-            if (value == null) {
-                $(document).find(".message").text("Du måste göra ett val");
-                $(document).find(".message").show();
-            } else {
-                // Remove any message
-                $(document).find(".message").hide();
-				currentQuestion++;
-				localStorage.setItem("currentQuestion",currentQuestion);
-			}
+ if (!value) {
+ $(document).find(".message").text("Du måste göra ett val");
+ $(document).find(".message").show();
+    }else {
+		// Remove any message
+        $(document).find(".message").hide();
+		
 			if (value == window.questionfromdb[currentQuestion].CorrectAnswer) {
                     correctAnswers++;
 					localStorage.setItem("correctAnswers",correctAnswers);
+					// displayCurrentQuestion();
                 }
-                if (currentQuestion < window.questionfromdb.length) {
-                    displayCurrentQuestion();
-                } else {
-                    displayScore();
-					quizOver = true;
-                    //  send in the test and display message
-			$(document).find(".nextButton").hide();
-				console.log("button har ändrats");
-			$(document).find(".message").text("Provet är slut och har skickats in!");
-			$(document).find(".message").show();
-			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
-			user_answer:null, score:tempScore};
-			$.ajax({
-				url: "api/question/write",
-				type: "POST",
-				dataType:'json',
-				data: JSON.stringify(dataString),
-				processData: false,
-				contentType: "application/json"
- 
-              });
-			  }
+			  
+						sendToDb();
+						currentQuestion++;
+						localStorage.setItem("currentQuestion",currentQuestion);
+						displayCurrentQuestion();
+				}
+				
 		}
+
+			
+		
 	}else{
  
     //test is over, you ran out of time
@@ -170,17 +136,52 @@ $(document).ready(function () {
               });
               console.log("ajax har körts");
  	}
-	});
+	
+	if(currentQuestion == (window.questionfromdb.length-1)){
+					displayScore();
+					quizOver = true;
+					//  send in the test and display message
+						$(document).find(".nextButton").hide();
+							console.log("button har ändrats");
+						$(document).find(".message").text("Provet är slut och har skickats in!");
+						$(document).find(".message").show();
+						var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:null,
+						user_answer:null, score:tempScore};
+						$.ajax({
+							url: "api/question/write",
+							type: "POST",
+							dataType:'json',
+							data: JSON.stringify(dataString),
+							processData: false,
+							contentType: "application/json"
+			 
+						  });
+				}
+	 });
 		});
+	
+function sendToDb(){
 		
-		    //timern startar
-    
-    function isTimeOut(){
-       
-        testTimeOver = true;
-        quizOver = true;
-    }
-
+		//save the choice to send it to db
+			var tempAnswer=parseInt(value,10);
+			var tempCurrentQuestion = parseInt(currentQuestion,10);
+			var tempQuestionId = window.questionfromdb[currentQuestion].idQuestions;
+			tempCurrentQuestion = tempCurrentQuestion+1;
+			var tempScore = correctAnswers+'/'+ window.questionfromdb.length;
+			
+			var dataString ={Users_idUsers:userIdFromDb, Questions_idQuestions:tempQuestionId,
+			user_answer:tempAnswer, score:tempScore};
+			
+			$.ajax({
+				url: "api/question/write",
+				type: "POST",
+				dataType:'json',
+				data: JSON.stringify(dataString),
+				processData: false,
+				contentType: "application/json"
+				});
+		
+	}
 
 function displayCurrentQuestion() {
     var question ="";
