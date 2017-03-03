@@ -10,10 +10,9 @@ var divElementDoneTest = $(document).find(".doneTest");
 		{
 			if(window.answersFromDb[j].Users_idUsers == window.userFromDb[i].idUsers ){
 			
-		  $('<a href="#" class="list-group-item disabled">' + window.userFromDb[i].firstName + ' ' +
+		  $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">' + window.userFromDb[i].firstName + ' ' +
 		  window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
 		  '</a>').appendTo(divElement);
-		  $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">'+window.userFromDb[i].idUsers+'</a>').appendTo(divElement);
 			break;
 			}	
 		}
@@ -38,15 +37,23 @@ var divElementDoneTest = $(document).find(".doneTest");
 		if(window.answersFromDb[i].Users_idUsers == contentPanelId){
 		// if we're not on the last post in array then
 		if(j != window.questionfromdb.length){
+			
+			
+			 // $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">'
+			 // + window.userFromDb[i].firstName + ' ' +
+		  // window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
+		  // '</a>').appendTo(divElement);
 				
 			if(window.answersFromDb[i].user_answer==1){
 				
-				$('<article>'+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes </article></br>').appendTo(divElementDoneTest);
+				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				+window.questionfromdb[j].QuestionText+
+			'</br> user answer: Yes </a></br>').appendTo(divElementDoneTest);
 			}else{
 			
-				$('<article>'+window.questionfromdb[j].QuestionText+
-				'</br> user answer: No </article></br>').appendTo(divElementDoneTest);
+				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				+window.questionfromdb[j].QuestionText+
+			'</br> user answer: No </a></br>').appendTo(divElementDoneTest);
 			}
 			j = j+1;
 		}else{
