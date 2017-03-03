@@ -32,7 +32,7 @@
 });
 
 function länkTillElevView() {
-    var länk = prompt("Skriv in länk", "localhost:3000/elev");
+    var länk = prompt("Kopiera länken", "localhost:3000/elev");
     // if (länk != null) {
         // document.getElementById("errorMessage").innerHTML =
         // "Länk: " + länk + " Skickad!";
