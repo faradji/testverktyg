@@ -175,7 +175,6 @@
 }		
 
 .teacher-container{
-
 	
 }
 .teacherElements
@@ -183,15 +182,14 @@
 	margin-right: 1%;
 	border-radius: 6px;
     width:33%;
-	max-height:80vh;	
+	max-height:80vh;
+		
 }
 .doneTest
 {	
-	border-radius: 6px;
- 	
-	
+	border-radius: 6px;	
 	max-height:80vh;
-	overflow: scroll	
+	overflow-y: scroll	
 }
 .doneTest-container{
 	width:60%;
@@ -222,8 +220,7 @@
 	.teacherElements
 	{	
 		width:100%;	
-		max-height:40vh;
-		overflow: scroll;
+		max-height:40vh;		
 		margin-bottom:10px;
 		margin: 0% 0% 2% 0% ;
 	}
@@ -233,7 +230,7 @@
 	padding-left:0px;
 	}
 
-	h1{
+	h2{
 		font-size:20px;
 	}
 
