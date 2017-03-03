@@ -1,14 +1,23 @@
 elevView.addTemplate('default',function(){return `
   
-  <div class="startaTest">
+  <div class="startaTest well">
     <h1>Välkommen till Newtons test!</h1>
-    <form class="mail">
-      Skriv i din epostadress innan du startar testet: <input type="text" class="email">
-      <input type="submit" value="Starta test" class="emailButton">
-    </form> 
+	<form class="mail">
+	<div class="input-group">
+	  <span class="input-group-addon" id="basic-addon1">@</span>
+	  <input type="text" class="form-control email" placeholder="Ange email" aria-describedby="basic-addon1">
+	</div>
+	<button type="button submit" value="Starta test" class="btn btn-default emailButton">Starta provet</button>
+	</form> 
+	
+	
+	
+
   </div>
 
-  <div class="quizContainer">	
+  <div class="quizContainer">		
+
+         
 		<div class="questionnr"></div>
         <div class="question"></div>
         <ul class="choiceList"></ul>
