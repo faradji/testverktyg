@@ -2,11 +2,11 @@ user.addTemplate('default',function(){return `
 <div class="row">
   <div class="col-lg-6">
     <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox" aria-label="...">
+      <span class="input-group-addon" id="checkboxList">
+    <label class="emailLista"><input type="checkbox" id="check" aria-label="...">${this.emailAddress}</label>
       </span>
-      <li>${this.emailAddress}</li>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+    </div>
+  </div>
+</div>
+
 `});

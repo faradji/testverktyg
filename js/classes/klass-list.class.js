@@ -1,7 +1,7 @@
 class KlassList extends List {
 
   constructor(callback){
-    super(user);
+    super(klass);
     this.readAllFromDb(callback);
   }
 
