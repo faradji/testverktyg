@@ -14,6 +14,7 @@ var quizOver = false;
 var value = null;
 var testTimeOver = false;
 var userIdFromDb;
+var currentUser;
 
 
 $(document).ready(function () {
@@ -29,7 +30,7 @@ $(document).ready(function () {
 $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 	
 		if(!currentUser){
-		var currentUser = $(document).find(".startaTest > .mail > .email").val();
+		currentUser = $(document).find(".email").val();
 		}
 		localStorage.setItem("currentUser",currentUser);
 		for(var i = 0; i < window.userFromDb.length; i++)
@@ -137,7 +138,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
               console.log("ajax har körts");
  	}
 	
-	if(currentQuestion == (window.questionfromdb.length-1)){
+	if(currentQuestion == (window.questionfromdb.length)){
 					displayScore();
 					quizOver = true;
 					//  send in the test and display message

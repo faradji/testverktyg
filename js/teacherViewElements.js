@@ -9,12 +9,10 @@ var divElementDoneTest = $(document).find(".doneTest");
 		for(let j = 0; j < window.answersFromDb.length; j++)
 		{
 			if(window.answersFromDb[j].Users_idUsers == window.userFromDb[i].idUsers ){
-				
-		  $('<li>' + window.userFromDb[i].firstName + ' ' +
+			
+		  $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">' + window.userFromDb[i].firstName + ' ' +
 		  window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
-		  '</li></br>').appendTo(divElement);
-			$('<li class="linkToTest" id="'+window.userFromDb[i].idUsers+'"><a href="">'+ 'prov med id: '+window.userFromDb[i].idUsers+
-			'</a></li></br>').appendTo(divElement);
+		  '</a>').appendTo(divElement);
 			break;
 			}	
 		}
@@ -39,15 +37,23 @@ var divElementDoneTest = $(document).find(".doneTest");
 		if(window.answersFromDb[i].Users_idUsers == contentPanelId){
 		// if we're not on the last post in array then
 		if(j != window.questionfromdb.length){
+			
+			
+			 // $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">'
+			 // + window.userFromDb[i].firstName + ' ' +
+		  // window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
+		  // '</a>').appendTo(divElement);
 				
 			if(window.answersFromDb[i].user_answer==1){
 				
-				$('<article>'+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes </article></br>').appendTo(divElementDoneTest);
+				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				+window.questionfromdb[j].QuestionText+
+			'</br> user answer: Yes </a></br>').appendTo(divElementDoneTest);
 			}else{
 			
-				$('<article>'+window.questionfromdb[j].QuestionText+
-				'</br> user answer: No </article></br>').appendTo(divElementDoneTest);
+				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				+window.questionfromdb[j].QuestionText+
+			'</br> user answer: No </a></br>').appendTo(divElementDoneTest);
 			}
 			j = j+1;
 		}else{
@@ -67,31 +73,5 @@ var divElementDoneTest = $(document).find(".doneTest");
 	
 	
    });
-
-   /*   FUNKTIONER TILL MAILVIEW    */
-  	
-	//gömmer email-listan i början
-	$('.mailLista').hide();
-	
-	//vid click av klass dyker listan upp och vid click igen gömmer den sig
-	$('.btn-klass').click(function(){
-		$('.mailLista').toggle();
-	});
-		//Check all checkboxes - Markera alla emailadresser
-	$("#checkAll").change(function () {
-		$("input:checkbox").prop('checked', $(this).prop("checked"));
-	}); 
 });
-
-function länkTillElevView() {
-    var länk = prompt("Skriv in länk", "localhost:3000/elev");
-    if (länk != null) {
-        document.getElementById("errorMessage").innerHTML =
-        "Länk: " + länk + " Skickad!";
-    }
-	else{
-		document.getElementById("errorMessage").innerHTML =
-        "Länk: Ej funnen!";
-	}
-};
 

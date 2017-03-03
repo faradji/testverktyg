@@ -9,7 +9,6 @@ class KlassList extends List {
     this.db.readAllKlasser((data)=>{
       this.push.apply(this,data);
       callback && (typeof callback == 'function') && callback(this);
-	  console.log('hämtar KlassList från db');
     });
   }
 
