@@ -65,6 +65,8 @@
     position: relative;
 	text-align: center;
 }
+
+
 .nextButton {
 	margin-bottom: 10px;
 }
@@ -185,14 +187,14 @@
 }
 .teacherElements
 {	
-	margin: 1%;
+	margin-right: 1%;
 	border-radius: 6px;
     width:33%;
 	max-height:80vh;	
 }
 .doneTest
 {
-	margin: 1%;
+	
 	border-radius: 6px;
     width:60%;		
 	top:0px;

@@ -9,12 +9,11 @@ var divElementDoneTest = $(document).find(".doneTest");
 		for(let j = 0; j < window.answersFromDb.length; j++)
 		{
 			if(window.answersFromDb[j].Users_idUsers == window.userFromDb[i].idUsers ){
-				
-		  $('<li>' + window.userFromDb[i].firstName + ' ' +
+			
+		  $('<a href="#" class="list-group-item disabled">' + window.userFromDb[i].firstName + ' ' +
 		  window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
-		  '</li></br>').appendTo(divElement);
-			$('<li class="linkToTest" id="'+window.userFromDb[i].idUsers+'"><a href="">'+ 'prov med id: '+window.userFromDb[i].idUsers+
-			'</a></li></br>').appendTo(divElement);
+		  '</a>').appendTo(divElement);
+		  $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">'+window.userFromDb[i].idUsers+'</a>').appendTo(divElement);
 			break;
 			}	
 		}
