@@ -2,6 +2,7 @@ class App {
 
   constructor(){
 	new UserList();
+	new KlassList();
 	this.startPage = new StartPage();
 	this.navbar = new Navbar();
     this.elevView = new elevView();

@@ -3,9 +3,8 @@ class user extends Base {
   constructor(propertyValues){
 		super(propertyValues);
 	//	this.getUser();
-		
 	}
-	
+
 /* 	getUser(){
 		var userFromDb = [];
     this.db.readAllUsers((data)=>{

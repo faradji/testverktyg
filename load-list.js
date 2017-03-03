@@ -33,7 +33,7 @@ window.load = `
 	mailView.class.js
     user-list.class.js
 	klass-list.class.js
-    
+    klass.class.js
 
   templates/    
   elevView.html
@@ -42,7 +42,7 @@ window.load = `
   teacherview.html
   mailView.html  
   user.html
-    
+  klass.html  
 
   js/
   main.js
