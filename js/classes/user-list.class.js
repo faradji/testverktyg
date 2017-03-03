@@ -10,6 +10,9 @@ class UserList extends List {
 	  window.userFromDb = data;
       this.push.apply(this,data);
       callback && (typeof callback == 'function') && callback(this);
+    });this.db.readAllFromDoneTests((data)=>{
+  window.userDoneTest = data;
+  console.log(data);
     });
   }
   
@@ -18,7 +21,12 @@ class UserList extends List {
     return {
       readAll: `
         SELECT * FROM users
+      `,
+	  readAllFromDoneTests: `
+        SELECT * FROM alredydonetest
       `
+	  
+	  
     }
   }
 
