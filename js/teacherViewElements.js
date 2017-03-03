@@ -48,12 +48,12 @@ var divElementDoneTest = $(document).find(".doneTest");
 				
 				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes </a></br>').appendTo(divElementDoneTest);
+			'</br> user answer: Yes </a>').appendTo(divElementDoneTest);
 			}else{
-			
-				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+			 
+				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> user answer: No </a></br>').appendTo(divElementDoneTest);
+			'</br> User answer: No </li>').appendTo(divElementDoneTest);
 			}
 			j = j+1;
 		}else{
