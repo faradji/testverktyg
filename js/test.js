@@ -41,16 +41,18 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 			 break;
 		  }
 		}
+		//check if user alredy completed test
 		var done=false;
 		for(let i = 0;i<window.userDoneTest.length;i++){
-			console.log(window.userDoneTest[i].idUser,userIdFromDb);
+			
 			if(window.userDoneTest[i].idUser == userIdFromDb){
 				
 				 done = true;
 			}
 		}
-		console.log(done);
+		
 		if(done == false){
+			
 		if(currentUser){
 			
 		$(document).find(".quizContainer").show();
