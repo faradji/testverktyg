@@ -23,7 +23,7 @@ class App {
 	'/elev': ()=> { this.showPage(this.elevView);
 					$.getScript('js/test.js', function() {
 						var currentQuestion = parseInt(localStorage.getItem("currentQuestion"));
-						var correctAnswers = parseInt(localStorage.getItem("correctAnswers"));
+						var correctAnswers= parseInt(localStorage.getItem("correctAnswers"));
 						var currentUser = String(localStorage.getItem("currentUser"));
 					});},
 	'/teacherView': () => {this.showPage(this.teacherview);$.getScript('js/teacherViewElements.js');},
