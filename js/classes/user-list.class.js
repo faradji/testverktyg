@@ -12,7 +12,8 @@ class UserList extends List {
       callback && (typeof callback == 'function') && callback(this);
     });this.db.readAllFromDoneTests((data)=>{
   window.userDoneTest = data;
-  console.log(data);
+    });this.db.getHighestScoreValue((data)=>{
+  window.highestScoreFromDb = data;
     });
   }
   
@@ -24,7 +25,12 @@ class UserList extends List {
       `,
 	  readAllFromDoneTests: `
         SELECT * FROM alredydonetest
-      `
+      `,
+	  getHighestScoreValue: `
+	  select Users_idUsers, Questions_idQuestions, score
+from users_responses_to_questions where Questions_idQuestions = 10
+and Users_idUsers IS NOT NULL
+	  `
 	  
 	  
     }

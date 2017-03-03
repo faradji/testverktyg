@@ -26,7 +26,6 @@ var divElementDoneTest = $(document).find(".doneTest");
 	    $(document).find(divElementDoneTest).empty();
 		$(document).find(divElementDoneTest).show();
 		var contentPanelId = $(this).attr("id");
-
 		 
 	var j = 0;
 	for(let i = 0; i < window.answersFromDb.length; i++)
@@ -62,16 +61,21 @@ var divElementDoneTest = $(document).find(".doneTest");
 		}
 		
 	}
+	
+	for(let i = 0; i <  window.highestScoreFromDb.length; i++){
+		
+			if(window.highestScoreFromDb[i].Users_idUsers  == contentPanelId){
+				console.log(window.highestScoreFromDb[i].score);
+				$('<a href="#" class="list-group-item linkToTest disabled"> score: '
+				+window.highestScoreFromDb[i].score+
+				'</a>').appendTo(divElementDoneTest);
+				console.log(window.highestScoreFromDb[i].score);
+			
+			}
+			console.log(window.highestScoreFromDb[i].score);
+	}
 
-		if(contentPanelId==1){
-			$('<article> score: '+window.answersFromDb[10].score+'</article></br>').appendTo(divElementDoneTest);
 		
-		}else{
-			$('<article> score: '+window.answersFromDb[21].score+'</article></br>').appendTo(divElementDoneTest);
-		
-		}
-	
-	
    });
 });
 
