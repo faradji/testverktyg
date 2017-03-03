@@ -65,14 +65,13 @@ var divElementDoneTest = $(document).find(".doneTest");
 	for(let i = 0; i <  window.highestScoreFromDb.length; i++){
 		
 			if(window.highestScoreFromDb[i].Users_idUsers  == contentPanelId){
-				console.log(window.highestScoreFromDb[i].score);
+				
 				$('<a href="#" class="list-group-item linkToTest disabled"> score: '
 				+window.highestScoreFromDb[i].score+
 				'</a>').appendTo(divElementDoneTest);
-				console.log(window.highestScoreFromDb[i].score);
+				
 			
 			}
-			console.log(window.highestScoreFromDb[i].score);
 	}
 
 		
