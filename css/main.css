@@ -1,7 +1,34 @@
 /* Add your own css */
-.klassLista, .mailLista{
-	border:2px solid black;
+/*EmailList css start*/
+.btn-klass{
+	width:350px;
+	background-color:white;
+	flex-direction:column;
 }
+.emailLista, .klasserLista{
+	font-size:16px;
+	padding:10px;
+	width:350px;
+}
+#check{
+  transform: scale(1.5);
+  margin-right:40px;
+}
+.MarkAllButton, #sendLinkButton{
+	margin:10px;
+	box-shadow: 5px 5px 5px #888888;
+    border-radius: 10px;
+	padding:10px;
+	background-color:white;
+}
+#checkboxList{
+	border:2px solid white;
+	padding:0;
+	text-align:left;
+	width:350px;
+	border-radius: 10px;
+}
+/*EmailList css end*/
 .pet-box, .pet-owner-name {
   cursor:pointer;
 }

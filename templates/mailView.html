@@ -1,9 +1,11 @@
 MailView.addTemplate('default',function(){return `
 	<div class="container">
 	<ul class="klassLista">
+	${this.klassList.display()}
 	</ul>
-	<button type="button">Skicka Länk</button>
-	<button type="button">Markera alla</button>
+	<button type="button" onclick="länkTillElevView()" id="sendLinkButton">Skicka Länk</button>
+	<label class="MarkAllButton"><input type="checkbox" id="checkAll"/>Check all</label>
+	<p id="errorMessage"></p>
 	<ul class="mailLista">
 	${this.userList.display()}
 	</ul>
