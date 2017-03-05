@@ -1,15 +1,14 @@
 MailView.addTemplate('default',function(){return `
 	<div class="container">
 	<ul class="klassLista">
-	<!-- ${this.klassList.display()} -->
+	
 	 <select class="dropDown">
-<option></option>
+		<option></option>
 
-</select>
+	</select>
 	
 	</ul>
-	<button type="button" onclick="länkTillElevView()" id="sendLinkButton">Hämta Länk</button>
-	<!-- <label class="MarkAllButton"><input type="checkbox" id="checkAll"/>Check all</label> -->
+	<button type="button" class="btn btn-default" id="sendLinkButton">Skicka Länk</button>
 	<p id="errorMessage"></p>
 	<ul class="mailLista">
 	</ul>
