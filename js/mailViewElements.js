@@ -14,8 +14,8 @@
 			
 		if(window.userFromDb[i].class == contentPanelId ){
 			
-	  $('<a href="" class="list-group-item">'+ window.userFromDb[i].emailAddress+
-	  '</a>').appendTo(listOfStudents);
+	  $('<article href="" class="list-group-item" >'+ window.userFromDb[i].emailAddress+
+	  '</article>').appendTo(listOfStudents);
 		
 		
 		

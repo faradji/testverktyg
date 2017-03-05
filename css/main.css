@@ -1,10 +1,6 @@
 /* Add your own css */
 /*EmailList css start*/
-.btn-klass{
-	width:350px;
-	background-color:white;
-	flex-direction:column;
-}
+/*
 .emailLista, .klasserLista{
 	font-size:16px;
 	padding:10px;
@@ -14,7 +10,7 @@
   transform: scale(1.5);
   margin-right:40px;
 }
-.MarkAllButton, #sendLinkButton{
+.MarkAllButton{
 	margin:10px;
 	box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;
@@ -28,6 +24,7 @@
 	width:350px;
 	border-radius: 10px;
 }
+*/
 /*EmailList css end*/
 .pet-box, .pet-owner-name {
   cursor:pointer;
