@@ -23,10 +23,9 @@ var divElementDoneTest = $(document).find(".doneTest");
 	
    $(this).find(".linkToTest").on("click", function (event) {
 		event.preventDefault();
-		 $(document).find(divElementDoneTest).empty();
+	    $(document).find(divElementDoneTest).empty();
 		$(document).find(divElementDoneTest).show();
 		var contentPanelId = $(this).attr("id");
-
 		 
 	var j = 0;
 	for(let i = 0; i < window.answersFromDb.length; i++)
@@ -46,9 +45,9 @@ var divElementDoneTest = $(document).find(".doneTest");
 				
 			if(window.answersFromDb[i].user_answer==1){
 				
-				$('<article href="" class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes </a>').appendTo(divElementDoneTest);
+			'</br> user answer: Yes </li>').appendTo(divElementDoneTest);
 			}else{
 			 
 				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
@@ -62,16 +61,20 @@ var divElementDoneTest = $(document).find(".doneTest");
 		}
 		
 	}
+	
+	for(let i = 0; i <  window.highestScoreFromDb.length; i++){
+		
+			if(window.highestScoreFromDb[i].Users_idUsers  == contentPanelId){
+				
+				$('<a href="#" class="list-group-item linkToTest disabled"> score: '
+				+window.highestScoreFromDb[i].score+
+				'</a>').appendTo(divElementDoneTest);
+				
+			
+			}
+	}
 
-		if(contentPanelId==1){
-			$('<article> score: '+window.answersFromDb[10].score+'</article></br>').appendTo(divElementDoneTest);
 		
-		}else{
-			$('<article> score: '+window.answersFromDb[21].score+'</article></br>').appendTo(divElementDoneTest);
-		
-		}
-	
-	
    });
 });
 
