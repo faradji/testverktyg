@@ -42,7 +42,6 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		  {
 			 userIdFromDb= window.userFromDb[i].idUsers;
 			 emailExist=true;
-			 console.log("inne");
 			 break;
 		  }
 		}

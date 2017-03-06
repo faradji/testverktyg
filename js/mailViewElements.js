@@ -6,7 +6,7 @@
 	for (let i = 0; i < window.klasser.length; i++) {
       $('<option value="'+  window.klasser[i].class +'"class="listOfClasses">'
 	  + window.klasser[i].class+
-	  '</option>').appendTo(".dropDown");
+	  '</option>').appendTo(".menu");
     }
 	
 	
