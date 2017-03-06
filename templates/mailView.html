@@ -1,11 +1,17 @@
 MailView.addTemplate('default',function(){return `
 	<div class="container">
-	<ul class="klassLista">
-	</ul>
-	<button type="button">Skicka Länk</button>
-	<button type="button">Markera alla</button>
-	<ul class="mailLista">
-	${this.userList.display()}
-	</ul>
+		<div class="klassLista">
+	</div>
+	
+	<button type="button" class="btn btn-default" id="sendLinkButton">Skicka Länk</button>
+	<p id="errorMessage"></p>
+	<h2>E-postadresser</h2>	
+	 <select class="dropDown">
+	<option></option>
+	</select>
+	<h2>Välj klass för att se e-postadresser</h2>
+
+	<div class="mailLista">
+	</div>
 	</div>
 `});

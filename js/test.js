@@ -14,6 +14,7 @@ var quizOver = false;
 var value = null;
 var testTimeOver = false;
 var userIdFromDb;
+var currentUser;
 
 
 $(document).ready(function () {
@@ -27,9 +28,9 @@ $(document).ready(function () {
 
 //get typed in email and get userId and starts timer
 $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
-	
+		currentUser="";
 		if(!currentUser){
-		var currentUser = $(document).find(".startaTest > .mail > .email").val();
+		currentUser = $(document).find(".email").val();
 		}
 		localStorage.setItem("currentUser",currentUser);
 		for(var i = 0; i < window.userFromDb.length; i++)
@@ -40,7 +41,18 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 			 break;
 		  }
 		}
+		//check if user alredy completed test
+		var done=false;
+		for(let i = 0;i<window.userDoneTest.length;i++){
+			
+			if(window.userDoneTest[i].idUser == userIdFromDb){
+				
+				 done = true;
+			}
+		}
 		
+		if(done == false){
+			
 		if(currentUser){
 			
 		$(document).find(".quizContainer").show();
@@ -59,25 +71,16 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
     	start = start - 1;
 	}, 60000);
 
-    function isTimeOut(){
-       
-        testTimeOver = true;
-        quizOver = true;
-        $(".timerMsg").hide();
-        $(document).find(".alert-success").hide();
-		$(document).find(".alert-danger").show();
-		$(document).find(".alert-warning").hide();
-		$(document).find(".nextButton").hide();
-        $(document).find(".message").show();
-        $(document).find(".message").text("Provet är slut och har skickats in!");
-	}
-
-		}else{
+    }else{
 		$(document).find(".alert-danger").text("Du måste skriva in en email");
 		$(document).find(".alert-danger").show();
 		}
 
-		
+		}else{
+			
+		$(document).find(".alert-danger").text("man får bara göra provet en gång");
+		$(document).find(".alert-danger").show();
+		}
 			});
     // Display the first question
 		displayCurrentQuestion();
@@ -88,7 +91,6 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
     $(this).find(".nextButton").on("click", function () {
 		value = $("input[type='checkbox']:checked").val();
 		//send data to db everytime you press next
-			
 	if(!testTimeOver){
 
         if (!quizOver) {
@@ -137,7 +139,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
               console.log("ajax har körts");
  	}
 	
-	if(currentQuestion == (window.questionfromdb.length-1)){
+	if(currentQuestion == (window.questionfromdb.length)){
 					displayScore();
 					quizOver = true;
 					//  send in the test and display message
@@ -157,9 +159,22 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 			 
 						  });
 				}
+				
 	 });
 		});
-	
+
+	function isTimeOut(){
+   
+	testTimeOver = true;
+	quizOver = true;
+	$(".timerMsg").hide();
+	$(document).find(".alert-success").hide();
+	$(document).find(".alert-danger").show();
+	$(document).find(".alert-warning").hide();
+	$(document).find(".nextButton").hide();
+	$(document).find(".message").show();
+	$(document).find(".message").text("Provet är slut och har skickats in!");
+	}
 function sendToDb(){
 		
 		//save the choice to send it to db

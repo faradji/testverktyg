@@ -3,14 +3,19 @@ class MailView extends Base {
 	constructor(props, callback){
 		super(props);
 	
-	/* 	new KlassList((klassList)=>{
+		new KlassList((klassList)=>{
 			this.klassList=klassList;
-			console.log('skapar KlassList från db'); */
 			new UserList((userList)=>{
 				this.userList=userList;
 				callback && callback(this);
-			});
-		//});
+			})
+		});
+		this.toggleDescription();
 	}
+	 toggleDescription(){
+    this.descriptionVisible = this.descriptionVisible? false : true;
+    this.toggleText = this.descriptionVisible? 'Visa' : 'Göm';
+  }
+  
 
 }

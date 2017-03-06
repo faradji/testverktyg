@@ -2,6 +2,7 @@ class App {
 
   constructor(){
 	new UserList();
+	new KlassList();
 	this.startPage = new StartPage();
 	this.navbar = new Navbar();
     this.elevView = new elevView();
@@ -26,7 +27,7 @@ class App {
 						var currentUser = String(localStorage.getItem("currentUser"));
 					});},
 	'/teacherView': () => {this.showPage(this.teacherview);$.getScript('js/teacherViewElements.js');},
-	'/mailView': () => {this.showPage(this.MailView)}
+	'/mailView': () => {this.showPage(this.MailView);$.getScript('js/mailViewElements.js');}
 	
     });
   }

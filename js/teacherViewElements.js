@@ -9,12 +9,10 @@ var divElementDoneTest = $(document).find(".doneTest");
 		for(let j = 0; j < window.answersFromDb.length; j++)
 		{
 			if(window.answersFromDb[j].Users_idUsers == window.userFromDb[i].idUsers ){
-				
-		  $('<li>' + window.userFromDb[i].firstName + ' ' +
+			
+		  $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">' + window.userFromDb[i].firstName + ' ' +
 		  window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
-		  '</li></br>').appendTo(divElement);
-			$('<li class="linkToTest" id="'+window.userFromDb[i].idUsers+'"><a href="">'+ 'prov med id: '+window.userFromDb[i].idUsers+
-			'</a></li></br>').appendTo(divElement);
+		  '</a>').appendTo(divElement);
 			break;
 			}	
 		}
@@ -25,10 +23,9 @@ var divElementDoneTest = $(document).find(".doneTest");
 	
    $(this).find(".linkToTest").on("click", function (event) {
 		event.preventDefault();
-		 $(document).find(divElementDoneTest).empty();
+	    $(document).find(divElementDoneTest).empty();
 		$(document).find(divElementDoneTest).show();
 		var contentPanelId = $(this).attr("id");
-
 		 
 	var j = 0;
 	for(let i = 0; i < window.answersFromDb.length; i++)
@@ -39,15 +36,23 @@ var divElementDoneTest = $(document).find(".doneTest");
 		if(window.answersFromDb[i].Users_idUsers == contentPanelId){
 		// if we're not on the last post in array then
 		if(j != window.questionfromdb.length){
+			
+			
+			 // $('<a href="" class="list-group-item linkToTest" id="'+window.userFromDb[i].idUsers+'">'
+			 // + window.userFromDb[i].firstName + ' ' +
+		  // window.userFromDb[i].lastName + ': '+ window.userFromDb[i].class+
+		  // '</a>').appendTo(divElement);
 				
 			if(window.answersFromDb[i].user_answer==1){
 				
-				$('<article>'+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes </article></br>').appendTo(divElementDoneTest);
+				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				+window.questionfromdb[j].QuestionText+
+			'</br> user answer: Yes </li>').appendTo(divElementDoneTest);
 			}else{
-			
-				$('<article>'+window.questionfromdb[j].QuestionText+
-				'</br> user answer: No </article></br>').appendTo(divElementDoneTest);
+			 
+				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+				+window.questionfromdb[j].QuestionText+
+			'</br> User answer: No </li>').appendTo(divElementDoneTest);
 			}
 			j = j+1;
 		}else{
@@ -56,18 +61,20 @@ var divElementDoneTest = $(document).find(".doneTest");
 		}
 		
 	}
+	
+	for(let i = 0; i <  window.highestScoreFromDb.length; i++){
+		
+			if(window.highestScoreFromDb[i].Users_idUsers  == contentPanelId){
+				
+				$('<a href="#" class="list-group-item linkToTest disabled"> score: '
+				+window.highestScoreFromDb[i].score+
+				'</a>').appendTo(divElementDoneTest);
+				
+			
+			}
+	}
 
-		if(contentPanelId==1){
-			$('<article> score: '+window.answersFromDb[10].score+'</article></br>').appendTo(divElementDoneTest);
 		
-		}else{
-			$('<article> score: '+window.answersFromDb[21].score+'</article></br>').appendTo(divElementDoneTest);
-		
-		}
-	
-	
    });
-
-   	
 });
 

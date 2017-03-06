@@ -1,5 +1,12 @@
 user.addTemplate('default',function(){return `
-
-	<li>${this.emailAddress}</li>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon" id="checkboxList">
+    <label class="emailLista"><input type="checkbox" id="check" aria-label="...">${this.emailAddress}</label>
+      </span>
+    </div>
+  </div>
+</div>
 
 `});

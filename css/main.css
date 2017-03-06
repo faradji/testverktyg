@@ -1,10 +1,28 @@
 /* Add your own css */
-.klassLista, .mailLista{
-	border:2px solid black;
+/*EmailList css start*/
+/*
+.emailLista, .klasserLista{
+	font-size:16px;
+	padding:10px;
+	width:350px;
 }
+#check{
+  transform: scale(1.5);
+  margin-right:40px;
+}
+#checkboxList{
+	border:2px solid white;
+	padding:0;
+	text-align:left;
+	width:350px;
+	border-radius: 10px;
+}
+*/
+/*EmailList css end*/
 .pet-box, .pet-owner-name {
   cursor:pointer;
 }
+
 
 .big-border {
   border: 20px solid #000;
@@ -20,28 +38,27 @@
     border-radius: 6px;
     width: 75%;
     margin: auto;
-    padding: 15px 0;
-    -moz-box-shadow: 10px 10px 5px #888;
-    -webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 10px 10px 5px #888;
+    padding: 15px 0;    
     position: relative;
     text-align: center;
+}
+
+.emailButton {
+	margin-top: 10px;
 }
 
 .quizContainer {
     background-color:  	#F0F0F0;
     border-radius: 6px;
     width: 75%;
-    margin: auto;
-    padding: 15px 0;
-    -moz-box-shadow: 10px 10px 5px #888;
-    -webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 10px 10px 5px #888;
+    margin: auto;    
     position: relative;
 	text-align: center;
 }
-.nextButton {
 
+
+.nextButton {
+	margin-bottom: 10px;
 }
 .question {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -71,7 +88,7 @@
 }
 .myItem{
     display:inline-block;
-	font-size:28px;
+	font-size:22px;
 	margin: 10px;
 
 }
@@ -86,6 +103,7 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .questionnr{
+	margin-top: 5px;
 	width: 40%;
     height: auto;
     border-radius: 6px;
@@ -152,39 +170,67 @@
     box-shadow: 5px 5px 5px #888888;
     border-radius: 10px;	
 }		
-	
-.teacherElements
-{
-	border:1px solid black;
-    width:50%;
-	height:100%;	
-	float:left;
+
+.teacher-container{
 	
 }
+.teacherElements
+{	
+	margin-right: 1%;
+	border-radius: 6px;
+    width:33%;
+	max-height:80vh;
+		
+}
 .doneTest
-{
-	border:1px solid black;
-    width:49%;
-	height:100%;
-	float:right;
-	display: inline-block;
-	top:0px;
-	
-	
+{	
+	border-radius: 6px;	
+	max-height:80vh;
+	overflow-y: scroll	
+}
+.doneTest-container{
+	width:60%;
 }
 /* teacherView end*/
 
 @media only screen and (min-width: 375px) and (orientation:portrait){
-.list-group-item{
-	font-size: 28px;
-}
+	.list-group-item{
+		font-size: 16px;
+	}
 
-.generateURL{
-	font-size: 28px;
-}
+	.generateURL{
+		font-size: 28px;
+	}
 
- .quizContainer {
-    width: 90%;
-}
+	 .quizContainer {
+		width: 90%;
+	}
 
+	 .timercontainer {
+		width: 90%;
+	}
+
+
+	 .startaTest {
+		width: 90%;
+	}
+	.teacherElements
+	{	
+		width:100%;	
+		max-height:40vh;		
+		margin-bottom:10px;
+		margin: 0% 0% 2% 0% ;
+	}
+	
+	.doneTest-container{
+	width:100%;
+	padding-left:0px;
+	}
+
+	h2{
+		font-size:20px;
+	}
+
+
+}
 
