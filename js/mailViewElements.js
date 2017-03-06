@@ -13,7 +13,6 @@
 	
 	//vid click av klass dyker listan upp och vid click igen gömmer den sig
 	$(document).find(".listOfClasses").on("click", function () {
-		// funkar inte på chrome
 		var contentPanelId = $(this).text();
 		$(document).find(".mailLista").empty();
 		console.log(contentPanelId);
