@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 //get typed in email and get userId and starts timer
 $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
-	
+		currentUser="";
 		if(!currentUser){
 		currentUser = $(document).find(".email").val();
 		}
@@ -41,7 +41,18 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 			 break;
 		  }
 		}
+		//check if user alredy completed test
+		var done=false;
+		for(let i = 0;i<window.userDoneTest.length;i++){
+			
+			if(window.userDoneTest[i].idUser == userIdFromDb){
+				
+				 done = true;
+			}
+		}
 		
+		if(done == false){
+			
 		if(currentUser){
 			
 		$(document).find(".quizContainer").show();
@@ -65,7 +76,11 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		$(document).find(".alert-danger").show();
 		}
 
-		
+		}else{
+			
+		$(document).find(".alert-danger").text("man får bara göra provet en gång");
+		$(document).find(".alert-danger").show();
+		}
 			});
     // Display the first question
 		displayCurrentQuestion();
@@ -76,7 +91,6 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
     $(this).find(".nextButton").on("click", function () {
 		value = $("input[type='checkbox']:checked").val();
 		//send data to db everytime you press next
-			
 	if(!testTimeOver){
 
         if (!quizOver) {
@@ -145,6 +159,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 			 
 						  });
 				}
+				
 	 });
 		});
 
