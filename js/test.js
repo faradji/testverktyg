@@ -26,7 +26,7 @@ $(document).ready(function () {
 	$(".mail").submit(function(e){
     	return false;
 	});
-	
+
 //get typed in email and get userId and starts timer
 $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		currentUser="";
@@ -247,10 +247,10 @@ function displayCurrentQuestion() {
     $(document).find(".quizContainer > .questionnr").show();
 	}
     if(window.questionfromdb[currentQuestion].choice_no && window.questionfromdb[currentQuestion].choice_yes){
-    $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />  ' + 
-		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
-	$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />  ' + 
-		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
+    $('<li class="myItem"><label><input type="checkbox" value=' + 0 + ' class="example" />  ' + 
+		window.questionfromdb[currentQuestion].choice_no + '</label></li>').appendTo(choiceList);
+	$('<li class="myItem"><label><input type="checkbox" value=' + 1 + ' class="example" />  ' + 
+		window.questionfromdb[currentQuestion].choice_yes + '</label></li>').appendTo(choiceList);
 
 	}
 	
@@ -266,3 +266,14 @@ function displayScore() {
     $(document).find(".quizContainer > .result").text("Du klarade: " + correctAnswers + " av: " + window.questionfromdb.length);
     $(document).find(".quizContainer > .result").show();
 }
+
+	
+//get typed in email and get userId and starts timer
+	
+//Prevent back button in browser	
+history.pushState({ page: 1 }, "title 1", "#notcompleted");
+    window.onhashchange = function (event) {
+        window.location.hash = "notcompleted";
+};
+
+//get typed in email and get userId and starts timer

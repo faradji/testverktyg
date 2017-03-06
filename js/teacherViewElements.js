@@ -49,8 +49,13 @@ var divElementDoneTest = $(document).find(".doneTest");
 				+window.questionfromdb[j].QuestionText+
 			'</br> user answer: Yes <p class="text-success">Correct</p> </li>').appendTo(divElementDoneTest);
 			}else{
+<<<<<<< Temporary merge branch 1
 			 
 				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
+=======
+			
+				$('<a href="#" class="list-group-item linkToTest disabled" id="'+window.answersFromDb[i].idUsers+'">'
+>>>>>>> Temporary merge branch 2
 				+window.questionfromdb[j].QuestionText+
 			'</br> User answer: No <p class="text-danger">Wrong</p></li>').appendTo(divElementDoneTest);
 			}
@@ -78,3 +83,6 @@ var divElementDoneTest = $(document).find(".doneTest");
    });
 });
 
+
+			 
+				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
