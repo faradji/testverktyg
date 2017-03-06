@@ -45,9 +45,9 @@ var divElementDoneTest = $(document).find(".doneTest");
 				
 			if(window.answersFromDb[i].user_answer==1){
 				
-				$('<a href="#" class="list-group-item linkToTest disabled" id="'+window.answersFromDb[i].idUsers+'">'
+				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes </a>').appendTo(divElementDoneTest);
+			'</br> user answer: Yes </li>').appendTo(divElementDoneTest);
 			}else{
 			 
 				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
