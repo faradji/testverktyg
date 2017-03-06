@@ -267,13 +267,6 @@ function displayScore() {
     $(document).find(".quizContainer > .result").show();
 }
 
-	
-//get typed in email and get userId and starts timer
-	
-//Prevent back button in browser	
-history.pushState({ page: 1 }, "title 1", "#notcompleted");
-    window.onhashchange = function (event) {
-        window.location.hash = "notcompleted";
-};
+		
 
-//get typed in email and get userId and starts timer
+//get typed in email and get userId and starts timer
