@@ -4,7 +4,8 @@
 	var listOfStudents = $(document).find(".mailLista");
 
 	for (let i = 0; i < window.klasser.length; i++) {
-      $('<option value="'+  window.klasser[i].class +'"class="listOfClasses">'
+      $('<button type="button" value="'+  window.klasser[i].class 
+	  +'" class="listOfClasses btn btn-default">'
 	  + window.klasser[i].class+
 	  '</option>').appendTo(".menu");
     }
