@@ -33,7 +33,7 @@
 
 $("#sendLinkButton").click(function() {
 
-    var länk = prompt("Skriv in länk", "localhost:3000/elev");
+    var länk = prompt("Kopiera länk", "localhost:3000/elev");
 
 });
 });
