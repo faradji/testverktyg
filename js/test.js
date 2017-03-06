@@ -25,6 +25,12 @@ $(document).ready(function () {
 	$(".mail").submit(function(e){
     	return false;
 	});
+	
+//Prevent back button in browser	
+history.pushState({ page: 1 }, "title 1", "#notcompleted");
+    window.onhashchange = function (event) {
+        window.location.hash = "notcompleted";
+};
 
 //get typed in email and get userId and starts timer
 $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
@@ -226,10 +232,10 @@ function displayCurrentQuestion() {
     $(document).find(".quizContainer > .questionnr").show();
 	}
     if(window.questionfromdb[currentQuestion].choice_no && window.questionfromdb[currentQuestion].choice_yes){
-    $('<li class="myItem"><input type="checkbox" value=' + 0 + ' class="example" />  ' + 
-		window.questionfromdb[currentQuestion].choice_no + '</li>').appendTo(choiceList);
-	$('<li class="myItem"><input type="checkbox" value=' + 1 + ' class="example" />  ' + 
-		window.questionfromdb[currentQuestion].choice_yes + '</li>').appendTo(choiceList);
+    $('<li class="myItem"><label><input type="checkbox" value=' + 0 + ' class="example" />  ' + 
+		window.questionfromdb[currentQuestion].choice_no + '</label></li>').appendTo(choiceList);
+	$('<li class="myItem"><label><input type="checkbox" value=' + 1 + ' class="example" />  ' + 
+		window.questionfromdb[currentQuestion].choice_yes + '</label></li>').appendTo(choiceList);
 
 	}
 	
