@@ -7,7 +7,7 @@ class KlassList extends List {
 
   readAllFromDb(callback){
     this.db.readAllKlasser((data)=>{
-      this.push.apply(this,data);
+      this.push.apply(this,data);	  
       callback && (typeof callback == 'function') && callback(this);
     });
   }
