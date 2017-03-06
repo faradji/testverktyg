@@ -19,6 +19,12 @@ insertInDb(callback){
 		score:score
     },callback);
   }
+  
+  insertInDb(callback){
+    this.db.write({
+		idUser: Id       
+    },callback);
+  }
 
   static get sqlQueries(){
     
@@ -29,7 +35,8 @@ insertInDb(callback){
 	  readIdAnswers: `
         SELECT MAX(id) AS id FROM answers
       `,
-	  write: `INSERT users_responses_to_questions SET ?`
+	  write: `INSERT users_responses_to_questions SET ?`,
+	  writeDoneTest: `INSERT alredydonetest SET ?`
 	  //INSERT INTO answers (Id, studentAnswer,studentEmail,questionNumber)VALUES
 		//	(Id,answer,email,questionNumber)`
     }
