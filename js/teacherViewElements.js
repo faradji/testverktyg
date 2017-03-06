@@ -47,12 +47,12 @@ var divElementDoneTest = $(document).find(".doneTest");
 				
 				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes <p class="text-success">Correct</p> </li>').appendTo(divElementDoneTest);
+			'</br> Student answer: Yes </li>').appendTo(divElementDoneTest);
 			}else{
 			 
 				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> User answer: No <p class="text-danger">Wrong</p></li>').appendTo(divElementDoneTest);
+			'</br> Student answer: No </li>').appendTo(divElementDoneTest);
 			}
 			j = j+1;
 		}else{
@@ -66,7 +66,7 @@ var divElementDoneTest = $(document).find(".doneTest");
 		
 			if(window.highestScoreFromDb[i].Users_idUsers  == contentPanelId){
 				
-				$('<a href="#" class="list-group-item linkToTest disabled"> score: '
+				$('<a href="#" class="list-group-item linkToTest disabled"> Score: '
 				+window.highestScoreFromDb[i].score+
 				'</a>').appendTo(divElementDoneTest);
 				
