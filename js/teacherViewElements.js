@@ -47,12 +47,12 @@ var divElementDoneTest = $(document).find(".doneTest");
 				
 				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> user answer: Yes </li>').appendTo(divElementDoneTest);
+			'</br> user answer: Yes <p class="text-success">Correct</p> </li>').appendTo(divElementDoneTest);
 			}else{
 			 
 				$('<li class="list-group-item linkToTest" id="'+window.answersFromDb[i].idUsers+'">'
 				+window.questionfromdb[j].QuestionText+
-			'</br> User answer: No </li>').appendTo(divElementDoneTest);
+			'</br> User answer: No <p class="text-danger">Wrong</p></li>').appendTo(divElementDoneTest);
 			}
 			j = j+1;
 		}else{

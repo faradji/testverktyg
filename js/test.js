@@ -26,26 +26,27 @@ $(document).ready(function () {
 	$(".mail").submit(function(e){
     	return false;
 	});
-
+	
 //get typed in email and get userId and starts timer
 $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		currentUser="";
 		if(!currentUser){
 		currentUser = $(document).find(".email").val();
-		}
 		
+		}
 		localStorage.setItem("currentUser",currentUser);
-		for(var i = 0; i < window.userFromDb.length; i++)
+
+		for(let i = 0; i < window.userFromDb.length; i++)
 		{
 		  if(window.userFromDb[i].emailAddress == currentUser)
 		  {
 			 userIdFromDb= window.userFromDb[i].idUsers;
 			 emailExist=true;
+			 console.log("inne");
 			 break;
 		  }
 		}
 		if (emailExist==false){
-			console.log(emailExist);
 			$(document).find(".alert-danger").text("Du måste skriva en registrerad epostadress i fältet.");
 			$(document).find(".alert-danger").show();
 		}else{
@@ -167,6 +168,17 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 							contentType: "application/json"
 			 
 						  });
+						  dataString ={idUser:userIdFromDb}
+						  $.ajax({
+							url: "api/question/writeDoneTest",
+							type: "POST",
+							dataType:'json',
+							data: JSON.stringify(dataString),
+							processData: false,
+							contentType: "application/json"
+			 
+						  });
+						  
 				}
 				
 	 });
