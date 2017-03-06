@@ -21,6 +21,9 @@
 		{	
 			
 		if(window.userFromDb[i].class == contentPanelId ){
+			
+	  $('<article href="" class="list-group-item" >'+ window.userFromDb[i].emailAddress+
+	  '</article>').appendTo(listOfStudents);
 		
 	  $('<article href="#" class="list-group-item">'+ window.userFromDb[i].emailAddress+
 	  '</article>').appendTo(listOfStudents);
@@ -30,9 +33,14 @@
 		$('.mailLista').show();
 	});
 
-$("#sendLinkButton").click(function() {
-
-    var länk = prompt("Skriv in länk", "localhost:3000/elev");
-
-});
-});
+function länkTillElevView() {
+    var länk = prompt("Kopiera länken", "localhost:3000/elev");
+    // if (länk != null) {
+        // document.getElementById("errorMessage").innerHTML =
+        // "Länk: " + länk + " Skickad!";
+    // }
+	// else{
+		// document.getElementById("errorMessage").innerHTML =
+        // "Länk: Ej funnen!";
+	// }
+};

@@ -1,16 +1,15 @@
 MailView.addTemplate('default',function(){return `
 	<div class="container">
-	<ul class="klassLista">
+	<h2>Välj klass för att se e-postadresser</h2>
+	<div class="klassLista">
+	${this.klassList.display()}
+	</div>
+	<button type="button submit" onclick="länkTillElevView()" id="sendLinkButton" class="btn btn-default emailButton">Hämta länk</button>
 	
-	 <select class="dropDown">
-		<option></option>
-
-	</select>
-	
-	</ul>
-	<button type="button" class="btn btn-default" id="sendLinkButton">Skicka Länk</button>
+	<!-- <label class="MarkAllButton"><input type="checkbox" id="checkAll"/>Check all</label> -->
 	<p id="errorMessage"></p>
-	<ul class="mailLista">
-	</ul>
+	<h2>E-postadresser</h2>
+	<div class="mailLista">
+	</div>
 	</div>
 `});
