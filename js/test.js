@@ -33,6 +33,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		if(!currentUser){
 		currentUser = $(document).find(".email").val();
 		}
+		
 		localStorage.setItem("currentUser",currentUser);
 		for(var i = 0; i < window.userFromDb.length; i++)
 		{
@@ -47,7 +48,8 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 			console.log(emailExist);
 			$(document).find(".alert-danger").text("Du måste skriva en registrerad epostadress i fältet.");
 			$(document).find(".alert-danger").show();
-		}
+		}else{
+
 		//check if user alredy completed test
 		var done=false;
 		for(let i = 0;i<window.userDoneTest.length;i++){
@@ -87,7 +89,7 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 			
 		$(document).find(".alert-danger").text("man får bara göra provet en gång");
 		$(document).find(".alert-danger").show();
-		}
+		}}
 			});
     // Display the first question
 		displayCurrentQuestion();
