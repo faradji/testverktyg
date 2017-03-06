@@ -15,6 +15,7 @@ var value = null;
 var testTimeOver = false;
 var userIdFromDb;
 var currentUser;
+var emailExist = false;
 
 
 $(document).ready(function () {
@@ -38,8 +39,14 @@ $(document).find(".startaTest > .mail > .emailButton").on("click", function () {
 		  if(window.userFromDb[i].emailAddress == currentUser)
 		  {
 			 userIdFromDb= window.userFromDb[i].idUsers;
+			 emailExist=true;
 			 break;
 		  }
+		}
+		if (emailExist==false){
+			console.log(emailExist);
+			$(document).find(".alert-danger").text("Du måste skriva en registrerad epostadress i fältet.");
+			$(document).find(".alert-danger").show();
 		}
 		//check if user alredy completed test
 		var done=false;
